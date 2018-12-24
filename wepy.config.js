@@ -5,13 +5,7 @@ module.exports = {
   wpyExt: '.wpy',
   eslint: true,
   cliLogs: false,
-  build: {
-    web: {
-      htmlTemplate: path.join('src', 'index.template.html'),
-      htmlOutput: path.join('web', 'index.html'),
-      jsOutput: path.join('web', 'index.js')
-    }
-  },
+  build: {},
   resolve: {
     alias: {
       '@': path.join(__dirname, 'src')
@@ -32,12 +26,11 @@ module.exports = {
         'transform-class-properties',
         'transform-decorators-legacy',
         'transform-object-rest-spread',
-        'transform-export-extensions',
+        'transform-export-extensions'
       ]
     }
   },
-  plugins: {
-  },
+  plugins: {},
   appConfig: {
     noPromiseAPI: ['createSelectorQuery']
   }
