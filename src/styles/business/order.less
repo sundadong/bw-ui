@@ -1,0 +1,129 @@
+@import "../variables";
+
+.bw-order {
+  &__item {
+    margin: @space--small;
+    background-color: @color--white;
+    box-shadow: 0 8rpx 32rpx 0 rgba(90, 97, 136, .1);
+    border-radius: @border-radius--extra-large;
+    overflow: hidden;
+  }
+
+  &__header {
+    padding-top: @space--small;
+  }
+
+  &__footer {
+    padding-top: @space--small;
+    padding-bottom: @space--base;
+  }
+
+  &__header,
+  &__footer {
+    padding-left: @space--base;
+    padding-right: @space--base;
+  }
+
+  &__body {
+    .bw-goods__title {
+      margin-right: @space--base;
+    }
+  }
+
+  &__action {
+    margin-top: @space--base;
+    text-align: right;
+
+    &--fixed {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9;
+      margin-top: 0;
+      padding: @space--small;
+      background-color: @color--white;
+      box-shadow: 0 -8px 32px 0 rgba(229, 230, 235, .5);
+    }
+
+    .bw-btn {
+      min-width: 160rpx;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  &__time,
+  &__no,
+  &__money {
+    font-size: @font-size--small;
+  }
+
+  &__time,
+  &__money {
+    color: @color-text--primary;
+  }
+
+  &__no {
+    color: @color-text--secondary;
+  }
+
+  &__status {
+    color: @color--primary;
+
+    &-wrap {
+      display: flex;
+      align-items: flex-start;
+      padding: @space--base @space--small;
+      padding-bottom: 100rpx;
+      color: @color--white;
+      background: @color--primary-gradient;
+
+      .bw-order__status {
+        font-size: @font-size--extra-large;
+        color: @color--white;
+      }
+    }
+
+    &-left {
+      margin-right: @space--extra-small;
+    }
+
+    &-body {
+      flex: 1;
+    }
+
+    &-desc {
+      margin-top: @space--extra-small / 2;
+    }
+
+    &-icon {
+      font-size: @font-size--extra-extra-large;
+    }
+  }
+
+  &__number {
+    font-size: @font-size--extra-extra-large;
+    vertical-align: middle;
+  }
+
+  &__address {
+    margin-top: -80rpx;
+
+    &-icon-wrap {
+      display: inline-block;
+      width: 80rpx;
+      height: 80rpx;
+      font-size: 48rpx;
+      color: @color--white;
+      line-height: 80rpx;
+      text-align: center;
+      background: @color--primary-gradient;
+      border-radius: @border-radius--circle;
+    }
+  }
+
+  &__logistics {
+    padding: @space--base 0 @space--base @space--base;
+  }
+}

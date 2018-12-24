@@ -1,0 +1,52 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">基本用法</view>
+    <view class="example-block">
+      <bwCountDown1 startTime="2018-12-22 00:00:00" endTime="2019-1-1 00:00:00" componentId="countdown1"></bwCountDown1>
+    </view>
+    <view class="example-title">不显示天数</view>
+    <view class="example-block">
+      <bwCountDown2 startTime="2018-12-22 00:00:00" endTime="2018-12-22 00:00:30" componentId="countdown2" :showDays="showDays"></bwCountDown2>
+    </view>
+    <view class="example-title">自定义格式</view>
+    <view class="example-block">
+      <bwCountDown3 startTime="2018-12-22 00:00:00" endTime="2019-2-1 00:00:00" componentId="countdown3" :format="format"></bwCountDown3>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BwCountDown from '@/components/countdown'
+
+export default class CountDown extends wepy.page {
+  config = {
+    navigationBarTitleText: 'CountDown 倒计时'
+  }
+
+  components = {
+    bwCountDown1: BwCountDown,
+    bwCountDown2: BwCountDown,
+    bwCountDown3: BwCountDown
+  }
+
+  data = {
+    showDays: false,
+    format: {
+      days: '天',
+      hours: '时',
+      minutes: '分',
+      seconds: '秒'
+    }
+  }
+
+  events = {
+    countDownCompleted(componentId, event) {
+      console.log(componentId + ': 已完成')
+      wepy.showToast({
+        title: '已完成'
+      })
+    }
+  }
+}
+</script>

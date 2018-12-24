@@ -1,0 +1,55 @@
+<style lang="less">
+.example-block {
+  .bw-loading + .bw-loading {
+    margin-left: 60rpx;
+  }
+}
+</style>
+<template>
+  <view class="example-container">
+    <view class="example-title">基础用法</view>
+    <view class="example-block">
+      <bwloading1></bwloading1>
+      <bwloading2 color="#1999ff"></bwloading2>
+      <bwloading3 type="dark"></bwloading3>
+    </view>
+    <view class="example-title">显示文本</view>
+    <view class="example-block">
+      <bwloading4 tip="加载中"></bwloading4>
+      <bwloading5 color="#1999ff" tip="加载中"></bwloading5>
+      <bwloading6 type="dark" tip="加载中"></bwloading6>
+    </view>
+    <view class="example-title">固定位置(父元素需设置position)</view>
+    <view class="example-block">
+      <view style="position: relative;padding: 20rpx;">
+        <view>这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，这是文本，</view>
+        <bwloading7 :fixed="fixed" color="#1999ff" tip="加载中"></bwloading7>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import bwLoading from '@/components/loading'
+
+export default class Loading extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Loading 加载中'
+  }
+
+  components = {
+    bwloading1: bwLoading,
+    bwloading2: bwLoading,
+    bwloading3: bwLoading,
+    bwloading4: bwLoading,
+    bwloading5: bwLoading,
+    bwloading6: bwLoading,
+    bwloading7: bwLoading
+  }
+
+  data = {
+    fixed: true
+  }
+}
+</script>

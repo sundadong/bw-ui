@@ -1,0 +1,36 @@
+<style lang="less">
+.bw-avatar {
+  margin: 0 30rpx;
+}
+</style>
+
+<template>
+  <view class="example-container">
+    <view class="example-title">默认头像</view>
+    <view class="example-block">
+      <image class="bw-avatar bw-avatar--small" src="{{avatar}}" />
+      <image class="bw-avatar" src="{{avatar}}" />
+      <image class="bw-avatar bw-avatar--large" src="{{avatar}}" />
+    </view>
+    <view class="example-title">圆形头像</view>
+    <view class="example-block">
+      <image class="bw-avatar bw-avatar--small bw-avatar--circle" src="{{avatar}}" />
+      <image class="bw-avatar bw-avatar--circle" src="{{avatar}}" />
+      <image class="bw-avatar bw-avatar--large bw-avatar--circle" src="{{avatar}}" />
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Avatar extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Avatar 头像'
+  }
+
+  data = {
+    avatar: 'https://image01.oneplus.cn/shop/201706/26/348/dc1cdcf704e8de0024e6f165dbcb03e7_200_200.jpg'
+  }
+}
+</script>

@@ -1,0 +1,44 @@
+@import '../variables';
+
+@loading-size: 58rpx;
+
+.bw-loading {
+  display: inline-block;
+  color: @color-text--base;
+  text-align: center;
+
+  &__fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .8);
+  }
+
+  &--dark {
+    .bw-loading__wrap {
+      padding: @space--base;
+      color: @color--white!important;
+      background-color: rgba(0, 0, 0, .6);
+      border-radius: @border-radius--large;
+
+      &-tip {
+        padding: @space--base @space--extra-large;
+      }
+    }
+  }
+
+  &__icon {
+    font-size: @loading-size;
+    animation: loading 1s infinite;
+  }
+
+  &__tip {
+    margin-top: @space--small;
+  }
+}

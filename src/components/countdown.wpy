@@ -1,0 +1,96 @@
+<template>
+  <text class="bw-countdown">{{time}}</text>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class BwCountDown extends wepy.component {
+  props = {
+    showDays: {
+      type: Boolean,
+      default: true
+    },
+    format: {
+      type: Object
+    },
+    startTime: {
+      type: String,
+      require: true
+    },
+    endTime: {
+      type: String,
+      require: true
+    },
+    componentId: String
+  }
+
+  data = {
+    timer: null,
+    time: ''
+  }
+
+  onLoad() {
+    this.gapTime = Math.ceil((new Date(this.endTime).getTime() - new Date(this.startTime).getTime()) / 1000)
+    this.getLastTime()
+  }
+
+  onUnload() {
+    this.clearTimer()
+  }
+
+  init() {
+    this.timer = setTimeout(() => {
+      this.getLastTime()
+    }, 1000)
+  }
+
+  getLastTime() {
+    const gapTime = this.gapTime
+    let result = ''
+    let time = '00:00:00'
+    let days = '0'
+    const defaultFormat = {
+      days: '天',
+      hours: ':',
+      minutes: ':',
+      seconds: ''
+    }
+    const format = this.format ? Object.assign({}, defaultFormat, this.format) : defaultFormat
+
+    if (gapTime > 0) {
+      days = parseInt(gapTime / 86400)
+      let lastTime = gapTime % 86400
+      const hours = this.formatNum(parseInt(lastTime / 3600))
+      lastTime = lastTime % 3600
+      const minutes = this.formatNum(parseInt(lastTime / 60))
+      const seconds = this.formatNum(lastTime % 60)
+
+      time = `${hours}${format.hours}${minutes}${format.minutes}${seconds}${format.seconds}`
+      this.init()
+    } else {
+      this.clearTimer()
+      this.$emit('countDownCompleted', this.componentId)
+    }
+
+    if (this.showDays) {
+      result = `${days}${format.days} ${time}`
+    } else {
+      result = time
+    }
+
+    this.time = result
+    this.$apply()
+    this.gapTime -= 1
+  }
+
+  formatNum(num) {
+    return num > 9 ? num : `0${num}`
+  }
+
+  clearTimer() {
+    clearInterval(this.timer)
+    this.timer = null
+  }
+}
+</script>

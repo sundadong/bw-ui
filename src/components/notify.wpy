@@ -1,0 +1,75 @@
+<template>
+  <view class="bw-notify {{notify.type ? 'bw-notify--' + notify.type : ''}}" animation="{{animationData}}"> {{ notify.content }} </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class BwNotify extends wepy.component {
+  props = {}
+  data = {
+    notify: {},
+    animationData: {}
+  }
+  methods = {
+    showNotify({ content = '', options = {} }, event) {
+      let notify = this.notify || {}
+      // 如果已经有一个计时器在了，就清理掉先
+      if (notify.timer) {
+        clearTimeout(notify.timer)
+        notify.timer = undefined
+      }
+
+      if (typeof options === 'number') {
+        options = {
+          duration: options
+        }
+      }
+
+      // options参数默认参数扩展
+      options = Object.assign(
+        {
+          duration: 3000,
+          type: 'primary'
+        },
+        options
+      )
+
+      // 原生动画
+      let animation = wepy.createAnimation({
+        duration: 400,
+        timingFunction: 'ease'
+      })
+      this.animation = animation
+
+      const toggle = () => {
+        wx
+          .createSelectorQuery()
+          .select('.bw-notify')
+          .boundingClientRect(rect => {
+            this.notify.show ? animation.translateY().step() : animation.translateY(-rect.height).step()
+            this.animationData = animation.export()
+            this.$apply()
+          })
+          .exec()
+      }
+
+      // 设置定时器，定时关闭notify
+      let timer = setTimeout(() => {
+        this.notify.show = false
+        this.notify.timer = undefined
+        toggle()
+      }, options.duration)
+
+      // 展示出notify
+      this.notify = {
+        show: true,
+        content,
+        timer,
+        type: options.type
+      }
+      toggle()
+    }
+  }
+}
+</script>

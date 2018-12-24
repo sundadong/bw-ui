@@ -1,0 +1,15 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx693b4468bcacef71",
+	"projectname": "bw-ui",
+	"miniprogramRoot": "dist/",
+	"condition": {}
+}

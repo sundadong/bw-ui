@@ -1,0 +1,32 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">基础用法</view>
+    <bwempty></bwempty>
+    <view class="example-title">展示图片</view>
+    <bwempty2 src="http://temp.im/320x200"></bwempty2>
+    <view class="example-title">自定义提示</view>
+    <bwempty3 tip="你还没有相关订单哦"></bwempty3>
+    <view class="example-title">高级用法</view>
+    <bwempty4>
+      <button class="bw-btn bw-btn--primary bw-btn--circle" style="margin-top: 60rpx;">重新加载</button>
+    </bwempty4>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BwEmpty from '@/components/empty'
+
+export default class Empty extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Empty 空状态'
+  }
+
+  components = {
+    bwempty: BwEmpty,
+    bwempty2: BwEmpty,
+    bwempty3: BwEmpty,
+    bwempty4: BwEmpty
+  }
+}
+</script>

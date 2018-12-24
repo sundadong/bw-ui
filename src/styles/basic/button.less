@@ -1,0 +1,105 @@
+@import "../variables";
+
+@btn-border-width: 1rpx;
+@btn-height: 96rpx;
+@btn-height--small: 70rpx;
+@btn-height--mini: 56rpx;
+
+.bw-btn {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  height: @btn-height;
+  padding: 0;
+  font-size: @font-size--extra-extra-large;
+  color: @color--black;
+  line-height: @btn-height - @btn-border-width * 2;
+  text-align: center;
+  white-space: nowrap;
+  border: @btn-border-width solid @color-background--base;
+  background-color: @color-background--base;
+  border-radius: @border-radius--large;
+  -webkit-text-size-adjust: 100%;
+  cursor: pointer;
+
+  &::after {
+    opacity: 0;
+  }
+
+  &:active,
+  &.button-hover {
+    opacity: @opacity-active;
+  }
+
+  &.is-disabled,
+  &[disabled] {
+    opacity: @opacity-disabled;
+    background-color: inherit;
+    cursor: not-allowed;
+  }
+
+  &.is-plain {
+    color: @color-text--base!important;
+    background-color: @color--white!important;
+  }
+
+  &--default {
+    background-color: @color--white!important;
+    border-color: @color--white!important;
+
+    &.is-plain {
+      background-color: @color--white!important;
+      border-color: @border-color--base!important;
+    }
+  }
+
+  &--primary {
+    color: @color--white!important;
+    background-color: @color--primary!important;
+    border-color: @color--primary!important;
+
+    &.is-plain {
+      color: @color--primary!important;
+      background-color: @color--white!important;
+      border-color: @color--primary!important;
+    }
+  }
+
+  &--full {
+    width: 750rpx;
+    max-width: 100%;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+
+  &--small {
+    display: inline-block;
+    height: @btn-height--small;
+    padding: 0 @space--base;
+    font-size: @font-size--large;
+    line-height: @btn-height--small;
+    vertical-align: middle;
+
+    & + & {
+      margin-left: @space--small;
+    }
+  }
+
+  &--mini {
+    display: inline-block;
+    height: @btn-height--mini;
+    padding: 0 @space--small;
+    font-size: @font-size--small;
+    line-height: @btn-height--mini;
+    vertical-align: middle;
+
+    & + & {
+      margin-left: @space--small;
+    }
+  }
+
+  &--circle {
+    border-radius: @btn-height / 2;
+  }
+}

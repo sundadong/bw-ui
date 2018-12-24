@@ -1,0 +1,111 @@
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'example/index',
+      'example/basic/icon',
+      'example/basic/button',
+      'example/view/article',
+      'example/view/avatar',
+      'example/view/badge',
+      'example/view/tag',
+      'example/view/alert',
+      'example/view/countdown',
+      'example/view/empty',
+      'example/view/loadmore',
+      'example/view/timeline',
+      'example/feedback/loading',
+      'example/feedback/popup',
+      'example/feedback/notify',
+      'example/form/input',
+      'example/form/textarea',
+      'example/form/stepper',
+      'example/layout/layout',
+      'example/layout/cell',
+      'example/nav/tabs'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'BW-UI',
+      navigationBarTextStyle: 'black'
+    }
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+    this.use('promisify')
+  }
+}
+</script>
+
+<style lang="less">
+// Variable
+@import "./styles/variables";
+
+// Basic
+@import "./styles/basic/base";
+@import "./styles/basic/helper";
+@import "./styles/basic/animate";
+@import "./styles/basic/icon";
+@import "./styles/basic/button";
+
+// View
+@import "./styles/view/avatar";
+@import "./styles/view/article";
+@import "./styles/view/badge";
+@import "./styles/view/tag";
+@import "./styles/view/timeline";
+@import "./styles/view/loadmore";
+@import "./styles/view/alert";
+@import "./styles/view/empty";
+
+// Feedback
+@import "./styles/feedback/loading";
+@import "./styles/feedback/popup";
+@import "./styles/feedback/notify";
+
+// Form
+@import "./styles/form/base";
+@import "./styles/form/input";
+@import "./styles/form/textarea";
+@import "./styles/form/stepper";
+
+// Layout
+@import "./styles/layout/layout";
+@import "./styles/layout/cell";
+
+// Nav
+@import "./styles/nav/tabs";
+
+// Example
+@example-height: 88rpx;
+
+.example-container {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.example-title {
+  padding-left: @space--small;
+  margin: @space--base @space--small;
+  font-size: @font-size--large;
+  font-weight: 600;
+  color: @color--black;
+  line-height: @line-height--small;
+  border-left: 2px solid @color--primary;
+}
+
+.example-block {
+  margin: @space--small;
+}
+
+.example-item {
+  line-height: @example-height;
+  padding: 0 @space--base;
+}
+</style>

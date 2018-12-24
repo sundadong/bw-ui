@@ -1,0 +1,46 @@
+@import "../variables";
+
+.bw-article {
+  word-break: break-all;
+  word-wrap: break-word;
+  line-height: @line-height--base;
+
+  &__h1,
+  &__h2,
+  &__h3 {
+    margin: 0 @space--base;
+    color: @color-text--emphasize;
+  }
+
+  &__h1 {
+    margin-top: @space--base;
+    font-size: @font-size--extra-extra-large;
+  }
+
+  &__h2 {
+    margin-top: @space--base;
+    font-size: @font-size--extra-large;
+  }
+
+  &__h3 {
+    font-size: @font-size--large;
+  }
+
+  &__info {
+    margin: 0 @space--base;
+    font-size: @font-size--small;
+    color: @color-text--secondary;
+  }
+
+  &__p {
+    margin: @space--small @space--base 0;
+    color: @color-text--base;
+  }
+
+  &__img {
+    display: block;
+    width: 750rpx - @space--base * 2;
+    margin: @space--base auto 0;
+    border-radius: @border-radius--base;
+  }
+}

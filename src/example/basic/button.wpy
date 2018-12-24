@@ -1,0 +1,83 @@
+<style lang="less">
+.example-container {
+  background-color: #f6f6f6;
+  .bw-btn {
+    margin-top: 20rpx;
+  }
+}
+</style>
+
+<template>
+  <view class="example-container">
+    <view class="example-title">主要按钮</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--primary">主要操作</button>
+      <button class="bw-btn bw-btn--primary" disabled>主要操作</button>
+    </view>
+    <view class="example-title">默认按钮</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--default is-active">默认操作</button>
+      <button class="bw-btn bw-btn--default" disabled>默认操作</button>
+    </view>
+    <view class="example-title">通栏按钮</view>
+    <view>
+      <button class="bw-btn bw-btn--primary bw-btn--full">主要操作</button>
+      <button class="bw-btn bw-btn--default bw-btn--full">默认操作</button>
+    </view>
+    <view class="example-title">空心按钮</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--primary is-plain">主要操作</button>
+      <button class="bw-btn bw-btn--default is-plain">默认操作</button>
+    </view>
+    <view class="example-title">圆角按钮</view>
+    <view class="example-block">
+      <view>
+        <button class="bw-btn bw-btn--primary bw-btn--small bw-btn--circle">主要操作</button>
+        <button class="bw-btn bw-btn--primary bw-btn--small bw-btn--circle is-plain">主要操作</button>
+        <button class="bw-btn bw-btn--primary bw-btn--small bw-btn--circle" disabled>主要操作</button>
+      </view>
+      <view>
+        <button class="bw-btn bw-btn--default bw-btn--small bw-btn--circle">默认操作</button>
+        <button class="bw-btn bw-btn--default bw-btn--small bw-btn--circle is-plain">默认操作</button>
+        <button class="bw-btn bw-btn--default bw-btn--small bw-btn--circle" disabled>默认操作</button>
+      </view>
+    </view>
+    <view class="example-title">小按钮</view>
+    <view class="example-block">
+      <view>
+        <button class="bw-btn bw-btn--primary bw-btn--small">主要操作</button>
+        <button class="bw-btn bw-btn--primary bw-btn--small is-plain">主要操作</button>
+        <button class="bw-btn bw-btn--primary bw-btn--small" disabled>主要操作</button>
+      </view>
+      <view>
+        <button class="bw-btn bw-btn--default bw-btn--small">默认操作</button>
+        <button class="bw-btn bw-btn--default bw-btn--small is-plain">默认操作</button>
+        <button class="bw-btn bw-btn--default bw-btn--small" disabled>默认操作</button>
+      </view>
+    </view>
+    <view class="example-title">迷你按钮</view>
+    <view class="example-block">
+      <view>
+        <button class="bw-btn bw-btn--primary bw-btn--mini">主要操作</button>
+        <button class="bw-btn bw-btn--primary bw-btn--mini is-plain">主要操作</button>
+        <button class="bw-btn bw-btn--primary bw-btn--mini" disabled>主要操作</button>
+      </view>
+      <view>
+        <button class="bw-btn bw-btn--default bw-btn--mini">默认操作</button>
+        <button class="bw-btn bw-btn--default bw-btn--mini is-plain">默认操作</button>
+        <button class="bw-btn bw-btn--default bw-btn--mini" disabled>默认操作</button>
+      </view>
+    </view>
+
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Button extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Button 按钮'
+  }
+}
+</script>

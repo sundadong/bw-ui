@@ -1,0 +1,26 @@
+<template>
+  <view class="bw-load-more {{!loading ? 'bw-load-more--finished' : ''}}">
+    <block wx:if="{{loading}}">
+      <view class="bw-icon bw-icon-loading bw-load-more__loading"></view>
+      <view class="bw-load-more__tip">加载中</view>
+    </block>
+    <view wx:else class="bw-load-more__tip">{{tip}}</view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class BwLoadMore extends wepy.component {
+  props = {
+    loading: {
+      type: Boolean,
+      default: true
+    },
+    tip: {
+      type: String,
+      default: '没有更多'
+    }
+  }
+}
+</script>

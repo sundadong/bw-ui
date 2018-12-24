@@ -1,0 +1,60 @@
+// 转化为小写
+function toLowerCase (str) {
+  return str.toLowerCase()
+}
+
+// 转化为大写
+function toUpperCase (str) {
+  return str.toUpperCase()
+}
+
+// 转化为大驼峰
+function toBigCamelCase (str) {
+  return str.substring(0, 1).toUpperCase() + str.substring(1)
+}
+// 过滤金钱currency(100, '￥', 3)==>￥100.000
+function currency(value, _currency, decimals) {
+  value = parseFloat(value)
+  if (!isFinite(value) || !value && value !== 0) return ''
+  _currency = _currency != null ? _currency : '$'// 默认金钱符号
+  decimals = decimals != null ? decimals : 2
+  var stringified = Math.abs(value).toFixed(decimals)
+  var _int = decimals ? stringified.slice(0, -1 - decimals) : stringified
+  var i = _int.length % 3
+  var head = i > 0 ? _int.slice(0, i) + (_int.length > 3 ? ',' : '') : ''
+  var _float = decimals ? stringified.slice(-1 - decimals) : ''
+  var sign = value < 0 ? '-' : ''
+  var digitsRE = getRegExp('(\d{3})(?=\d)','g')
+  return sign + _currency + head + _int.slice(i).replace(digitsRE, '$1,') + _float
+}
+// 格式化时间
+/*function formateDate (date, fmt) {
+  var o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds(),
+    'q+': Math.floor((date.getMonth() + 3) / 3),
+    'S' : date.getMilliseconds()
+  }
+
+  if (getRegExp('(y+)').test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
+  }
+
+  for (var k in o) {
+    if (new RegExp('(' + k + ')').test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
+    }
+  }
+
+  return fmt
+}*/
+
+module.exports = {
+  toLowerCase: toLowerCase,
+  toUpperCase: toUpperCase,
+  toBigCamelCase: toBigCamelCase,
+  currency: currency
+}

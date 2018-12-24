@@ -1,0 +1,40 @@
+@import '../variables';
+
+@notify--primary: lighten(@color--primary, 10%);
+@notify--info: lighten(@color--info, 10%);
+@notify--success: lighten(@color--success, 10%);
+@notify--danger: lighten(@color--danger, 10%);
+
+.bw-notify {
+  position: fixed;
+  top: 0;
+  z-index: 110;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: @space--extra-small @space--base;
+  width: 100%;
+  min-height: 80rpx; /* 至少有一行的高度，保证第一次动画显示正常 */
+  font-size: @font-size--base;
+  color: @color--white;
+  line-height: @line-height--large;
+  text-align: center;
+  background-color: rgba(0, 0, 0, .7);
+  transform: translateY(-100%);
+
+  &--primary {
+    background-color: @notify--primary;
+  }
+
+  &--info {
+    background-color: @notify--info;
+  }
+
+  &--success {
+    background-color: @notify--success;
+  }
+
+  &--danger {
+    background-color: @notify--danger;
+  }
+}

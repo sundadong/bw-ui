@@ -1,0 +1,31 @@
+@import '../variables';
+@import '../function/col';
+
+@col-num: 12;
+
+.bw-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  &--space {
+    margin: 0 -(@space--base / 2);
+
+    [class^='bw-col'] {
+      padding: 0 (@space--base / 2);
+    }
+  }
+}
+
+.bw-col {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 1px;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.bw-col(@col-num, 1);
+.bw-offset(@col-num, 1);

@@ -1,0 +1,40 @@
+@import '../variables';
+
+@alert--primary: #FEF4D2;
+
+.bw-alert {
+  display: flex;
+  align-items: center;
+  padding: @space--small @space--base;
+  background-color: @color--white;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  &--primary {
+    color: @color--primary;
+    background-color: @alert--primary;
+  }
+
+  &__left {
+    margin-right: @space--extra-small;
+  }
+
+  &__right {
+    margin-left: @space--extra-small;
+  }
+
+  &__title {
+    flex: 1;
+    font-size: @font-size--small;
+  }
+
+  &__icon {
+    font-size: @font-size--large;
+  }
+}

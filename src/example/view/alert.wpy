@@ -1,0 +1,38 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">基本用法</view>
+    <view class="example-block">
+      <bwalert1 :tip="tip"></bwalert1>
+    </view>
+    <view class="example-title">显示图标</view>
+    <view class="example-block">
+      <bwalert2 icon="alert" :tip="tip"></bwalert2>
+    </view>
+    <view class="example-title">关闭按钮</view>
+    <view class="example-block">
+      <bwalert3 :showClose="showClose" :tip="tip"></bwalert3>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BwAlert from '@/components/alert'
+
+export default class Alert extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Alert 警告框'
+  }
+
+  components = {
+    bwalert1: BwAlert,
+    bwalert2: BwAlert,
+    bwalert3: BwAlert
+  }
+
+  data = {
+    tip: '这是提示内容，这是提示内容',
+    showClose: true
+  }
+}
+</script>

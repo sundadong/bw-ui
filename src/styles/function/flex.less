@@ -1,0 +1,53 @@
+.bw-flex-direction(@list, @i:1, @val:extract(@list, @i))
+  when
+  (@i <= length(@list)) {
+  .bw-flex-direction(@flex-direction-list, @i+1);
+  .bw-flex-direction-@{val} {
+    flex-direction: @val;
+  }
+}
+
+.bw-flex-wrap(@list, @i:1, @val:extract(@list, @i))
+  when
+  (@i <= length(@list)) {
+  .bw-flex-wrap(@list, @i+1);
+  .bw-flex-wrap-@{val} {
+    flex-wrap: @val;
+  }
+}
+
+.bw-justify-content(@list, @i:1, @val:extract(@list, @i))
+  when
+  (@i <= length(@list)) {
+  .bw-justify-content(@list, @i+1);
+  .bw-justify-content-@{val} {
+    justify-content: @val;
+  }
+}
+
+.bw-align-content(@list, @i:1, @val:extract(@list, @i))
+  when
+  (@i <= length(@list)) {
+  .bw-align-content(@list, @i+1);
+  .bw-align-content-@{val} {
+    align-content: @val;
+  }
+}
+
+.bw-align-items(@list, @i:1, @val:extract(@list, @i))
+  when
+  (@i <= length(@list)) {
+  .bw-align-items(@list, @i+1);
+  .bw-align-items-@{val} {
+    align-items: @val;
+  }
+}
+
+.bw-align-self(@list, @i:1, @val:extract(@list, @i))
+  when
+  (@i <= length(@list)) {
+  .bw-align-self(@list, @i+1);
+  .bw-align-self-@{val} {
+    align-self: @val;
+  }
+}

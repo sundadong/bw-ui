@@ -1,0 +1,26 @@
+@import "../variables";
+
+@avatar-size--small: 90rpx;
+@avatar-size--base: 120rpx;
+@avatar-size--large: 150rpx;
+
+.bw-avatar {
+  width: @avatar-size--base;
+  height: @avatar-size--base;
+  background-color: transparent;
+  border-radius: @border-radius--large;
+
+  &--small {
+    width: @avatar-size--small;
+    height: @avatar-size--small;
+  }
+
+  &--large {
+    width: @avatar-size--large;
+    height: @avatar-size--large;
+  }
+
+  &--circle {
+    border-radius: @avatar-size--large / 2;
+  }
+}

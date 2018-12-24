@@ -1,0 +1,18 @@
+.bw-col(@length, @i: 1) when (@i <= @length) {
+  .bw-col(@length, @i+1);
+  .bw-col-@{i} {
+    @val: (@i / @length) * 100%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 @val;
+    flex: 0 0 @val;
+    max-width: @val;
+  }
+}
+
+.bw-offset(@length, @i: 1) when (@i <= @length) {
+  .bw-offset(@length, @i+1);
+  .bw-offset-@{i} {
+    @val: (@i / @length) * 100%;
+    margin-left: @val;
+  }
+}

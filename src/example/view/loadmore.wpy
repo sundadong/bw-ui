@@ -1,0 +1,31 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">加载中</view>
+    <bwloadmore1></bwloadmore1>
+    <view class="example-title">没有数据</view>
+    <bwloadmore2 :loading="loading"></bwloadmore2>
+    <view class="example-title">自定义提示</view>
+    <bwloadmore3 :loading="loading" tip="我是有底线的"></bwloadmore3>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BwLoadMore from '@/components/loadmore'
+
+export default class LoadMore extends wepy.page {
+  config = {
+    navigationBarTitleText: 'LoadMore 页底提示'
+  }
+
+  data = {
+    loading: false
+  }
+
+  components = {
+    bwloadmore1: BwLoadMore,
+    bwloadmore2: BwLoadMore,
+    bwloadmore3: BwLoadMore
+  }
+}
+</script>

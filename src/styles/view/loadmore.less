@@ -1,0 +1,33 @@
+@import '../variables';
+
+.bw-load-more {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: @space--base;
+  color: @color-text--base;
+  text-align: center;
+  overflow: hidden;
+
+  &__loading {
+    font-size: @font-size--extra-extra-extra-large;
+    animation: loading 1s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  }
+
+  &__tip {
+    display: inline-block;
+    margin-left: @space--extra-small;
+    font-size: @font-size--base;
+    text-align: center;
+  }
+
+  &--finished {
+    .bw-load-more__tip {
+      margin-left: 0;
+      color: @color-text--secondary;
+    }
+  }
+}

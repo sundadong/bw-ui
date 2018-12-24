@@ -1,0 +1,31 @@
+<template>
+  <view class="bw-loading {{type ? 'bw-loading--' + type : ''}} {{fixed ? 'bw-loading__fixed' : ''}}">
+    <view class="bw-loading__wrap {{tip ? 'bw-loading__wrap-tip' : ''}}" style="color: {{color || '#666'}}">
+      <text class="bw-icon bw-icon-loading bw-loading__icon"></text>
+      <view wx:if="{{tip}}" class="bw-loading__tip">{{tip}}</view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class BwLoading extends wepy.component {
+  props = {
+    fixed: {
+      type: Boolean,
+      default: false
+    },
+    type: {
+      type: String,
+      default: 'light'
+    },
+    color: {
+      type: String
+    },
+    tip: {
+      type: String
+    }
+  }
+}
+</script>

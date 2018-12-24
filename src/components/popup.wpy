@@ -1,0 +1,32 @@
+<template>
+  <view class="bw-popup {{direction ? 'bw-popup--' + direction : ''}} {{ show ? 'is-active' : ''}}">
+    <view class="bw-popup__mask" bindtap="togglePopup"></view>
+    <view class="bw-popup__container">
+      <slot></slot>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class BwPopup extends wepy.component {
+  props = {
+    direction: {
+      type: String,
+      default: ''
+    }
+  }
+
+  data = {
+    show: false
+  }
+
+  methods = {
+    togglePopup() {
+      this.show = !this.show
+      this.$apply()
+    }
+  }
+}
+</script>

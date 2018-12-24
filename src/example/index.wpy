@@ -1,0 +1,40 @@
+<template>
+  <view class="example-container">
+    <block
+      wx:for="{{components}}"
+      wx:key="{{index}}"
+      wx:for-item="component">
+      <view class="example-title">{{component.name}}</view>
+      <view class="example-content">
+        <navigator
+          wx:for="{{component.children}}"
+          wx:key="{{index}}"
+          wx:for-item="subComponent"
+          class="example-item"
+          url="/example/{{component.id}}/{{subComponent.id}}">
+          {{filter.toBigCamelCase(subComponent.id) + ' ' + subComponent.name}}
+        </navigator>
+      </view>
+    </block>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import COMPONENTS from './components'
+import filter from '../filter/index.wxs'
+
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'BW-UI'
+  }
+
+  data = {
+    components: COMPONENTS
+  }
+
+  wxs = {
+    filter: filter
+  }
+}
+</script>

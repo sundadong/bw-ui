@@ -1,0 +1,105 @@
+<template>
+  <view class="bw-stepper">
+    <button
+      class="bw-stepper__minus"
+      data-component-id="{{ componentId }}"
+      data-value="{{ value }}"
+      data-disabled="{{ value <= min }}"
+      disabled="{{ value <= min }}"
+      bindtap="handleBwStepperMinus"
+    >
+      -
+    </button>
+    <input
+      class="bw-stepper__input"
+      type="number"
+      data-component-id="{{ componentId }}"
+      data-min="{{ min }}"
+      data-max="{{ max }}"
+      value="{{ value }}"
+      disabled="{{ min >= max }}"
+      bindblur="handleBwStepperBlur"
+    />
+    <button
+      class="bw-stepper__plus"
+      data-component-id="{{ componentId }}"
+      data-value="{{ value }}"
+      data-disabled="{{ value >= max }}"
+      disabled="{{ value >= max }}"
+      bindtap="handleBwStepperPlus"
+    >
+      +
+    </button>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class BwStepper extends wepy.component {
+  props = {
+    value: {
+      type: Number,
+      default: 0
+    },
+    min: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 0
+    },
+    componentId: String
+  }
+
+  methods = {
+    handleBwStepperMinus(e) {
+      this.handle(e, -1)
+    },
+    handleBwStepperPlus(e) {
+      this.handle(e, +1)
+    },
+    handleBwStepperBlur(e) {
+      let dataset = e.currentTarget.dataset
+      let componentId = dataset.componentId
+      let max = +dataset.max
+      let min = +dataset.min
+      let value = e.detail.value
+
+      if (!value) {
+        setTimeout(() => {
+          this.callback(componentId, min)
+        }, 16)
+        this.callback(componentId, value)
+        return '' + value
+      }
+
+      value = +value
+      if (value > max) {
+        value = max
+      } else if (value < min) {
+        value = min
+      }
+
+      this.callback(componentId, value)
+
+      return '' + value
+    }
+  }
+  handle(e, num) {
+    let dataset = e.currentTarget.dataset
+    let componentId = dataset.componentId
+    let disabled = dataset.disabled
+    let value = +dataset.value
+
+    if (disabled) return null
+
+    this.callback(componentId, value + num)
+  }
+  callback(componentId, value) {
+    value = +value
+    let e = { componentId, value }
+    this.$emit('stepperChange', e)
+  }
+}
+</script>

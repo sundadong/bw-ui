@@ -1,0 +1,80 @@
+@import '../variables.less';
+
+@stepper-height: 54rpx;
+@stepper-background-color: #e5e5e5;
+@stepper-background-color--disabled: #f5f5f5;
+@stepper-action-width: 54rpx;
+@stepper-input-width: 68rpx;
+@stepper-icon-color: @color-text--primary;
+@stepper-icon-color-disabled: #c2c2c2;
+@stepper-icon-width: 18rpx;
+@stepper-icon-height: 4rpx;
+
+.bw-stepper {
+  &__minus,
+  &__plus,
+  &__input {
+    display: inline-block;
+    height: @stepper-height;
+    font-size: @font-size--extra-large;
+    color: @color-text--primary;
+    text-align: center;
+    background-color: @stepper-background-color;
+    vertical-align: middle;
+
+    &.is-disabled,
+    &[disabled] {
+      background-color: @stepper-background-color--disabled;
+    }
+  }
+
+  &__minus,
+  &__plus {
+    position: relative;
+    width: @stepper-action-width;
+    text-indent: -9999px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: @stepper-icon-width;
+      height: @stepper-icon-height;
+      background-color: @stepper-icon-color;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &.is-disabled,
+    &[disabled] {
+      &::before,
+      &::after {
+        background-color: @stepper-icon-color-disabled;
+      }
+    }
+  }
+
+  &__plus {
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: @stepper-icon-height;
+      height: @stepper-icon-width;
+      background-color: @stepper-icon-color;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
+  &__input {
+    width: @stepper-input-width;
+    margin: 0 2px;
+
+    &.is-disabled,
+    &[disabled] {
+      color: @color-text--secondary;
+    }
+  }
+}

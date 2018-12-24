@@ -1,0 +1,37 @@
+<style lang="less">
+.bw-icon {
+  font-size: 60rpx;
+  margin: 40rpx 87rpx;
+}
+.example-icon-box {
+  width: 350rpx;
+  float: left;
+  padding: 15rpx;
+  text-align: center;
+}
+</style>
+<template>
+  <view class="example-container">
+    <view class="example-block">
+      <view class="example-icon-box" wx:for="{{icons.main}}" wx:key="{{index}}" wx:for-item="icon">
+        <text class="bw-icon bw-icon-{{icon}}"></text>
+        <view>bw-icon-{{icon}}</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import ICONS from './icons'
+
+export default class Icon extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Icon 图标'
+  }
+
+  data = {
+    icons: ICONS
+  }
+}
+</script>

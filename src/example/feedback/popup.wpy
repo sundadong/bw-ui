@@ -1,0 +1,84 @@
+<style lang="less" scoped>
+.bw-btn {
+  margin-top: 20rpx;
+}
+</style>
+<template>
+  <view class="example-container">
+    <view class="example-title">基础用法</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="togglePopup">弹出Popup</button>
+    </view>
+    <view class="example-title">不同位置</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="toggleTopPopup">顶部弹出</button>
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="toggleBottomPopup">底部弹出</button>
+      <view>
+        <button class="bw-btn bw-btn--default bw-btn--small" @tap="toggleLeftPopup">左边弹出</button>
+        <button class="bw-btn bw-btn--default bw-btn--small" @tap="toggleRightPopup">右边弹出</button>
+      </view>
+    </view>
+    <bwpopup1>
+      <view style="width: 480rpx;line-height: 160rpx;font-size: 32rpx;text-align: center;">
+        内容
+      </view>
+    </bwpopup1>
+    <bwpopup2 direction="left">
+      <view style="padding: 20rpx;">
+        <view>内容</view>
+        <button class="bw-btn bw-btn--primary bw-btn--small" @tap="toggleLeftPopup">关闭Popup</button>
+      </view>
+    </bwpopup2>
+    <bwpopup3 direction="right">
+      <view style="padding: 20rpx;">
+        <view>内容</view>
+        <button class="bw-btn bw-btn--primary bw-btn--small" @tap="toggleRightPopup">关闭Popup</button>
+      </view>
+    </bwpopup3>
+    <bwpopup4 direction="top">
+      <view>内容</view>
+    </bwpopup4>
+    <bwpopup5 direction="bottom">
+      <view style="padding: 60rpx 30rpx;">
+        <view>内容</view>
+      </view>
+    </bwpopup5>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BwPopup from '@/components/popup'
+
+export default class Popup extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Popup 弹出层'
+  }
+
+  components = {
+    bwpopup1: BwPopup,
+    bwpopup2: BwPopup,
+    bwpopup3: BwPopup,
+    bwpopup4: BwPopup,
+    bwpopup5: BwPopup
+  }
+
+  methods = {
+    togglePopup() {
+      this.$invoke('bwpopup1', 'togglePopup')
+    },
+    toggleLeftPopup() {
+      this.$invoke('bwpopup2', 'togglePopup')
+    },
+    toggleRightPopup() {
+      this.$invoke('bwpopup3', 'togglePopup')
+    },
+    toggleTopPopup() {
+      this.$invoke('bwpopup4', 'togglePopup')
+    },
+    toggleBottomPopup() {
+      this.$invoke('bwpopup5', 'togglePopup')
+    }
+  }
+}
+</script>

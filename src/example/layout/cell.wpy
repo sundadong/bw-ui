@@ -1,0 +1,89 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">基本列表</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell">
+        <view class="bw-cell__title">列表项</view>
+        <view class="bw-cell__value">内容</view>
+      </view>
+      <view class="bw-cell bw-cell--no-border">
+        <view class="bw-cell__title">
+          列表项
+          <view class="bw-cell__label">
+            描述内容
+          </view>
+        </view>
+        <view class="bw-cell__value">内容</view>
+      </view>
+    </view>
+    <view class="example-title">可点击列表</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell bw-cell--clickable">
+        <view class="bw-cell__title">列表项</view>
+        <view class="bw-cell__right-icon-wrap">
+          <view class="bw-icon bw-icon-chevron-right bw-cell__right-icon"></view>
+        </view>
+      </view>
+      <view class="bw-cell bw-cell--no-border bw-cell--clickable">
+        <view class="bw-cell__left-icon-wrap">
+          <view class="bw-icon bw-icon-file bw-cell__left-icon"></view>
+        </view>
+        <view class="bw-cell__title">列表项</view>
+        <view class="bw-cell__right-icon-wrap">
+          <view class="bw-icon bw-icon-chevron-right bw-cell__right-icon"></view>
+        </view>
+      </view>
+    </view>
+    <view class="example-title">展示图标</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell">
+        <view class="bw-cell__left-icon-wrap">
+          <view class="bw-icon bw-icon-file bw-cell__left-icon"></view>
+        </view>
+        <view class="bw-cell__title">列表项</view>
+      </view>
+      <view class="bw-cell bw-cell--no-border">
+        <view class="bw-cell__title">列表项</view>
+        <view class="bw-cell__right-icon-wrap">
+          <view class="bw-icon bw-icon-file bw-cell__right-icon"></view>
+        </view>
+      </view>
+    </view>
+    <view class="example-title">展示图片</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell">
+        <image class="bw-cell__left-thumb" src="http://temp.im/50x50" />
+        <view class="bw-cell__title">列表项</view>
+      </view>
+      <view class="bw-cell bw-cell--no-border">
+        <view class="bw-cell__title">列表项</view>
+        <image class="bw-cell__right-thumb" src="http://temp.im/50x50" />
+      </view>
+    </view>
+    <view class="example-title">高级用法</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell">
+        <view class="bw-cell__title">
+          列表项
+          <view class="bw-tag bw-tag--primary bw-tag--small">标签</view>
+        </view>
+      </view>
+      <label class="bw-cell bw-cell--no-border">
+        <view class="bw-cell__title">列表项</view>
+        <view class="bw-cell__right-icon-wrap">
+          <radio value="1" checked color="#FF6100" />
+        </view>
+      </label>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Cell extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Cell 列表'
+  }
+}
+</script>

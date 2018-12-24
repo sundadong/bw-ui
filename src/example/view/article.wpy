@@ -1,0 +1,40 @@
+<style lang="less">
+.bw-artitle {
+  margin-bottom: 30rpx;
+}
+</style>
+<template>
+  <view class="example-container">
+    <view class="bw-artitle">
+      <view class="bw-article__h1">这是一级标题</view>
+      <view class="bw-article__info">2018-11-19 作者</view>
+      <view class="bw-article__content">
+        <view class="bw-article__h2">这是二级标题</view>
+        <view class="bw-article__h3">这是三级标题</view>
+        <view class="bw-article__p">这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。1234567890123456789012345678901234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ</view>
+        <view class="bw-article__p">这是文本段落。这是文本段落。</view>
+        <image class="bw-article__img" src="{{img}}" mode="widthFix" />
+        <view class="bw-article__h2">这是二级标题</view>
+        <view class="bw-article__h3">这是三级标题</view>
+        <view class="bw-article__p">这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。这是文本段落。1234567890123456789012345678901234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ</view>
+        <view class="bw-article__p">这是文本段落。这是文本段落。</view>
+        <image class="bw-article__img" src="{{img1}}" mode="widthFix" />
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Article extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Article 文章'
+  }
+
+  data = {
+    img: 'http://temp.im/750x450',
+    img1: 'http://temp.im/750x1136'
+  }
+}
+</script>

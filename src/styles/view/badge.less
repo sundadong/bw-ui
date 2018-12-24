@@ -1,0 +1,41 @@
+@import "../variables";
+
+@badge-height: 30rpx;
+@badge-dot-size: 16rpx;
+
+.bw-badge {
+  position: relative;
+  display: inline-block;
+
+  &__num,
+  &__dot {
+    position: absolute;
+    z-index: 1;
+    color: @color--white;
+    background-color: @color--danger;
+    overflow: hidden;
+  }
+
+  &__num {
+    top: -@badge-height / 2;
+    right: -4px;
+    height: @badge-height;
+    padding: 0 @space--small / 2;
+    font-size: @font-size--extra-small;
+    line-height: @badge-height;
+    border-radius: @badge-height / 2;
+    transform: translate(50%, 0);
+  }
+
+  &__dot {
+    top: 0;
+    right: 0;
+    width: @badge-dot-size;
+    height: @badge-dot-size;
+    padding: 0;
+    font-size: 0;
+    text-indent: -9999px;
+    border-radius: @badge-dot-size;
+    transform: translate(50%, -50%);
+  }
+}

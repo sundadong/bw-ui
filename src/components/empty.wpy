@@ -1,0 +1,28 @@
+<template>
+  <view class="bw-empty">
+    <image wx:if="{{src}}" class="bw-empty__pic" src="{{src}}" mode="widthFix" />
+    <view wx:else class="bw-icon bw-icon-{{icon}} bw-empty__icon"></view>
+    <view class="bw-empty__tip">{{tip}}</view>
+    <slot></slot>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class BwEmpty extends wepy.component {
+  props = {
+    icon: {
+      type: String,
+      default: 'package'
+    },
+    src: {
+      type: String
+    },
+    tip: {
+      type: String,
+      default: '暂无数据'
+    }
+  }
+}
+</script>

@@ -1,0 +1,43 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">基本用法</view>
+    <view class="example-block">
+      <view class="bw-timeline">
+        <view class="bw-timeline__content is-active">
+          <view class="bw-timeline__title">芜湖市【芜湖鸠江六部】，孙领俊/05532689578 正在派件</view>
+          <view class="bw-timeline__label">2018-11-22 13:07:28</view>
+        </view>
+        <view class="bw-timeline__content">
+          <view class="bw-timeline__title">芜湖市【芜湖鸠江六部】，孙领俊 / 05532689578 正在派件</view>
+          <view class="bw-timeline__label">2018-11-22 13:07:28</view>
+        </view>
+        <view class="bw-timeline__content">
+          <view class="bw-timeline__title">芜湖市【芜湖鸠江六部】，孙领俊/05532689578 正在派件</view>
+          <view class="bw-timeline__label">2018-11-22 13:07:28</view>
+        </view>
+        <view class="bw-timeline__content">
+          <view class="bw-timeline__title">芜湖市【芜湖鸠江六部】，孙领俊/05532689578 正在派件</view>
+          <view class="bw-timeline__label">2018-11-22 13:07:28</view>
+        </view>
+        <view class="bw-timeline__content">
+          <view class="bw-timeline__title">芜湖市【芜湖鸠江六部】，孙领俊/05532689578 正在派件</view>
+          <view class="bw-timeline__label">2018-11-22 13:07:28</view>
+        </view>
+        <view class="bw-timeline__content">
+          <view class="bw-timeline__title">芜湖市【芜湖鸠江六部】，孙领俊/05532689578 正在派件</view>
+          <view class="bw-timeline__label">2018-11-22 13:07:28</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Timeline extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Timeline 时间轴'
+  }
+}
+</script>

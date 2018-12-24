@@ -1,0 +1,53 @@
+<style lang="less">
+.bw-badge {
+  margin: 40rpx;
+}
+</style>
+
+<template>
+  <view class="example-container">
+    <view class="example-title">数字</view>
+    <view class="example-block">
+      <view class="bw-badge">
+        <button class="bw-btn bw-btn--default bw-btn--small">按钮</button>
+        <view class="bw-badge__num">10</view>
+      </view>
+      <view class="bw-badge">
+        <button class="bw-btn bw-btn--default bw-btn--small">按钮</button>
+        <view class="bw-badge__num">99+</view>
+      </view>
+    </view>
+    <view class="example-title">小红点</view>
+    <view class="example-block">
+      <view class="bw-badge">
+        <button class="bw-btn bw-btn--default bw-btn--small">按钮</button>
+        <view class="bw-badge__dot"></view>
+      </view>
+      <view class="bw-badge">
+        <button class="bw-btn bw-btn--default bw-btn--small">按钮</button>
+        <view class="bw-badge__dot"></view>
+      </view>
+    </view>
+    <view class="example-title">文本</view>
+    <view class="example-block">
+      <view class="bw-badge">
+        <button class="bw-btn bw-btn--default bw-btn--small">按钮</button>
+        <view class="bw-badge__num">NEW</view>
+      </view>
+      <view class="bw-badge">
+        <button class="bw-btn bw-btn--default bw-btn--small">按钮</button>
+        <view class="bw-badge__num">NEW</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Badge extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Badge 徽标'
+  }
+}
+</script>

@@ -1,0 +1,23 @@
+.triangle-top (@width: 10rpx, @height: 10rpx, @border-color: #e5e5e5) {
+  border-left: (@width / 2) solid transparent;
+  border-right: (@width / 2) solid transparent;
+  border-bottom: @height solid @border-color;
+}
+
+.triangle-left (@width: 10rpx, @height: 10rpx, @border-color: #e5e5e5) {
+  border-top: (@width / 2) solid transparent;
+  border-right: @height solid @border-color;
+  border-bottom: (@width / 2) solid transparent;
+}
+
+.triangle-right (@width: 10rpx, @height: 10rpx, @border-color: #e5e5e5) {
+  border-top: (@width / 2) solid transparent;
+  border-left: @height solid @border-color;
+  border-bottom: (@width / 2) solid transparent;
+}
+
+.triangle-bottom (@width: 10rpx, @height: 10rpx, @border-color: #e5e5e5) {
+  border-left: (@width / 2) solid transparent;
+  border-right: (@width / 2) solid transparent;
+  border-top: @height solid @border-color;
+}

@@ -1,0 +1,59 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">基本用法</view>
+    <view class="bw-form">
+      <view class="bw-form__field">
+        <label class="bw-form__label">标准文字</label>
+        <input class="bw-input bw-form__control" type="text" placeholder="标准文字" />
+      </view>
+      <view class="bw-form__field">
+        <label class="bw-form__label">标准文字标准文字</label>
+        <input class="bw-input bw-form__control" type="text" placeholder="标准文字标准文字" />
+      </view>
+      <view class="bw-form__field">
+        <input class="bw-input bw-form__control" type="text" placeholder="无标题" />
+      </view>
+    </view>
+    <view class="example-title">静态文本</view>
+    <view class="bw-form">
+      <view class="bw-form__field">
+        <label class="bw-form__label">标准文字</label>
+        <view class="bw-form__static">静态文本</view>
+      </view>
+      <view class="bw-form__field">
+        <label class="bw-form__label">所在地区</label>
+        <view class="bw-form__static">杭州市余杭区IT公园</view>
+        <text class="bw-icon bw-icon-chevron-right"></text>
+      </view>
+    </view>
+    <view class="example-title">状态</view>
+    <view class="bw-form">
+      <view class="bw-form__field is-disabled">
+        <label class="bw-form__label">禁用状态</label>
+        <input class="bw-input bw-form__control" type="text" placeholder="禁用状态" disabled="disabled" />
+      </view>
+      <view class="bw-form__field is-error">
+        <label class="bw-form__label">错误状态</label>
+        <input class="bw-input bw-form__control" type="text" value="好像哪里错了" />
+        <text class="bw-icon bw-icon-alert"></text>
+      </view>
+    </view>
+    <view class="example-title">自定义右边栏</view>
+    <view class="bw-form">
+      <view class="bw-form__field">
+        <input class="bw-input bw-form__control" type="text" placeholder="验证码" />
+        <button class="bw-btn bw-btn--primary bw-btn--mini bw-btn--circle is-plain">获取验证码</button>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Input extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Input 输入框'
+  }
+}
+</script>

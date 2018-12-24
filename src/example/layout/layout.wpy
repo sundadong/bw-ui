@@ -1,0 +1,54 @@
+<style lang="less">
+.bw-row {
+  & + & {
+    margin-top: 20rpx;
+  }
+}
+[class^='bw-col'] > view {
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+  background: #FF6100;
+}
+[class^='bw-col']:nth-child(2n) > view {
+  background: rgb(252, 141, 72);
+}
+</style>
+
+<template>
+  <view class="example-container">
+    <view class="example-title">基础布局</view>
+    <view class="example-block">
+      <view class="bw-row">
+        <view class="bw-col-4"><view>col-4</view></view>
+        <view class="bw-col-4"><view>col-4</view></view>
+        <view class="bw-col-4"><view>col-4</view></view>
+      </view>
+      <view class="bw-row">
+        <view class="bw-col-2"><view>col-2</view></view>
+        <view class="bw-col-6 bw-offset-2"><view>col-6 offset-2</view></view>
+      </view>
+      <view class="bw-row">
+        <view class="bw-col-6 bw-offset-6"><view>col-6 offset-6</view></view>
+      </view>
+    </view>
+    <view class="example-title">元素间增加间距</view>
+    <view class="example-block">
+      <view class="bw-row bw-row--space">
+        <view class="bw-col-4"><view>col-4</view></view>
+        <view class="bw-col-4"><view>col-4</view></view>
+        <view class="bw-col-4"><view>col-4</view></view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Layout extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Layout 栅格布局'
+  }
+}
+</script>

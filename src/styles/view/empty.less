@@ -1,0 +1,28 @@
+@import '../variables.less';
+
+@empty-space-v: 240rpx;
+@empty-space-h: 80rpx;
+@empty-icon-size: 100rpx;
+@empty-pic-width: 320rpx;
+
+.bw-empty {
+  padding: @empty-space-v @empty-space-h;
+  text-align: center;
+
+  &__icon {
+    font-size: @empty-icon-size;
+    color: @color-text--disabled;
+  }
+
+  &__pic {
+    width: @empty-pic-width;
+    height: auto;
+  }
+
+  &__tip {
+    display: block;
+    margin: @space--base 0;
+    font-size: @font-size--large;
+    color: @color-text--secondary;
+  }
+}

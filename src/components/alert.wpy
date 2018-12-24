@@ -1,0 +1,55 @@
+<template>
+  <view wx:if="{{show}}" class="bw-alert {{type ? 'bw-alert--' + type : ''}}">
+    <view wx:if="{{icon}}" class="bw-alert__left">
+      <text class="bw-icon bw-icon-{{icon}} bw-alert__icon"></text>
+    </view>
+    <view class="bw-alert__title">{{tip}}</view>
+    <view wx:if="{{showClose}}" class="bw-alert__right">
+      <text class="bw-icon bw-icon-close bw-alert__icon" data-component-id="{{ componentId }}" bindtap="close"></text>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class BwAlert extends wepy.component {
+  props = {
+    tip: {
+      type: String,
+      default: ''
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    type: {
+      type: String,
+      default: 'primary'
+    },
+    showClose: {
+      type: Boolean,
+      default: false
+    },
+    componentId: String
+  }
+
+  data = {
+    show: true
+  }
+
+  methods = {
+    close(e) {
+      let dataset = e.currentTarget.dataset
+      let componentId = dataset.componentId
+
+      this.show = false
+      this.callback(componentId)
+    }
+  }
+
+  callback(componentId) {
+    let e = { componentId }
+    this.$emit('closeAlert', e)
+  }
+}
+</script>

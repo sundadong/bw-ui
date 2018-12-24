@@ -1,0 +1,32 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">基本用法</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell bw-cell--no-border">
+        <textarea class="bw-textarea" placeholder="最多可填写200个字" maxlength="200"></textarea>
+      </view>
+    </view>
+    <view class="example-title">禁用状态</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell bw-cell--no-border">
+        <textarea class="bw-textarea" placeholder="最多可填写200个字" maxlength="200" disabled="disabled"></textarea>
+      </view>
+    </view>
+    <view class="example-title">自动高度</view>
+    <view class="bw-cell-group">
+      <view class="bw-cell bw-cell--no-border">
+        <textarea class="bw-textarea" placeholder="最多可填写200个字" maxlength="200" auto-height></textarea>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Textarea extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Textarea 多行文本框'
+  }
+}
+</script>

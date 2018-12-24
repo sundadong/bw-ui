@@ -1,0 +1,57 @@
+<style lang="less" scoped>
+.bw-btn {
+  margin-top: 20rpx;
+}
+</style>
+<template>
+  <view class="example-container">
+    <view class="example-title">基础用法</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="showNotify1">默认提示</button>
+    </view>
+    <view class="example-title">不同类型</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="showNotify2">消息提示</button>
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="showNotify3">成功提示</button>
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="showNotify4">错误提示</button>
+    </view>
+    <view class="example-title">自定义延迟</view>
+    <view class="example-block">
+      <button class="bw-btn bw-btn--default bw-btn--small" @tap="showNotify5">1.5秒后消失</button>
+    </view>
+    <bwnotify></bwnotify>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BwNotify from '@/components/notify'
+
+export default class Notify extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Notify 消息通知'
+  }
+
+  components = {
+    bwnotify: BwNotify
+  }
+
+  methods = {
+    showNotify1() {
+      this.$invoke('bwnotify', 'showNotify', {content: '消息通知'})
+    },
+    showNotify2() {
+      this.$invoke('bwnotify', 'showNotify', {content: '消息通知', options: {type: 'info'}})
+    },
+    showNotify3() {
+      this.$invoke('bwnotify', 'showNotify', {content: '消息通知', options: {type: 'success'}})
+    },
+    showNotify4() {
+      this.$invoke('bwnotify', 'showNotify', {content: '消息通知', options: {type: 'danger'}})
+    },
+    showNotify5() {
+      this.$invoke('bwnotify', 'showNotify', {content: '消息通知', options: 1500})
+    }
+  }
+}
+</script>

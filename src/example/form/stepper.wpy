@@ -1,0 +1,41 @@
+<template>
+  <view class="example-container" style="background-color: #fff;">
+    <view class="example-title">基本用法</view>
+    <view class="example-block">
+      <bwstepper1 :value.sync="stepper1" :min="min1" :max="max1" componentId="stepper1"></bwstepper1>
+    </view>
+    <view class="example-title">当最大值等于最小值时，组件不可用</view>
+    <view class="example-block">
+      <bwstepper2 :value.sync="stepper2" :min="min2" :max="max2" componentId="stepper2"></bwstepper2>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import BwStepper from '@/components/stepper'
+
+export default class Stepper extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Stepper 步进器'
+  }
+  components = {
+    bwstepper1: BwStepper,
+    bwstepper2: BwStepper
+  }
+  data = {
+    stepper1: 10,
+    min1: 1,
+    max1: 20,
+    stepper2: 1,
+    min2: 1,
+    max2: 1
+  }
+  events = {
+    stepperChange({ componentId, value }, event) {
+      this[componentId] = value
+      this.$apply()
+    }
+  }
+}
+</script>

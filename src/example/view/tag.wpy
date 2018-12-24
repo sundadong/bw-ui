@@ -1,0 +1,42 @@
+<template>
+  <view class="example-container">
+    <view class="example-title">情景标签</view>
+    <view class="example-block">
+      <text class="bw-tag bw-tag--default">标签</text>
+      <text class="bw-tag bw-tag--primary">标签</text>
+    </view>
+    <view class="example-title">空心标签</view>
+    <view class="example-block">
+      <text class="bw-tag bw-tag--default is-plain">标签</text>
+      <text class="bw-tag bw-tag--primary is-plain">标签</text>
+    </view>
+    <view class="example-title">圆角标签</view>
+    <view class="example-block">
+      <text class="bw-tag bw-tag--default bw-tag--circle">标签</text>
+      <text class="bw-tag bw-tag--primary bw-tag--circle">标签</text>
+    </view>
+    <view class="example-block">
+      <text class="bw-tag bw-tag--default bw-tag--circle is-plain">标签</text>
+      <text class="bw-tag bw-tag--primary bw-tag--circle is-plain">标签</text>
+    </view>
+    <view class="example-title">小标签</view>
+    <view class="example-block">
+      <text class="bw-tag bw-tag--default bw-tag--small">标签</text>
+      <text class="bw-tag bw-tag--primary bw-tag--small">标签</text>
+    </view>
+    <view class="example-block">
+      <text class="bw-tag bw-tag--default bw-tag--small is-plain">标签</text>
+      <text class="bw-tag bw-tag--primary bw-tag--small is-plain">标签</text>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Tag extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Tag 标签'
+  }
+}
+</script>

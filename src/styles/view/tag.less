@@ -1,0 +1,73 @@
+@import '../variables';
+@import '../mixins/hairline';
+
+@tag-height: 48rpx;
+@tag-height--small: 32rpx;
+
+.bw-tag {
+  position: relative;
+  display: inline-block;
+  height: @tag-height;
+  padding: 0 @space--base;
+  font-size: @font-size--small;
+  color: @color-text--base;
+  line-height: @tag-height;
+  border-radius: @border-radius--base;
+  vertical-align: middle;
+
+
+  & + & {
+    margin-left: @space--small;
+  }
+
+  &.is-plain {
+    &::after {
+      .hairline();
+      border-width: 1px;
+      border-radius: @border-radius--base * 2;
+    }
+  }
+
+  &--default {
+    color: @color-text--base;
+    background-color: @color--white;
+
+    &.is-plain {
+      color: @color-text--base;
+      background-color: @color--white;
+
+      &::after {
+        border-color: @border-color--base;
+      }
+    }
+  }
+
+  &--primary {
+    color: @color--white;
+    background-color: @color--primary;
+
+    &.is-plain {
+      color: @color--primary;
+      background-color: @color--white;
+
+      &::after {
+        border-color: @color--primary;
+      }
+    }
+  }
+
+  &--small {
+    height: @tag-height--small;
+    padding: 0 @space--extra-small;
+    font-size: @font-size--extra-small;
+    line-height: @tag-height--small;
+  }
+
+  &--circle {
+    border-radius: @tag-height / 2;
+
+    &.is-plain::after {
+      border-radius: @tag-height;
+    }
+  }
+}

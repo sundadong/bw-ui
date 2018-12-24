@@ -1,0 +1,121 @@
+@import '../variables';
+@import '../mixins/hairline';
+
+@cell-thumb-size: 60rpx;
+@cell-space-v: 22rpx;
+@cell-space-h: @space--base;
+@cell-active-color: #efefef;
+
+.bw-cell {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: @cell-space-v @cell-space-h;
+  font-size: @font-size--base;
+  color: @color-text--primary;
+  line-height: @line-height--base;
+  background-color: @color--white;
+
+  &-group {
+    margin: @space--base 0;
+    background-color: @color--white;
+  }
+
+  &::after {
+    .hairline-bottom(@border-color--base, 0);
+  }
+
+  &.is-disabled {
+    opacity: @opacity-disabled;
+
+    &:active {
+      background-color: transparent !important;
+    }
+  }
+
+  &--no-border {
+    &::after {
+      display: none;
+    }
+  }
+
+  &--clickable {
+    &:active {
+      background-color: @cell-active-color;
+    }
+  }
+
+  &--compact {
+    padding-top: @cell-space-v / 2;
+    padding-bottom: @cell-space-v / 2;
+
+    &.bw-cell--no-border {
+      &:first-child {
+        padding-top: @cell-space-v;
+      }
+
+      &:last-child {
+        padding-bottom: @cell-space-v;
+      }
+    }
+  }
+
+  &__label {
+    margin-top: @space--extra-small / 2;
+    font-size: @font-size--small;
+    color: @color-text--secondary;
+  }
+
+  &__title,
+  &__value {
+    flex: 1;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__value {
+    color: @color-text--secondary;
+    text-align: right;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+
+  &__left-icon-wrap,
+  &__right-icon-wrap {
+    display: flex;
+    align-items: center;
+    font-size: @font-size--extra-large;
+  }
+
+  &__left-icon-wrap {
+    margin-right: @space--extra-small;
+  }
+
+  &__right-icon-wrap {
+    margin-left: @space--extra-small;
+    color: @color-text--secondary;
+  }
+
+  &__left-icon {
+    font-size: @font-size--large;
+    vertical-align: middle;
+  }
+
+  &__left-thumb,
+  &__right-thumb {
+    width: @cell-thumb-size;
+    height: @cell-thumb-size;
+  }
+
+  &__left-thumb {
+    margin-right: @space--small;
+  }
+
+  &__right-thumb {
+    margin-left: @space--small;
+  }
+}
