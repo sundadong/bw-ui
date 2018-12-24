@@ -59,7 +59,7 @@ export default class BwCountDown extends wepy.component {
     const format = this.format ? Object.assign({}, defaultFormat, this.format) : defaultFormat
 
     if (gapTime > 0) {
-      days = parseInt(gapTime / 86400)
+      days = this.formatNum(parseInt(gapTime / 86400))
       let lastTime = gapTime % 86400
       const hours = this.formatNum(parseInt(lastTime / 3600))
       lastTime = lastTime % 3600
@@ -80,8 +80,8 @@ export default class BwCountDown extends wepy.component {
     }
 
     this.time = result
-    this.$apply()
     this.gapTime -= 1
+    this.$apply()
   }
 
   formatNum(num) {

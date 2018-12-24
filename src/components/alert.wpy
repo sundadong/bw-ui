@@ -1,11 +1,25 @@
 <template>
-  <view wx:if="{{show}}" class="bw-alert {{type ? 'bw-alert--' + type : ''}}">
-    <view wx:if="{{icon}}" class="bw-alert__left">
+  <view
+    wx:if="{{show}}"
+    class="bw-alert {{type ? 'bw-alert--' + type : ''}}"
+  >
+    <view
+      wx:if="{{icon}}"
+      class="bw-alert__left"
+    >
       <text class="bw-icon bw-icon-{{icon}} bw-alert__icon"></text>
     </view>
     <view class="bw-alert__title">{{tip}}</view>
-    <view wx:if="{{showClose}}" class="bw-alert__right">
-      <text class="bw-icon bw-icon-close bw-alert__icon" data-component-id="{{ componentId }}" bindtap="close"></text>
+    <view
+      wx:if="{{showClose}}"
+      class="bw-alert__right"
+    >
+      <text
+        class="bw-icon bw-icon-close bw-alert__icon"
+        data-component-id="{{ componentId }}"
+        bindtap="close"
+      >
+      </text>
     </view>
   </view>
 </template>
@@ -43,13 +57,8 @@ export default class BwAlert extends wepy.component {
       let componentId = dataset.componentId
 
       this.show = false
-      this.callback(componentId)
+      this.$emit('closeAlert', { componentId })
     }
-  }
-
-  callback(componentId) {
-    let e = { componentId }
-    this.$emit('closeAlert', e)
   }
 }
 </script>

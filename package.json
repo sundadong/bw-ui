@@ -1,17 +1,14 @@
 {
-  "name": "y",
-  "version": "0.0.2",
-  "description": "A WePY project",
+  "name": "bw-ui",
+  "version": "0.0.1",
+  "description": "一款基于 Wepy 框架开发的UI 组件库",
   "main": "dist/app.js",
   "scripts": {
     "dev": "wepy build --watch",
-    "build": "cross-env NODE_ENV=production wepy build --no-cache",
     "dev:web": "wepy build --output web",
+    "build": "cross-env NODE_ENV=production wepy build --no-cache",
     "clean": "find ./dist -maxdepth 1 -not -name 'project.config.json' -not -name 'dist' | xargs rm -rf",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "wepy": {
-    "module-a": false
   },
   "author": "sundadong <948088101@qq.com>",
   "license": "MIT",

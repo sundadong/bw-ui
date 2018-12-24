@@ -1,5 +1,9 @@
 <template>
-  <view class="bw-notify {{notify.type ? 'bw-notify--' + notify.type : ''}}" animation="{{animationData}}"> {{ notify.content }} </view>
+  <view
+    class="bw-notify {{notify.type ? 'bw-notify--' + notify.type : ''}}"
+    animation="{{animationData}}">
+    {{ notify.content }}
+  </view>
 </template>
 
 <script>

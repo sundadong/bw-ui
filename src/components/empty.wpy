@@ -1,7 +1,16 @@
 <template>
   <view class="bw-empty">
-    <image wx:if="{{src}}" class="bw-empty__pic" src="{{src}}" mode="widthFix" />
-    <view wx:else class="bw-icon bw-icon-{{icon}} bw-empty__icon"></view>
+    <image
+      wx:if="{{src}}"
+      class="bw-empty__pic"
+      src="{{src}}"
+      mode="widthFix"
+    />
+    <view
+      wx:else
+      class="bw-icon bw-icon-{{icon}} bw-empty__icon"
+    >
+    </view>
     <view class="bw-empty__tip">{{tip}}</view>
     <slot></slot>
   </view>

@@ -44,68 +44,31 @@ export default class extends wepy.app {
 </script>
 
 <style lang="less">
-// Variable
-@import "./styles/variables";
-
-// Basic
-@import "./styles/basic/base";
-@import "./styles/basic/helper";
-@import "./styles/basic/animate";
-@import "./styles/basic/icon";
-@import "./styles/basic/button";
-
-// View
-@import "./styles/view/avatar";
-@import "./styles/view/article";
-@import "./styles/view/badge";
-@import "./styles/view/tag";
-@import "./styles/view/timeline";
-@import "./styles/view/loadmore";
-@import "./styles/view/alert";
-@import "./styles/view/empty";
-
-// Feedback
-@import "./styles/feedback/loading";
-@import "./styles/feedback/popup";
-@import "./styles/feedback/notify";
-
-// Form
-@import "./styles/form/base";
-@import "./styles/form/input";
-@import "./styles/form/textarea";
-@import "./styles/form/stepper";
-
-// Layout
-@import "./styles/layout/layout";
-@import "./styles/layout/cell";
-
-// Nav
-@import "./styles/nav/tabs";
+// App
+@import "./styles/app";
 
 // Example
-@example-height: 88rpx;
-
 .example-container {
   min-height: 100%;
   overflow: hidden;
 }
 
 .example-title {
-  padding-left: @space--small;
-  margin: @space--base @space--small;
-  font-size: @font-size--large;
+  padding-left: 20rpx;
+  margin: 30rpx 20rpx;
+  font-size: 30rpx;
   font-weight: 600;
-  color: @color--black;
-  line-height: @line-height--small;
-  border-left: 2px solid @color--primary;
+  color: #000;
+  line-height: 1.5;
+  border-left: 2px solid #FF6100;
 }
 
 .example-block {
-  margin: @space--small;
+  margin: 20rpx;
 }
 
 .example-item {
-  line-height: @example-height;
-  padding: 0 @space--base;
+  line-height: 88rpx;
+  padding: 0 30rpx;
 }
 </style>
