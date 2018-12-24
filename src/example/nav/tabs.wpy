@@ -1,22 +1,109 @@
 <template>
   <view class="example-container">
     <view class="example-title">基础用法</view>
-    <view class="bw-tabs">
-      <view class="bw-tabs__item is-active">全部</view>
-      <view class="bw-tabs__item is-disabled">待付款</view>
-      <view class="bw-tabs__item">待收货</view>
-      <view class="bw-tabs__item">已完成</view>
-      <view class="bw-tabs__item">售后/退款</view>
-    </view>
+    <bwtabs1 :activeId.sync="tabs1" :list="tabList1" componentId="tabs1"></bwtabs1>
+    <view class="example-title">禁用状态</view>
+    <bwtabs2 :activeId.sync="tabs2" :list="tabList2" componentId="tabs2"></bwtabs2>
+    <view class="example-title">可滚动</view>
+    <bwtabs3 :activeId.sync="tabs3" :scroll="tabsScroll3" :list="tabList3" componentId="tabs3"></bwtabs3>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
+import BwTabs from '@/components/tabs'
 
 export default class Tabs extends wepy.page {
   config = {
     navigationBarTitleText: 'Tabs 标签页'
+  }
+
+  data = {
+    tabs1: '1',
+    height: 100,
+    tabList1: [
+      {
+        id: '1',
+        title: '全部'
+      },
+      {
+        id: '2',
+        title: '待付款'
+      },
+      {
+        id: '3',
+        title: '待收货'
+      },
+      {
+        id: '4',
+        title: '已完成'
+      }
+    ],
+    tabs2: '1',
+    tabList2: [
+      {
+        id: '1',
+        title: '全部'
+      },
+      {
+        id: '2',
+        disabled: true,
+        title: '待付款'
+      },
+      {
+        id: '3',
+        title: '待收货'
+      },
+      {
+        id: '4',
+        title: '已完成'
+      }
+    ],
+    tabs3: '1',
+    tabsScroll3: true,
+    tabList3: [
+      {
+        id: '1',
+        title: '全部'
+      },
+      {
+        id: '2',
+        title: '选项一'
+      },
+      {
+        id: '3',
+        title: '选项二'
+      },
+      {
+        id: '4',
+        title: '选项三'
+      },
+      {
+        id: '5',
+        title: '选项四'
+      },
+      {
+        id: '6',
+        title: '选项五'
+      },
+      {
+        id: '7',
+        title: '选项六'
+      }
+    ]
+  }
+
+  components = {
+    bwtabs1: BwTabs,
+    bwtabs2: BwTabs,
+    bwtabs3: BwTabs
+  }
+
+  events = {
+    tabsChange({ componentId, activeId }, event) {
+      this[componentId] = activeId
+      this.$apply()
+    }
   }
 }
 </script>

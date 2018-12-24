@@ -1,0 +1,72 @@
+<template>
+  <view class="bw-tabs">
+    <scroll-view
+      wx:if="{{scroll}}"
+      class="bw-tabs__body bw-tabs__body--scroll {{fixed ? 'bw-tabs__body--fixed' : ''}}"
+      scroll-x="true"
+      scroll-left="{{left}}"
+      scroll-with-animation="true"
+      style="height: {{ height ? height + 'rpx' : '88rpx' }}">
+      <view
+        wx:for="{{list}}"
+        wx:key="{{item.id}}"
+        class="bw-tabs__item {{item.id === activeId ? 'is-active' : ''}} {{item.disabled ? 'is-disabled' : ''}}"
+        style="line-height: {{height ? height + 'rpx' : '88rpx'}}"
+        data-component-id="{{componentId}}"
+        data-active-id="{{activeId}}"
+        data-item-id="{{item.id}}"
+        data-disabled="{{item.disabled}}"
+        @tap="handleBwTabsChange">
+        {{item.title}}
+      </view>
+    </scroll-view>
+    <view
+      wx:else
+      class="bw-tabs__body {{fixed ? 'bw-tabs__body--fixed' : ''}}"
+      style="height: {{ height ? height + 'rpx' : '88rpx' }}">
+      <view
+        wx:for="{{list}}"
+        wx:key="{{item.id}}"
+        class="bw-tabs__item {{item.id === activeId ? 'is-active' : ''}} {{item.disabled ? 'is-disabled' : ''}}"
+        style="line-height: {{height ? height + 'rpx' : '88rpx'}}"
+        data-component-id="{{componentId}}"
+        data-active-id="{{activeId}}"
+        data-item-id="{{item.id}}"
+        data-disabled="{{item.disabled}}"
+        @tap="handleBwTabsChange">
+        {{item.title}}
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class BwTabs extends wepy.component {
+  props = {
+    height: {
+      type: Number,
+      default: 88
+    },
+    scroll: {
+      type: Boolean,
+      default: false
+    },
+    list: Array,
+    activeId: String,
+    componentId: String
+  }
+
+  methods = {
+    handleBwTabsChange(e) {
+      let { componentId, itemId, disabled } = e.currentTarget.dataset
+
+      if (disabled) {
+        return null
+      }
+      this.$emit('tabsChange', {componentId, activeId: itemId})
+    }
+  }
+}
+</script>
