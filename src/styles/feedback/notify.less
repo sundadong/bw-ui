@@ -1,5 +1,6 @@
 @import '../variables';
 
+@notify-height: 60rpx;
 @notify--primary: lighten(@color--primary, 10%);
 @notify--info: lighten(@color--info, 10%);
 @notify--success: lighten(@color--success, 10%);
@@ -8,16 +9,17 @@
 .bw-notify {
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 110;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: @space--extra-small @space--base;
+  padding: @space--small / 2 @space--base;
   width: 100%;
-  min-height: 80rpx; /* 至少有一行的高度，保证第一次动画显示正常 */
-  font-size: @font-size--base;
+  min-height: @notify-height; /* 至少有一行的高度，保证第一次动画显示正常 */
+  font-size: @font-size--small;
   color: @color--white;
-  line-height: @line-height--large;
+  line-height: @line-height--base;
   text-align: center;
   background-color: rgba(0, 0, 0, .7);
   transform: translateY(-100%);

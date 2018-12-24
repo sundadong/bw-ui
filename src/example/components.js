@@ -60,12 +60,12 @@ export default [
     id: 'feedback',
     children: [
       {
-        name: '弹出层',
-        id: 'popup'
-      },
-      {
         name: '加载中',
         id: 'loading'
+      },
+      {
+        name: '弹出层',
+        id: 'popup'
       },
       {
         name: '消息通知',
