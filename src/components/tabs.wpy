@@ -54,7 +54,8 @@ export default class BwTabs extends wepy.component {
       default: false
     },
     list: Array,
-    activeId: String,
+    activeId: [Number, String],
+    fixed: [Boolean, String],
     componentId: String
   }
 
