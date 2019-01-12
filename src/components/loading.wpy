@@ -23,7 +23,7 @@ import wepy from 'wepy'
 export default class BwLoading extends wepy.component {
   props = {
     fixed: {
-      type: Boolean,
+      type: [Boolean, String],
       default: false
     },
     type: {

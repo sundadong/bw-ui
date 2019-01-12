@@ -21,7 +21,6 @@ page {
 .page {
   width: 100%;
   height: 100%;
-  overflow: auto;
 }
 
 button {
@@ -50,3 +49,17 @@ button {
   opacity: 1;
 }
 
+.fix-iphonex-button {
+  bottom: 60rpx!important;
+}
+
+.fix-iphonex-button::after {
+  content: ' ';
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0!important;
+  height: 60rpx!important;
+  width: 100%;
+  background: #fff;
+}

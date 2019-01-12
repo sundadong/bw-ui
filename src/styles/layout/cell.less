@@ -62,6 +62,15 @@
     }
   }
 
+  &--refund {
+    .bw-cell__title {
+      margin-right: @space--base;
+      flex: initial;
+      align-self: flex-start;
+      color: @color-text--primary;
+    }
+  }
+
   &__label {
     margin-top: @space--extra-small / 2;
     font-size: @font-size--small;
@@ -88,7 +97,6 @@
   &__right-icon-wrap {
     display: flex;
     align-items: center;
-    font-size: @font-size--extra-large;
   }
 
   &__left-icon-wrap {
@@ -100,9 +108,9 @@
     color: @color-text--secondary;
   }
 
-  &__left-icon {
+  &__left-icon,
+  &__right-icon {
     font-size: @font-size--large;
-    vertical-align: middle;
   }
 
   &__left-thumb,

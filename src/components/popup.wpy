@@ -15,7 +15,8 @@ export default class BwPopup extends wepy.component {
     direction: {
       type: String,
       default: ''
-    }
+    },
+    componentId: String
   }
 
   data = {
@@ -26,6 +27,8 @@ export default class BwPopup extends wepy.component {
     togglePopup() {
       this.show = !this.show
       this.$apply()
+      let e = { componentId: this.componentId, show: this.show }
+      this.$emit('popupToggle', e)
     }
   }
 }

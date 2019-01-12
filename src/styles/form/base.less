@@ -1,0 +1,73 @@
+@import "../variables";
+@import "../mixins/hairline";
+
+@label-width: 120rpx;
+@input-height: 56rpx;
+
+.bw-form {
+  padding: 0 @space--base;
+  background-color: @color--white;
+
+  &__action {
+    padding: @space--base;
+
+    &--fixed {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9;
+    }
+  }
+
+  &__field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: @space--small 0;
+
+    &::after {
+      .hairline-bottom(@border-color--base, 0);
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+
+    &.is-disabled {
+      opacity: @opacity-disabled;
+    }
+
+    &.is-error {
+      color: @color--danger;
+
+      .bw-form__label,
+      .bw-form__control {
+        color: @color--danger;
+      }
+    }
+
+    textarea {
+      padding: @space--small / 2 0 0;
+    }
+  }
+
+  &__label {
+    width: @label-width;
+    margin-right: @space--base;
+    font-size: @font-size--base;
+    color: @color-text--primary;
+    text-align: left;
+  }
+
+  &__control {
+    flex: 1;
+    transform: translateY(-1rpx);
+  }
+
+  &__static {
+    flex: 1;
+    height: @input-height;
+    line-height: @input-height;
+  }
+}

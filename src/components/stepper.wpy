@@ -17,7 +17,7 @@
       data-min="{{ min }}"
       data-max="{{ max }}"
       value="{{ value }}"
-      disabled="{{ min >= max }}"
+      disabled="true"
       bindblur="handleBwStepperBlur"
     />
     <button
