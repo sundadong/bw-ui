@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'bw-iconfont';
+  src: url('https://at.alicdn.com/t/font_1449641469_3373763.woff2') format('woff2'),
+       url('https://at.alicdn.com/t/font_1449641469_3373763.woff') format('woff'),
+       url('https://at.alicdn.com/t/font_1449641469_3373763.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.bw-icon-chevron-left::before { content: "\e600"; }
+.bw-icon-chevron-right::before { content: "\e60e"; }
+.bw-icon-arrow-down::before { content: "\e606"; }
+.bw-icon-arrow-up::before { content: "\e60f"; }
+.bw-icon-close::before { content: "\e723"; }
+.bw-icon-close-fill::before { content: "\e724"; }
+.bw-icon-close-circle::before { content: "\e725"; }
+.bw-icon-location::before { content: "\e651"; }
+.bw-icon-location-fill::before { content: "\e650"; }
+.bw-icon-location-circle-fill::before { content: "\e80b"; }
+.bw-icon-check::before { content: "\e645"; }
+.bw-icon-check-empty::before { content: "\e72f"; }
+.bw-icon-check-fill::before { content: "\e730"; }
+.bw-icon-check-circle::before { content: "\e731"; }
+.bw-icon-alert::before { content: "\e72b"; }
+.bw-icon-alert-fill::before { content: "\e72a"; }
+.bw-icon-help-fill::before { content: "\e72c"; }
+.bw-icon-help::before { content: "\e72d"; }
+.bw-icon-add::before { content: "\e727"; }
+.bw-icon-move::before { content: "\e729"; }
+.bw-icon-edit::before { content: "\e642"; }
+.bw-icon-file::before { content: "\e791"; }
+.bw-icon-package::before { content: "\ebb9"; }
+.bw-icon-refund::before { content: "\e6ac"; }
+.bw-icon-wechat::before { content: "\e602"; }
+.bw-icon-people-circle-fill::before { content: "\e80d"; }
+.bw-icon-tallage::before { content: "\e60d"; }
+.bw-icon-cross-border::before { content: "\e70e"; }
+.bw-icon-loading::before { content: "\e633"; }
+.bw-icon-loading-2::before { content: "\e639"; }
+.bw-icon-loading-3::before { content: "\e770"; }
