@@ -1,168 +1,19 @@
 {
   "pages": [
     {
-      "path": "pages/index/index",
-      "style": {
-        "navigationBarTitleText": "BWUI 组件库"
-      }
-    }
-  ],
-  "subPackages": [
-    {
-      "root": "pages/basic",
-      "pages": [
-        {
-          "path": "button",
-          "style": {
-            "navigationBarTitleText": "Button 按钮"
-          }
-        },
-        {
-          "path": "icon",
-          "style": {
-            "navigationBarTitleText": "Icon 图标"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/form",
-      "pages": [
-        {
-          "path": "input",
-          "style": {
-            "navigationBarTitleText": "Input 输入框"
-          }
-        },
-        {
-          "path": "textarea",
-          "style": {
-            "navigationBarTitleText": "Textarea 文本域"
-          }
-        },
-        {
-          "path": "stepper",
-          "style": {
-            "navigationBarTitleText": "Stepper 步进器"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/feedback",
-      "pages": [
-        {
-          "path": "loading",
-          "style": {
-            "navigationBarTitleText": "Loading 加载"
-          }
-        },
-        {
-          "path": "notify",
-          "style": {
-            "navigationBarTitleText": "Notify 通知"
-          }
-        },
-        {
-          "path": "popup",
-          "style": {
-            "navigationBarTitleText": "Popup 弹出层"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/layout",
-      "pages": [
-        {
-          "path": "cell",
-          "style": {
-            "navigationBarTitleText": "Cell 单元格"
-          }
-        },
-        {
-          "path": "layout",
-          "style": {
-            "navigationBarTitleText": "Layout 布局"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/nav",
-      "pages": [
-        {
-          "path": "tabs",
-          "style": {
-            "navigationBarTitleText": "Tabs 标签页"
-          }
-        }
-      ]
-    },
-    {
-      "root": "pages/view",
-      "pages": [
-        {
-          "path": "alert",
-          "style": {
-            "navigationBarTitleText": "Alert 警告"
-          }
-        },
-        {
-          "path": "article",
-          "style": {
-            "navigationBarTitleText": "Article 文章"
-          }
-        },
-        {
-          "path": "avatar",
-          "style": {
-            "navigationBarTitleText": "Avatar 头像"
-          }
-        },
-        {
-          "path": "badge",
-          "style": {
-            "navigationBarTitleText": "Badge 徽章"
-          }
-        },
-        {
-          "path": "countdown",
-          "style": {
-            "navigationBarTitleText": "Countdown 倒计时"
-          }
-        },
-        {
-          "path": "empty",
-          "style": {
-            "navigationBarTitleText": "Empty 空状态"
-          }
-        },
-        {
-          "path": "loadmore",
-          "style": {
-            "navigationBarTitleText": "Loadmore 加载更多"
-          }
-        },
-        {
-          "path": "tag",
-          "style": {
-            "navigationBarTitleText": "Tag 标签"
-          }
-        },
-        {
-          "path": "timeline",
-          "style": {
-            "navigationBarTitleText": "Timeline 时间线"
-          }
-        }
-      ]
+      "path": "pages/index",
+      "type": "home"
     }
   ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "BWUI",
-    "navigationBarBackgroundColor": "#ffffff",
-    "backgroundColor": "#f7f8fa"
-  }
+    "backgroundColor": "@bgColor",
+    "backgroundColorBottom": "@bgColorBottom",
+    "backgroundColorTop": "@bgColorTop",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationBarTitleText": "Uni Creator",
+    "navigationStyle": "custom"
+  },
+  "subPackages": []
 }

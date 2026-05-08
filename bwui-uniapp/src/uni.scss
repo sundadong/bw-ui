@@ -1,3 +1,37 @@
-@import './styles/variables.scss';
-@import './styles/common.scss';
-@import './styles/icons.scss';
+@import './variables.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+page {
+  background-color: $bg-color;
+  font-size: 14px;
+  color: $text-color;
+}
+
+$primary-color: #1989fa;
+$success-color: #07c160;
+$warning-color: #ff976a;
+$danger-color: #ee0a24;
+$text-color: #323233;
+$text-color-2: #646566;
+$text-color-3: #969799;
+$border-color: #ebedf0;
+$bg-color: #f7f8fa;
+$padding-xs: 8px;
+$padding-sm: 12px;
+$padding-md: 16px;
+$padding-lg: 24px;
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+$font-size-xs: 10px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+$font-size-xxl: 20px;
+$button-height-sm: 28px;
+$button-height-md: 36px;
+$button-height-lg: 44px;
