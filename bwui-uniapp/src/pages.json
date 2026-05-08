@@ -2,18 +2,82 @@
   "pages": [
     {
       "path": "pages/index",
-      "type": "home"
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "BWUI 组件库"
+      }
+    },
+    {
+      "path": "pages/basic/index",
+      "style": {
+        "navigationBarTitleText": "基础组件"
+      }
+    },
+    {
+      "path": "pages/form/index",
+      "style": {
+        "navigationBarTitleText": "表单组件"
+      }
+    },
+    {
+      "path": "pages/feedback/index",
+      "style": {
+        "navigationBarTitleText": "反馈组件"
+      }
+    },
+    {
+      "path": "pages/layout/index",
+      "style": {
+        "navigationBarTitleText": "布局组件"
+      }
+    },
+    {
+      "path": "pages/nav/index",
+      "style": {
+        "navigationBarTitleText": "导航组件"
+      }
+    },
+    {
+      "path": "pages/view/index",
+      "style": {
+        "navigationBarTitleText": "视图组件"
+      }
     }
   ],
   "globalStyle": {
-    "backgroundColor": "@bgColor",
-    "backgroundColorBottom": "@bgColorBottom",
-    "backgroundColorTop": "@bgColorTop",
-    "backgroundTextStyle": "@bgTxtStyle",
-    "navigationBarBackgroundColor": "#000000",
-    "navigationBarTextStyle": "@navTxtStyle",
-    "navigationBarTitleText": "Uni Creator",
-    "navigationStyle": "custom"
+    "backgroundColor": "#f7f8fa",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "BWUI",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1989fa",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/basic/index",
+        "text": "基础"
+      },
+      {
+        "pagePath": "pages/form/index",
+        "text": "表单"
+      },
+      {
+        "pagePath": "pages/feedback/index",
+        "text": "反馈"
+      },
+      {
+        "pagePath": "pages/view/index",
+        "text": "视图"
+      }
+    ]
   },
   "subPackages": []
 }

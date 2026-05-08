@@ -1,89 +1,116 @@
 <template>
-  <view class="bw-button" :class="buttonClass" @click="handleClick">
+  <button
+    class="bw-button"
+    :class="[
+      `bw-button--${type}`,
+      `bw-button--${size}`,
+      { 'bw-button--plain': plain },
+      { 'bw-button--round': round },
+      { 'bw-button--square': square },
+      { 'bw-button--disabled': disabled },
+      { 'bw-button--loading': loading }
+    ]"
+    :disabled="disabled || loading"
+    @click="handleClick"
+  >
     <view v-if="loading" class="bw-button__loading"></view>
     <slot></slot>
-  </view>
+  </button>
 </template>
 
 <script setup>
-defineProps({
-  type: { type: String, default: 'default' },
-  size: { type: String, default: 'medium' },
-  plain: Boolean,
-  round: Boolean,
-  block: Boolean,
-  disabled: Boolean,
-  loading: Boolean
-});
-
-const buttonClass = computed(() => ({
-  [`bw-button--${props.type}`]: true,
-  [`bw-button--${props.size}`]: true,
-  'bw-button--plain': props.plain,
-  'bw-button--round': props.round,
-  'bw-button--block': props.block,
-  'bw-button--disabled': props.disabled,
-  'bw-button--loading': props.loading
-}));
-
 const props = defineProps({
   type: { type: String, default: 'default' },
   size: { type: String, default: 'medium' },
   plain: Boolean,
   round: Boolean,
-  block: Boolean,
+  square: Boolean,
   disabled: Boolean,
   loading: Boolean
 });
 
-const handleClick = () => {
+const emit = defineEmits(['click']);
+const handleClick = (e) => {
   if (!props.disabled && !props.loading) {
-    emit('click');
+    emit('click', e);
   }
 };
-
-const emit = defineEmits(['click']);
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+$primary: #1989fa;
+$success: #07c160;
+$warning: #ff976a;
+$danger: #ee0a24;
+$text: #323233;
+$border: #ebedf0;
+$sm: 12px;
+$md: 14px;
+$lg: 16px;
+
 .bw-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
   padding: 0 16px;
-  font-size: 14px;
-  border-radius: 4px;
   border: 1px solid transparent;
-  cursor: pointer;
-  
-  &--primary { color: #fff; background: #1989fa; border-color: #1989fa; }
-  &--success { color: #fff; background: #07c160; border-color: #07c160; }
-  &--warning { color: #fff; background: #ff976a; border-color: #ff976a; }
-  &--danger { color: #fff; background: #ee0a24; border-color: #ee0a24; }
-  &--default { color: #323233; background: #fff; border-color: #d9d9d9; }
-  
-  &--small { height: 28px; padding: 0 12px; font-size: 12px; }
-  &--large { height: 44px; padding: 0 24px; font-size: 16px; }
-  &--block { display: flex; width: 100%; }
+  border-radius: 4px;
+  font-size: $md;
+  transition: all 0.2s;
+
+  &--default {
+    background: #fff;
+    border-color: $border;
+    color: $text;
+  }
+
+  &--primary {
+    background: $primary;
+    border-color: $primary;
+    color: #fff;
+    &.bw-button--plain {
+      background: #e6f4ff;
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  &--success {
+    background: $success;
+    border-color: $success;
+    color: #fff;
+  }
+
+  &--warning {
+    background: $warning;
+    border-color: $warning;
+    color: #fff;
+  }
+
+  &--danger {
+    background: $danger;
+    border-color: $danger;
+    color: #fff;
+  }
+
+  &--small { height: 28px; font-size: $sm; }
+  &--medium { height: 36px; }
+  &--large { height: 44px; font-size: $lg; }
   &--round { border-radius: 999px; }
-  &--plain.bw-button--primary { color: #1989fa; background: transparent; }
-  &--disabled { opacity: 0.4; cursor: not-allowed; }
+  &--square { border-radius: 0; }
+  &--disabled { opacity: 0.5; cursor: not-allowed; }
   &--loading { cursor: wait; }
-  
+
   &__loading {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     border: 2px solid currentColor;
-    border-right-color: transparent;
+    border-top-color: transparent;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
-    margin-right: 6px;
+    margin-right: 4px;
   }
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 </style>
