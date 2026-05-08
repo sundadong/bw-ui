@@ -2,6 +2,7 @@
   <view class="bw-loadmore" :class="{ 'bw-loadmore--finished': status === 'finished' }">
     <view v-if="status === 'loading'" class="bw-loadmore__loading">
       <text class="bw-icon bw-icon-loading bw-loadmore__icon"></text>
+      <view class="bw-loadmore__tip">{{ loadingText }}</view>
     </view>
     <view v-else-if="status === 'finished'" class="bw-loadmore__divider">
       <view class="bw-loadmore__line"></view>
@@ -13,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 
 export interface LoadmoreProps {
   status?: 'loading' | 'finished' | 'error';
@@ -31,7 +32,6 @@ const props = withDefaults(defineProps<LoadmoreProps>(), {
 
 const statusText = computed(() => {
   const texts: Record<string, string> = {
-    loading: props.loadingText,
     finished: props.finishedText,
     error: props.errorText,
   };
@@ -58,6 +58,9 @@ const statusText = computed(() => {
   }
 
   &__loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: $padding-xs;
   }
 

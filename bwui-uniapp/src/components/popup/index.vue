@@ -1,13 +1,15 @@
 <template>
-  <view
-    v-if="show"
-    class="bw-popup"
-    :class="[`bw-popup--${position}`, { 'is-active': show }]"
-    @click="handleMaskClick"
-  >
-    <view class="bw-popup__mask" @click="handleMaskClick"></view>
+  <view class="bw-popup">
     <view
+      v-if="show"
+      class="bw-popup__mask"
+      :class="{ 'is-active': show }"
+      @click="handleMaskClick"
+    ></view>
+    <view
+      v-if="show"
       class="bw-popup__container"
+      :class="[`bw-popup--${position}`, { 'is-active': show }]"
       :style="containerStyle"
       @click.stop="handleContainerClick"
     >
@@ -15,13 +17,9 @@
         <slot name="title">
           <text>{{ title }}</text>
         </slot>
-        <text
-          v-if="closeable"
-          class="bw-popup__close"
-          @click="handleClose"
-        >
-          <text class="bw-icon bw-icon-close"></text>
-        </text>
+      </view>
+      <view v-if="closeable" class="bw-popup__close" @click="handleClose">
+        <text class="bw-icon bw-icon-close"></text>
       </view>
       <view class="bw-popup__body">
         <slot></slot>
@@ -92,20 +90,6 @@ const handleClose = () => {
 
 <style lang="scss" scoped>
 .bw-popup {
-  visibility: hidden;
-
-  &.is-active {
-    visibility: visible;
-
-    .bw-popup__mask {
-      display: block;
-    }
-
-    .bw-popup__container {
-      opacity: 1;
-    }
-  }
-
   &__mask {
     position: fixed;
     top: 0;
@@ -115,6 +99,10 @@ const handleClose = () => {
     z-index: 100;
     background: rgba(0, 0, 0, 0.5);
     display: none;
+
+    &.is-active {
+      display: block;
+    }
   }
 
   &__container {
@@ -132,12 +120,9 @@ const handleClose = () => {
     overflow: hidden;
   }
 
-  &--top,
-  &--left,
-  &--right,
-  &--bottom {
-    &.is-active {
-      .bw-popup__container {
+  &--center {
+    .bw-popup__container {
+      &.is-active {
         opacity: 1;
       }
     }
@@ -158,6 +143,7 @@ const handleClose = () => {
     &.is-active {
       .bw-popup__container {
         transform: translateY(0);
+        opacity: 1;
       }
     }
   }
@@ -177,6 +163,7 @@ const handleClose = () => {
     &.is-active {
       .bw-popup__container {
         transform: translateY(0);
+        opacity: 1;
       }
     }
   }
@@ -196,6 +183,7 @@ const handleClose = () => {
     &.is-active {
       .bw-popup__container {
         transform: translateX(0);
+        opacity: 1;
       }
     }
   }
@@ -215,6 +203,7 @@ const handleClose = () => {
     &.is-active {
       .bw-popup__container {
         transform: translateX(0);
+        opacity: 1;
       }
     }
   }

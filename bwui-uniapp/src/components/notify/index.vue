@@ -1,6 +1,5 @@
 <template>
   <view
-    v-if="visible"
     class="bw-notify"
     :class="`bw-notify--${type}`"
     :style="notifyStyle"
@@ -10,11 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, computed, ref, watch, onUnmounted } from 'vue';
+import { computed } from 'vue';
 
 export interface NotifyProps {
   message: string;
-  type?: 'primary' | 'info' | 'success' | 'danger';
+  type?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
   duration?: number;
   top?: number;
 }
@@ -25,51 +24,9 @@ const props = withDefaults(defineProps<NotifyProps>(), {
   top: 0,
 });
 
-const visible = ref(false);
-let timer: ReturnType<typeof setTimeout> | null = null;
-
 const notifyStyle = computed(() => ({
   top: `${props.top}px`,
 }));
-
-const show = () => {
-  visible.value = true;
-  if (props.duration > 0) {
-    timer = setTimeout(() => {
-      visible.value = false;
-    }, props.duration);
-  }
-};
-
-const hide = () => {
-  visible.value = false;
-  if (timer) {
-    clearTimeout(timer);
-    timer = null;
-  }
-};
-
-watch(
-  () => props.message,
-  () => {
-    hide();
-    setTimeout(() => {
-      show();
-    }, 100);
-  },
-  { immediate: true }
-);
-
-onUnmounted(() => {
-  if (timer) {
-    clearTimeout(timer);
-  }
-});
-
-defineExpose({
-  show,
-  hide,
-});
 </script>
 
 <style lang="scss" scoped>
@@ -102,6 +59,10 @@ defineExpose({
 
   &--success {
     background-color: lighten($success-color, 10%);
+  }
+
+  &--warning {
+    background-color: lighten($warning-color, 10%);
   }
 
   &--danger {
