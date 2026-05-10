@@ -51,33 +51,5 @@
     "navigationBarTitleText": "BWUI",
     "backgroundTextStyle": "light"
   },
-  "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#1989fa",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/basic/index",
-        "text": "基础"
-      },
-      {
-        "pagePath": "pages/form/index",
-        "text": "表单"
-      },
-      {
-        "pagePath": "pages/feedback/index",
-        "text": "反馈"
-      },
-      {
-        "pagePath": "pages/view/index",
-        "text": "视图"
-      }
-    ]
-  },
   "subPackages": []
 }
