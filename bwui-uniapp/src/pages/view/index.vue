@@ -2,7 +2,7 @@
   <view class="page">
     <view class="section">
       <view class="section__title">警告提示</view>
-      <view class="section__content"><bw-alert type="info" title="信息提示" message="这是一条信息提示" show-icon /><bw-alert type="success" title="成功提示" message="操作成功！" show-icon /><bw-alert type="warning" title="警告提示" message="警告：注意查看" show-icon /><bw-alert type="error" title="错误提示" message="错误：操作失败" show-icon /></view>
+      <view class="section__content section__content--col"><bw-alert type="info" title="信息提示" message="这是一条信息提示" show-icon /><bw-alert type="success" title="成功提示" message="操作成功！" show-icon /><bw-alert type="warning" title="警告提示" message="警告：注意查看" show-icon /><bw-alert type="error" title="错误提示" message="错误：操作失败" show-icon /></view>
     </view>
     <view class="section">
       <view class="section__title">头像</view>
@@ -58,6 +58,6 @@ const timelineItems = ref([
 
 <style scoped lang="scss">
 .page { padding: 16px; }
-.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; } }
+.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; &--col { flex-direction: column; align-items: stretch; } } }
 .badge-box { width: 50px; height: 50px; background: #f7f8fa; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #646566; }
 </style>
