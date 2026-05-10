@@ -25,10 +25,7 @@ const days = computed(() => String(Math.floor(totalSeconds.value / 86400)).padSt
 const hours = computed(() => String(Math.floor((totalSeconds.value % 86400) / 3600)).padStart(2, '0'));
 const minutes = computed(() => String(Math.floor((totalSeconds.value % 3600) / 60)).padStart(2, '0'));
 const seconds = computed(() => String(totalSeconds.value % 60).padStart(2, '0'));
-watch(() => props.time, (val) => {
-  remaining.value = Number(val);
-  if (props.autoStart && remaining.value > 0) startTimer();
-}, { immediate: true });
+const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
 const startTimer = () => {
   stopTimer();
   if (remaining.value <= 0) return;
@@ -42,7 +39,10 @@ const startTimer = () => {
     }
   }, 1000);
 };
-const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
+watch(() => props.time, (val) => {
+  remaining.value = Number(val);
+  if (props.autoStart && remaining.value > 0) startTimer();
+}, { immediate: true });
 onMounted(() => { if (props.autoStart && remaining.value > 0) startTimer(); });
 onUnmounted(() => stopTimer());
 </script>
