@@ -1,6 +1,6 @@
 <template>
   <view class="bw-alert" :class="`bw-alert--${type}`">
-    <view v-if="showIcon" class="bw-alert__icon">!</view>
+    <view v-if="showIcon" class="bw-alert__icon" :class="`bw-alert__icon--${type}`">!</view>
     <view class="bw-alert__content">
       <view v-if="title" class="bw-alert__title">{{ title }}</view>
       <view class="bw-alert__message"><slot>{{ message }}</slot></view>
@@ -35,14 +35,18 @@ const handleClose = () => emit('close');
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: currentColor;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 12px;
     margin-right: 8px;
     flex-shrink: 0;
+    &--info { background: #1890ff; }
+    &--success { background: #52c41a; }
+    &--warning { background: #faad14; }
+    &--error { background: #ff4d4f; }
   }
   &__content { flex: 1; }
   &__title { font-weight: 600; margin-bottom: 4px; }
