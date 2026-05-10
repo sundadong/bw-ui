@@ -30,7 +30,14 @@
 </template>
 
 <script setup>
-const goPage = (url) => { uni.navigateTo({ url }); };
+const tabBarPages = ['/pages/basic/index', '/pages/form/index', '/pages/feedback/index', '/pages/view/index'];
+const goPage = (url) => {
+  if (tabBarPages.includes(url)) {
+    uni.switchTab({ url });
+  } else {
+    uni.navigateTo({ url });
+  }
+};
 </script>
 
 <style scoped lang="scss">
