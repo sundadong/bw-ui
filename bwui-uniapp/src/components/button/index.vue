@@ -1,5 +1,5 @@
 <template>
-  <button
+  <view
     class="bw-button"
     :class="[
       `bw-button--${type}`,
@@ -10,12 +10,11 @@
       { 'bw-button--disabled': disabled },
       { 'bw-button--loading': loading }
     ]"
-    :disabled="disabled || loading"
-    @click="handleClick"
+    @tap="handleClick"
   >
     <view v-if="loading" class="bw-button__loading"></view>
     <slot></slot>
-  </button>
+  </view>
 </template>
 
 <script setup>
