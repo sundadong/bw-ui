@@ -20,7 +20,7 @@
         <bw-button size="small" @click="showBottom = true">底部弹出</bw-button>
       </view>
     </view>
-    <bw-notify v-model="notifyVisible" :message="notifyMessage" :type="notifyType" :show="notifyVisible" />
+    <bw-notify v-model="notifyVisible" :message="notifyMessage" :type="notifyType" />
     <bw-popup v-model="showPopup" title="居中弹出" position="center"><view style="padding: 20px; text-align: center;"><text>这是一个居中弹出的内容</text></view></bw-popup>
     <bw-popup v-model="showBottom" title="底部弹出" position="bottom"><view style="padding: 20px; text-align: center;"><text>这是一个底部弹出的内容</text></view></bw-popup>
   </view>

@@ -1,31 +1,29 @@
 <template>
-  <teleport to="body">
-    <transition name="bw-popup">
-      <view v-if="show" class="bw-popup" :class="`bw-popup--${position}`" @tap="handleOverlayClick">
-        <view class="bw-popup__content" @tap.stop>
-          <view v-if="title" class="bw-popup__header">{{ title }}</view>
-          <view class="bw-popup__body"><slot></slot></view>
-          <view v-if="showClose" class="bw-popup__close" @tap="handleClose">×</view>
-        </view>
+  <transition name="bw-popup">
+    <view v-if="modelValue" class="bw-popup" :class="`bw-popup--${position}`" @tap="handleOverlayClick">
+      <view class="bw-popup__content" @tap.stop>
+        <view v-if="title" class="bw-popup__header">{{ title }}</view>
+        <view class="bw-popup__body"><slot></slot></view>
+        <view v-if="showClose" class="bw-popup__close" @tap="handleClose">×</view>
       </view>
-    </transition>
-  </teleport>
+    </view>
+  </transition>
 </template>
 
 <script setup>
 const props = defineProps({
-  show: Boolean,
+  modelValue: { type: Boolean, default: false },
   title: { type: String, default: '' },
   position: { type: String, default: 'center' },
   showClose: { type: Boolean, default: true }
 });
-const emit = defineEmits(['update:show', 'close']);
+const emit = defineEmits(['update:modelValue', 'close']);
 const handleOverlayClick = () => {
-  emit('update:show', false);
+  emit('update:modelValue', false);
   emit('close');
 };
 const handleClose = () => {
-  emit('update:show', false);
+  emit('update:modelValue', false);
   emit('close');
 };
 </script>

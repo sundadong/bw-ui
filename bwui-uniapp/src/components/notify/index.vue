@@ -1,28 +1,26 @@
 <template>
-  <teleport to="body">
-    <transition name="bw-notify">
-      <view v-if="visible" class="bw-notify" :class="`bw-notify--${type}`">
-        <text>{{ message }}</text>
-      </view>
-    </transition>
-  </teleport>
+  <transition name="bw-notify">
+    <view v-if="modelValue" class="bw-notify" :class="`bw-notify--${type}`">
+      <text>{{ message }}</text>
+    </view>
+  </transition>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { watch } from 'vue';
 const props = defineProps({
+  modelValue: { type: Boolean, default: false },
   message: { type: String, default: '' },
   type: { type: String, default: 'primary' },
-  duration: { type: Number, default: 3000 },
-  show: Boolean
+  duration: { type: Number, default: 3000 }
 });
+const emit = defineEmits(['update:modelValue']);
 const visible = defineModel();
-watch(() => props.show, (val) => {
-  visible.value = val;
+watch(visible, (val) => {
   if (val && props.duration > 0) {
     setTimeout(() => { visible.value = false; }, props.duration);
   }
-}, { immediate: true });
+});
 </script>
 
 <style scoped lang="scss">
