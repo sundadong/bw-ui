@@ -11,7 +11,7 @@
     </view>
     <view class="section">
       <view class="section__title">步进器</view>
-      <view class="section__content">
+      <view class="section__content section__content--pad">
         <view class="mb-md"><text class="label">基础：</text><bw-stepper v-model="stepperValue" /></view>
         <view class="mb-md"><text class="label">带限制：</text><bw-stepper v-model="stepperValue2" :min="0" :max="10" /></view>
         <view><text class="label">禁用：</text><bw-stepper v-model="stepperValue" disabled /></view>
@@ -34,7 +34,7 @@ const stepperValue2 = ref(5);
 
 <style scoped lang="scss">
 .page { padding: 16px; }
-.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 0; } }
+.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 0; &--pad { padding: 16px; } } }
 .label { display: block; font-size: 12px; color: #646566; margin-bottom: 8px; }
 .mb-md { margin-bottom: 12px; }
 </style>
