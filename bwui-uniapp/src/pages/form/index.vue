@@ -38,6 +38,31 @@
         </view>
       </view>
     </view>
+    <view class="section">
+      <view class="section__title">选择器</view>
+      <view class="section__content section__content--pad">
+        <bw-picker v-model="pickerValue" label="水果" title="选择水果" :columns="pickerColumns" />
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">日期选择</view>
+      <view class="section__content section__content--pad">
+        <bw-date-picker v-model="dateValue" label="日期" title="选择日期" />
+        <view class="mt-md"><bw-date-picker v-model="monthValue" label="月份" title="选择月份" hide-day /></view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">地址选择</view>
+      <view class="section__content section__content--pad">
+        <bw-area-picker v-model="areaValue" label="地区" title="选择地区" />
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">日历</view>
+      <view class="section__content section__content--col">
+        <bw-calendar v-model="calendarValue" />
+      </view>
+    </view>
   </view>
 </template>
 
@@ -49,6 +74,10 @@ import bwStepper from '@/components/stepper/index.vue';
 import bwSwitch from '@/components/switch/index.vue';
 import bwProgress from '@/components/progress/index.vue';
 import bwButton from '@/components/button/index.vue';
+import bwPicker from '@/components/picker/index.vue';
+import bwDatePicker from '@/components/date-picker/index.vue';
+import bwAreaPicker from '@/components/area-picker/index.vue';
+import bwCalendar from '@/components/calendar/index.vue';
 const inputValue = ref('');
 const inputValue2 = ref('禁用内容');
 const textareaValue = ref('');
@@ -56,6 +85,12 @@ const stepperValue = ref(0);
 const stepperValue2 = ref(5);
 const switchValue = ref(true);
 const progressValue = ref(30);
+const pickerValue = ref('apple');
+const pickerColumns = [['苹果', '香蕉', '橙子', '葡萄']];
+const dateValue = ref('');
+const monthValue = ref('');
+const areaValue = ref('');
+const calendarValue = ref('');
 </script>
 
 <style scoped lang="scss">
@@ -63,7 +98,7 @@ const progressValue = ref(30);
 .section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 0; &--pad { padding: 16px; } &--col { padding: 16px; display: flex; flex-direction: column; gap: 16px; } } }
 .label { display: block; font-size: 12px; color: #646566; margin-bottom: 8px; }
 .mb-md { margin-bottom: 12px; }
-.mt-md { margin-top: 8px; }
+.mt-md { margin-top: 12px; }
 .flex { display: flex; }
 .gap-sm { gap: 8px; }
 </style>
