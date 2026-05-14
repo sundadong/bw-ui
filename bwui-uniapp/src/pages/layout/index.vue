@@ -1,10 +1,6 @@
 <template>
   <view class="page">
     <view class="section">
-      <view class="section__title">单元格</view>
-      <view class="section__content"><bw-cell title="标题文字" value="内容" is-link /><bw-cell title="标题文字" value="内容" label="描述信息" is-link /><bw-cell title="标题文字" value="内容" /></view>
-    </view>
-    <view class="section">
       <view class="section__title">布局 - 宫格</view>
       <view class="section__content">
         <bw-layout>
@@ -20,7 +16,6 @@
 </template>
 
 <script setup>
-import bwCell from '@/components/cell/index.vue';
 import bwLayout from '@/components/layout/index.vue';
 import bwCol from '@/components/col/index.vue';
 </script>
