@@ -38,7 +38,6 @@ const handleClose = () => {
     position: absolute;
     background: #fff;
     min-width: 200px;
-    max-width: 90%;
     max-height: 80%;
     overflow: auto;
   }
@@ -47,6 +46,7 @@ const handleClose = () => {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
+    max-width: 90%;
   }
   &--bottom &__content { bottom: 0; left: 0; right: 0; border-radius: 8px 8px 0 0; }
   &--top &__content { top: 0; left: 0; right: 0; border-radius: 0 0 8px 8px; }

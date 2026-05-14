@@ -22,11 +22,11 @@
     </view>
     <view class="section">
       <view class="section__title">空状态</view>
-      <view class="section__content"><bw-empty description="暂无数据" /></view>
+      <view class="section__content section__content--col"><bw-empty description="暂无数据" /></view>
     </view>
     <view class="section">
       <view class="section__title">加载更多</view>
-      <view class="section__content"><bw-loadmore :loading="loading" :finished="finished" /></view>
+      <view class="section__content section__content--col"><bw-loadmore :loading="loading" :finished="finished" /></view>
     </view>
     <view class="section">
       <view class="section__title">时间线</view>
