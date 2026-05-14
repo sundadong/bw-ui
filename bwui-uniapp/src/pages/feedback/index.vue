@@ -33,31 +33,6 @@
         <bw-button size="small" @click="showActionSheet = true">打开面板</bw-button>
       </view>
     </view>
-    <view class="section">
-      <view class="section__title">分割线</view>
-      <view class="section__content section__content--col">
-        <bw-divider />
-        <bw-divider>带文字</bw-divider>
-        <bw-divider dashed />
-      </view>
-    </view>
-    <view class="section">
-      <view class="section__title">卡片</view>
-      <view class="section__content section__content--col">
-        <bw-card title="卡片标题" subtitle="副标题文案">
-          这是卡片内容区域，可以放置任意内容。
-        </bw-card>
-        <bw-card>
-          <template #header>
-            <view class="custom-header">自定义卡片头部</view>
-          </template>
-          通过 slot 自定义卡片头部区域。
-          <template #footer>
-            <view class="custom-footer">底部信息</view>
-          </template>
-        </bw-card>
-      </view>
-    </view>
     <bw-notify v-model="notifyVisible" :message="notifyMessage" :type="notifyType" />
     <bw-popup v-model="showPopup" title="居中弹出" position="center"><view style="padding: 20px; text-align: center;"><text>这是一个居中弹出的内容</text></view></bw-popup>
     <bw-popup v-model="showBottom" title="底部弹出" position="bottom"><view style="padding: 20px; text-align: center;"><text>这是一个底部弹出的内容</text></view></bw-popup>
@@ -75,8 +50,6 @@ import bwNotify from '@/components/notify/index.vue';
 import bwPopup from '@/components/popup/index.vue';
 import bwDialog from '@/components/dialog/index.vue';
 import bwActionsheet from '@/components/actionsheet/index.vue';
-import bwDivider from '@/components/divider/index.vue';
-import bwCard from '@/components/card/index.vue';
 const notifyVisible = ref(false);
 const notifyMessage = ref('');
 const notifyType = ref('primary');
@@ -100,7 +73,5 @@ const showNotify = (type) => {
 
 <style scoped lang="scss">
 .page { padding: 16px; }
-.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; gap: 8px; &--col { display: block; } } }
-.custom-header { font-weight: 600; color: #323233; }
-.custom-footer { color: #969799; font-size: 12px; }
+.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; gap: 8px; } }
 </style>

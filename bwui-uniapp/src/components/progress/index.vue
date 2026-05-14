@@ -44,14 +44,15 @@ const pivotText = computed(() => {
 
   &__track {
     flex: 1;
+    height: 4px;
     background: #ebedf0;
     border-radius: 999px;
     overflow: visible;
   }
 
   &__bar {
-    height: inherit;
-    border-radius: inherit;
+    height: 4px;
+    border-radius: 999px;
     transition: width 0.3s;
 
     &--success { background: #07c160; }

@@ -32,6 +32,31 @@
       <view class="section__title">时间线</view>
       <view class="section__content"><bw-timeline :items="timelineItems" /></view>
     </view>
+    <view class="section">
+      <view class="section__title">分割线</view>
+      <view class="section__content section__content--col">
+        <bw-divider />
+        <bw-divider>带文字</bw-divider>
+        <bw-divider dashed />
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">卡片</view>
+      <view class="section__content section__content--col">
+        <bw-card title="卡片标题" subtitle="副标题文案">
+          这是卡片内容区域，可以放置任意内容。
+        </bw-card>
+        <bw-card>
+          <template #header>
+            <view class="custom-header">自定义卡片头部</view>
+          </template>
+          通过 slot 自定义卡片头部区域。
+          <template #footer>
+            <view class="custom-footer">底部信息</view>
+          </template>
+        </bw-card>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -45,6 +70,8 @@ import bwCountdown from '@/components/countdown/index.vue';
 import bwEmpty from '@/components/empty/index.vue';
 import bwLoadmore from '@/components/loadmore/index.vue';
 import bwTimeline from '@/components/timeline/index.vue';
+import bwDivider from '@/components/divider/index.vue';
+import bwCard from '@/components/card/index.vue';
 const timeValue = ref(3665000);
 const loading = ref(false);
 const finished = ref(false);
@@ -58,6 +85,8 @@ const timelineItems = ref([
 
 <style scoped lang="scss">
 .page { padding: 16px; }
-.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; &--col { flex-direction: column; align-items: stretch; } } }
+.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; &--col { display: block; } } }
 .badge-box { width: 50px; height: 50px; background: #f7f8fa; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #646566; }
+.custom-header { font-weight: 600; color: #323233; }
+.custom-footer { color: #969799; font-size: 12px; }
 </style>

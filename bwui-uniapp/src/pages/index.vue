@@ -18,7 +18,7 @@
         <view class="home__card" @tap="goPage('/pages/feedback/index')"><view class="home__card-icon">🔔</view><view class="home__card-name">反馈组件</view><view class="home__card-desc">Dialog / ActionSheet...</view></view>
         <view class="home__card" @tap="goPage('/pages/layout/index')"><view class="home__card-icon">📐</view><view class="home__card-name">布局组件</view><view class="home__card-desc">Layout</view></view>
         <view class="home__card" @tap="goPage('/pages/nav/index')"><view class="home__card-icon">📑</view><view class="home__card-name">导航组件</view><view class="home__card-desc">Tabs</view></view>
-        <view class="home__card" @tap="goPage('/pages/view/index')"><view class="home__card-icon">🎨</view><view class="home__card-name">视图组件</view><view class="home__card-desc">Alert / Avatar / Badge...</view></view>
+        <view class="home__card" @tap="goPage('/pages/view/index')"><view class="home__card-icon">🎨</view><view class="home__card-name">视图组件</view><view class="home__card-desc">Alert / Card / Divider...</view></view>
       </view>
     </view>
     <view class="home__stats">
