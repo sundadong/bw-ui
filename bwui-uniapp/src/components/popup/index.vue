@@ -38,7 +38,6 @@ const handleClose = () => {
     position: absolute;
     background: #fff;
     min-width: 200px;
-    max-height: 80%;
     overflow: auto;
   }
   &--center &__content {
@@ -46,10 +45,10 @@ const handleClose = () => {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
-    max-width: 90%;
+    width: 90%;
   }
-  &--bottom &__content { bottom: 0; left: 0; right: 0; border-radius: 8px 8px 0 0; }
-  &--top &__content { top: 0; left: 0; right: 0; border-radius: 0 0 8px 8px; }
+  &--bottom &__content { bottom: 0; left: 0; right: 0; border-radius: 8px 8px 0 0; height: 90%; }
+  &--top &__content { top: 0; left: 0; right: 0; border-radius: 0 0 8px 8px; height: 90%; }
   &__header {
     padding: 16px;
     font-size: 16px;
