@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+dist
+build
+unpackage
+
+# IDE & Editor
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Cache
+*.tsbuildinfo
+.cache
+.temp
+.vite
+
+# Testing
+coverage
+playwright-report
+test-results
+
+# Temporary files
+*.bak
+*.tmp
+*.temp

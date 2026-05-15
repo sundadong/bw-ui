@@ -1,11 +1,10 @@
-// BWUI Vant4 Style Variables
-
+// BWUI Vant4 风格变量
 // Brand Colors
 $bw-primary-color: #1989fa !default;
 $bw-success-color: #07c160 !default;
 $bw-warning-color: #ff976a !default;
 $bw-danger-color: #ee0a24 !default;
-$bw-default-color: #fff !default;
+$bw-default-color: #ffffff !default;
 $bw-white: #ffffff !default;
 
 // Text Colors
@@ -15,9 +14,10 @@ $bw-text-color-2: #969799 !default;
 $bw-text-color-3: #c8c9cc !default;
 
 // Background Colors
-$bw-bg-color: #fff !default;
+$bw-bg-color: #ffffff !default;
 $bw-bg-color-light: #f7f8fa !default;
-$bw-bg-color-main: #fff !default;
+$bw-bg-color-main: #ffffff !default;
+$bw-bg-color-gray: #f7f8fa !default;
 
 // Border Colors
 $bw-border-color: #ebedf0 !default;
@@ -42,6 +42,7 @@ $bw-font-size-sm: 12px !default;
 $bw-font-size-md: 14px !default;
 $bw-font-size-lg: 16px !default;
 $bw-font-size-xl: 18px !default;
+$bw-font-size-xxl: 20px !default;
 
 // Font Line Height
 $bw-line-height-xs: 1.2 !default;
@@ -60,10 +61,11 @@ $bw-border-radius-round: 999px !default;
 $bw-button-height-sm: 32px !default;
 $bw-button-height-md: 44px !default;
 $bw-button-height-lg: 50px !default;
-
 $bw-input-height-sm: 32px !default;
 $bw-input-height-md: 44px !default;
 $bw-input-height-lg: 50px !default;
+$bw-cell-height: 44px !default;
+$bw-cell-large-height: 56px !default;
 
 // Animation
 $bw-animation-duration-base: 0.3s !default;
@@ -81,41 +83,43 @@ $bw-z-index-toast: 3000 !default;
 $bw-z-index-dialog: 3000 !default;
 $bw-z-index-notify: 3000 !default;
 
-// Component Variables
-$bw-cell-font-size: 14px !default;
-$bw-cell-line-height: 24px !default;
-$bw-cell-padding: 10px 16px !default;
-$bw-cell-border-color: $bw-border-color !default;
-$bw-cell-height: 44px !default;
-
+// Dialog
 $bw-dialog-width: 320px !default;
 $bw-dialog-border-radius: 16px !default;
 $bw-dialog-background-color: $bw-bg-color !default;
 $bw-dialog-padding: 0 !default;
 
+// Popup
 $bw-popup-border-radius: 16px !default;
-$bw-popup-background-color: #fff !default;
+$bw-popup-background-color: #ffffff !default;
 $bw-popup-transition-duration: 0.3s !default;
 
+// Tabbar
 $bw-tabbar-height: 50px !default;
 $bw-tabbar-background-color: $bw-bg-color !default;
 
+// Navbar
 $bw-navbar-height: 44px !default;
 
+// Icon
 $bw-icon-size-sm: 16px !default;
 $bw-icon-size-md: 20px !default;
 $bw-icon-size-lg: 24px !default;
 
+// Tag
 $bw-tag-padding: 0 4px !default;
 $bw-tag-font-size: 12px !default;
 $bw-tag-border-radius: 2px !default;
 
+// Badge
 $bw-badge-font-size: 12px !default;
 $bw-badge-dot-size: 8px !default;
 
+// Progress
 $bw-progress-height: 4px !default;
 $bw-progress-background-color: #e5e5e5 !default;
 
+// Switch
 $bw-switch-width: 2em !default;
 $bw-switch-height: 1em !default;
 $bw-switch-border-radius: 1em !default;

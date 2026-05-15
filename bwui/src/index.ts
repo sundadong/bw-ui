@@ -1,54 +1,37 @@
-import type { App } from 'vue'
-import Button from './components/button/index.vue'
-import Cell from './components/cell/index.vue'
-import CellGroup from './components/cell-group/index.vue'
-import Icon from './components/icon/index.vue'
-import Loading from './components/loading/index.vue'
-import Overlay from './components/overlay/index.vue'
-import Popup from './components/popup/index.vue'
-import Dialog from './components/dialog/index.vue'
-import Toast from './components/toast/index.vue'
-import Switch from './components/switch/index.vue'
-import Checkbox from './components/checkbox/index.vue'
-import Radio from './components/radio/index.vue'
-import Field from './components/field/index.vue'
+// BWUI 组件库统一导出
 
-export {
-  Button,
-  Cell,
-  CellGroup,
-  Icon,
-  Loading,
-  Overlay,
-  Popup,
-  Dialog,
-  Toast,
-  Switch,
-  Checkbox,
-  Radio,
-  Field
-}
+// 基础组件
+export { default as BwButton } from './components/button/index.vue'
+export { default as BwCell } from './components/cell/index.vue'
+export { default as BwCellGroup } from './components/cell-group/index.vue'
+export { default as BwIcon } from './components/icon/index.vue'
+export { default as BwEmpty } from './components/empty/index.vue'
+export { default as BwProgress } from './components/progress/index.vue'
+export { default as BwTag } from './components/tag/index.vue'
+export { default as BwBadge } from './components/badge/index.vue'
 
-export interface ComponentRegister {
-  (app: App): void
-}
+// 表单组件
+export { default as BwField } from './components/field/index.vue'
+export { default as BwSwitch } from './components/switch/index.vue'
+export { default as BwCheckbox } from './components/checkbox/index.vue'
+export { default as BwRadio } from './components/radio/index.vue'
 
-const install: ComponentRegister = (app) => {
-  app.component('BwButton', Button)
-  app.component('BwCell', Cell)
-  app.component('BwCellGroup', CellGroup)
-  app.component('BwIcon', Icon)
-  app.component('BwLoading', Loading)
-  app.component('BwOverlay', Overlay)
-  app.component('BwPopup', Popup)
-  app.component('BwDialog', Dialog)
-  app.component('BwToast', Toast)
-  app.component('BwSwitch', Switch)
-  app.component('BwCheckbox', Checkbox)
-  app.component('BwRadio', Radio)
-  app.component('BwField', Field)
-}
+// 反馈组件
+export { default as BwLoading } from './components/loading/index.vue'
+export { default as BwDialog } from './components/dialog/index.vue'
+export { default as BwPopup } from './components/popup/index.vue'
+export { default as BwToast } from './components/toast/index.vue'
+export { default as BwOverlay } from './components/overlay/index.vue'
 
-export default {
-  install
-}
+// 导航组件
+export { default as BwTabs } from './components/tabs/index.vue'
+export { default as BwNavbar } from './components/navbar/index.vue'
+
+// 样式导出
+import './styles/variables.scss'
+import './styles/mixins.scss'
+import './styles/common.scss'
+
+// 类型导出
+export type { ButtonProps } from './components/button/index.vue'
+export type { CellProps } from './components/cell/index.vue'
