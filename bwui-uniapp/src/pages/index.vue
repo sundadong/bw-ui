@@ -14,15 +14,15 @@
       <view class="home__section-title">组件分类</view>
       <view class="home__grid">
         <view class="home__card" @tap="goPage('/pages/basic/index')"><view class="home__card-icon">🔘</view><view class="home__card-name">基础组件</view><view class="home__card-desc">Button / Icon / Cell</view></view>
-        <view class="home__card" @tap="goPage('/pages/form/index')"><view class="home__card-icon">📝</view><view class="home__card-name">表单组件</view><view class="home__card-desc">Input / Picker / Calendar</view></view>
-        <view class="home__card" @tap="goPage('/pages/feedback/index')"><view class="home__card-icon">🔔</view><view class="home__card-name">反馈组件</view><view class="home__card-desc">Dialog / ActionSheet...</view></view>
+        <view class="home__card" @tap="goPage('/pages/form/index')"><view class="home__card-icon">📝</view><view class="home__card-name">表单组件</view><view class="home__card-desc">Input / Checkbox / Radio</view></view>
+        <view class="home__card" @tap="goPage('/pages/feedback/index')"><view class="home__card-icon">🔔</view><view class="home__card-name">反馈组件</view><view class="home__card-desc">Dialog / ActionSheet</view></view>
         <view class="home__card" @tap="goPage('/pages/layout/index')"><view class="home__card-icon">📐</view><view class="home__card-name">布局组件</view><view class="home__card-desc">Layout / Space / SafeArea</view></view>
-        <view class="home__card" @tap="goPage('/pages/nav/index')"><view class="home__card-icon">📑</view><view class="home__card-name">导航组件</view><view class="home__card-desc">Tabs / NavBar / TabBar</view></view>
-        <view class="home__card" @tap="goPage('/pages/view/index')"><view class="home__card-icon">🎨</view><view class="home__card-name">视图组件</view><view class="home__card-desc">Alert / Card / Divider...</view></view>
+        <view class="home__card" @tap="goPage('/pages/nav/index')"><view class="home__card-icon">📑</view><view class="home__card-name">导航组件</view><view class="home__card-desc">Tabs / NavBar / Grid</view></view>
+        <view class="home__card" @tap="goPage('/pages/view/index')"><view class="home__card-icon">🎨</view><view class="home__card-name">视图组件</view><view class="home__card-desc">Alert / Card / Skeleton</view></view>
       </view>
     </view>
     <view class="home__stats">
-      <view class="home__stat"><text class="home__stat-num">34</text><text class="home__stat-label">精选组件</text></view>
+      <view class="home__stat"><text class="home__stat-num">50</text><text class="home__stat-label">精选组件</text></view>
       <view class="home__stat"><text class="home__stat-num">4</text><text class="home__stat-label">适配平台</text></view>
       <view class="home__stat"><text class="home__stat-num">Vue3</text><text class="home__stat-label">最新语法</text></view>
     </view>

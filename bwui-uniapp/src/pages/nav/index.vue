@@ -22,6 +22,31 @@
       </view>
     </view>
     <view class="section">
+      <view class="section__title">宫格</view>
+      <view class="section__content section__content--pad">
+        <bw-grid :columns="gridColumns" />
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">侧边导航</view>
+      <view class="section__content">
+        <view class="sidebar-demo">
+          <bw-sidebar v-model="sidebarValue" :items="sidebarItems" />
+          <view class="sidebar-content">
+            <text>选中索引：{{ sidebarValue }}</text>
+            <text>内容区域 - {{ sidebarItems[sidebarValue]?.title }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="section__title">分页</view>
+      <view class="section__content section__content--col">
+        <bw-pagination v-model="paginationValue" :total="100" :per-page="10" />
+        <text class="label">当前页：{{ paginationValue }}</text>
+      </view>
+    </view>
+    <view class="section">
       <view class="section__title">导航栏</view>
       <view class="section__content section__content--col">
         <view class="demo-box">
@@ -57,10 +82,31 @@
 import { ref } from 'vue';
 import bwTabs from '@/components/tabs/index.vue';
 import bwButton from '@/components/button/index.vue';
+import bwGrid from '@/components/grid/index.vue';
+import bwSidebar from '@/components/sidebar/index.vue';
+import bwPagination from '@/components/pagination/index.vue';
 import bwNavbar from '@/components/navbar/index.vue';
 import bwTabbar from '@/components/tabbar/index.vue';
 const activeTab = ref(0);
 const tabs = [{ title: '标签1', name: 'tab0' }, { title: '标签2', name: 'tab1' }, { title: '标签3', name: 'tab2' }];
+const gridColumns = [
+  { title: '图标1', icon: '🔔' },
+  { title: '图标2', icon: '✉' },
+  { title: '图标3', icon: '⭐' },
+  { title: '图标4', icon: '❤' },
+  { title: '图标5', icon: '📌' },
+  { title: '图标6', icon: '🔒' },
+  { title: '图标7', icon: '🔑' },
+  { title: '图标8', icon: '💡' }
+];
+const sidebarValue = ref(0);
+const sidebarItems = [
+  { title: '选项1' },
+  { title: '选项2' },
+  { title: '选项3' },
+  { title: '选项4' }
+];
+const paginationValue = ref(1);
 const activeTabbar = ref(0);
 const tabbarItems = [
   { title: '首页', icon: '🏠' },
@@ -72,11 +118,13 @@ const tabbarItems = [
 
 <style scoped lang="scss">
 .page { padding: 16px; }
-.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; gap: 8px; &--col { display: block; } } }
+.section { margin-bottom: 24px; background: #fff; border-radius: 8px; overflow: hidden; &__title { font-size: 14px; font-weight: 600; color: #323233; padding: 16px; border-bottom: 1px solid #ebedf0; } &__content { padding: 16px; display: flex; flex-wrap: wrap; gap: 8px; &--pad { padding: 16px 0; } &--col { display: block; } } }
 .tab-content { background: #fff; padding: 20px; text-align: center; border-radius: 4px; color: #646566; }
 .label { display: block; font-size: 12px; color: #646566; margin-bottom: 8px; }
 .flex { display: flex; }
 .gap-sm { gap: 8px; }
 .mt-md { margin-top: 12px; }
 .demo-box { margin-bottom: 12px; }
+.sidebar-demo { display: flex; height: 200px; }
+.sidebar-content { flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 14px; color: #646566; }
 </style>
