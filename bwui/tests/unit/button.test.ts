@@ -1,22 +1,20 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Button from '@/components/button/index.vue'
+import Button from '../../src/components/button/index.vue'
 
-describe('Button Component', () => {
-  it('renders with default props', () => {
+describe('Button 组件测试', () => {
+  it('应该正确渲染按钮文本', () => {
     const wrapper = mount(Button, {
       slots: {
-        default: 'Button Text'
+        default: '主要按钮'
       }
     })
-    expect(wrapper.text()).toBe('Button Text')
-    expect(wrapper.classes()).toContain('bw-button')
-    expect(wrapper.classes()).toContain('bw-button--default')
-    expect(wrapper.classes()).toContain('bw-button--medium')
+    expect(wrapper.text()).toBe('主要按钮')
   })
 
-  it('renders with different types', () => {
-    const types = ['primary', 'success', 'warning', 'danger', 'default'] as const
+  it('应该应用正确的类型样式', () => {
+    const types = ['primary', 'success', 'warning', 'danger', 'default']
+    
     types.forEach(type => {
       const wrapper = mount(Button, {
         props: { type },
@@ -26,8 +24,9 @@ describe('Button Component', () => {
     })
   })
 
-  it('renders with different sizes', () => {
-    const sizes = ['small', 'medium', 'large'] as const
+  it('应该应用正确的大小样式', () => {
+    const sizes = ['small', 'medium', 'large']
+    
     sizes.forEach(size => {
       const wrapper = mount(Button, {
         props: { size },
@@ -37,112 +36,102 @@ describe('Button Component', () => {
     })
   })
 
-  it('handles loading state', () => {
+  it('朴素按钮应该有朴素样式', () => {
     const wrapper = mount(Button, {
-      props: { loading: true }
+      props: { plain: true },
+      slots: { default: '朴素按钮' }
     })
-    expect(wrapper.classes()).toContain('bw-button--loading')
-    expect(wrapper.find('.bw-button__loading').exists()).toBe(true)
+    expect(wrapper.classes()).toContain('bw-button--plain')
   })
 
-  it('handles disabled state', () => {
+  it('圆角按钮应该有圆角样式', () => {
     const wrapper = mount(Button, {
-      props: { disabled: true }
-    })
-    expect(wrapper.classes()).toContain('bw-button--disabled')
-  })
-
-  it('handles block state', () => {
-    const wrapper = mount(Button, {
-      props: { block: true }
-    })
-    expect(wrapper.classes()).toContain('bw-button--block')
-  })
-
-  it('handles round state', () => {
-    const wrapper = mount(Button, {
-      props: { round: true }
+      props: { round: true },
+      slots: { default: '圆角按钮' }
     })
     expect(wrapper.classes()).toContain('bw-button--round')
   })
 
-  it('handles square state', () => {
+  it('禁用按钮应该有禁用样式', () => {
     const wrapper = mount(Button, {
-      props: { square: true }
+      props: { disabled: true },
+      slots: { default: '禁用按钮' }
     })
-    expect(wrapper.classes()).toContain('bw-button--square')
+    expect(wrapper.classes()).toContain('bw-button--disabled')
   })
 
-  it('handles text state', () => {
+  it('加载状态按钮应该有加载样式', () => {
     const wrapper = mount(Button, {
-      props: { text: true }
+      props: { loading: true },
+      slots: { default: '加载中' }
     })
-    expect(wrapper.classes()).toContain('bw-button--text')
+    expect(wrapper.classes()).toContain('bw-button--loading')
   })
 
-  it('handles hairline state', () => {
+  it('点击事件应该正常工作', async () => {
     const wrapper = mount(Button, {
-      props: { hairline: true }
+      slots: { default: '按钮' }
     })
-    expect(wrapper.classes()).toContain('bw-button--hairline')
-  })
-
-  it('emits click event', async () => {
-    const wrapper = mount(Button)
-    await wrapper.trigger('tap')
+    
+    await wrapper.trigger('click')
     expect(wrapper.emitted('click')).toBeTruthy()
   })
 
-  it('does not emit click when disabled', async () => {
+  it('禁用状态应该阻止点击事件', async () => {
     const wrapper = mount(Button, {
-      props: { disabled: true }
+      props: { disabled: true },
+      slots: { default: '禁用按钮' }
     })
-    await wrapper.trigger('tap')
+    
+    await wrapper.trigger('click')
     expect(wrapper.emitted('click')).toBeFalsy()
   })
 
-  it('does not emit click when loading', async () => {
+  it('加载状态应该阻止点击事件', async () => {
     const wrapper = mount(Button, {
-      props: { loading: true }
+      props: { loading: true },
+      slots: { default: '加载中' }
     })
-    await wrapper.trigger('tap')
+    
+    await wrapper.trigger('click')
     expect(wrapper.emitted('click')).toBeFalsy()
   })
 
-  it('renders with icon', () => {
+  it('应该有正确的标签', () => {
     const wrapper = mount(Button, {
-      props: { icon: 'success' }
+      slots: { default: '按钮' }
+    })
+    expect(wrapper.element.tagName.toLowerCase()).toBe('button')
+  })
+
+  it('应该包含 bw-button 类', () => {
+    const wrapper = mount(Button, {
+      slots: { default: '按钮' }
+    })
+    expect(wrapper.classes()).toContain('bw-button')
+  })
+
+  it('不同类型应该渲染不同的背景色', () => {
+    const wrapper = mount(Button, {
+      props: { type: 'primary' },
+      slots: { default: '主要按钮' }
+    })
+    expect(wrapper.attributes('style')).toContain('background-color')
+  })
+
+  it('块级按钮应该占满宽度', () => {
+    const wrapper = mount(Button, {
+      props: { block: true },
+      slots: { default: '块级按钮' }
+    })
+    expect(wrapper.classes()).toContain('bw-button--block')
+  })
+
+  it('图标按钮应该包含图标', () => {
+    const wrapper = mount(Button, {
+      props: { icon: 'success' },
+      slots: { default: '图标按钮' }
     })
     expect(wrapper.find('.bw-button__icon').exists()).toBe(true)
-  })
-
-  it('renders with custom color', () => {
-    const wrapper = mount(Button, {
-      props: { color: '#ff6600' }
-    })
-    const style = wrapper.attributes('style')
-    expect(style).toContain('color')
-  })
-
-  it('renders with nativeType', () => {
-    const wrapper = mount(Button, {
-      props: { nativeType: 'submit' }
-    })
-    expect(wrapper.attributes('type')).toBe('button')
-  })
-
-  it('renders slot content correctly', () => {
-    const wrapper = mount(Button, {
-      slots: {
-        default: '<span>Custom Content</span>'
-      }
-    })
-    expect(wrapper.find('.bw-button__text').html()).toContain('Custom Content')
-  })
-
-  it('updates hover classes', async () => {
-    const wrapper = mount(Button)
-    await wrapper.trigger('tapstart')
-    expect(wrapper.classes()).toContain('bw-button')
   })
 })

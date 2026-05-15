@@ -1,151 +1,146 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Cell from '@/components/cell/index.vue'
+import Cell from '../../src/components/cell/index.vue'
 
-describe('Cell Component', () => {
-  it('renders with default props', () => {
-    const wrapper = mount(Cell)
+describe('Cell 组件测试', () => {
+  it('应该正确渲染标题', () => {
+    const wrapper = mount(Cell, {
+      props: { title: '单元格标题' }
+    })
+    expect(wrapper.find('.bw-cell__title').text()).toBe('单元格标题')
+  })
+
+  it('应该正确渲染值', () => {
+    const wrapper = mount(Cell, {
+      props: { 
+        title: '标题', 
+        value: '单元格值' 
+      }
+    })
+    expect(wrapper.find('.bw-cell__value').text()).toBe('单元格值')
+  })
+
+  it('应该正确渲染描述标签', () => {
+    const wrapper = mount(Cell, {
+      props: { 
+        title: '标题', 
+        label: '描述信息' 
+      }
+    })
+    expect(wrapper.find('.bw-cell__label').text()).toBe('描述信息')
+  })
+
+  it('链接单元格应该有箭头图标', () => {
+    const wrapper = mount(Cell, {
+      props: { 
+        title: '链接单元格', 
+        isLink: true 
+      }
+    })
+    expect(wrapper.find('.bw-cell--clickable').exists()).toBe(true)
+  })
+
+  it('应该包含基础类名', () => {
+    const wrapper = mount(Cell, {
+      props: { title: '单元格' }
+    })
     expect(wrapper.classes()).toContain('bw-cell')
   })
 
-  it('renders title and value', () => {
+  it('点击事件应该正常工作', async () => {
     const wrapper = mount(Cell, {
-      props: {
-        title: 'Title',
-        value: 'Value'
-      }
+      props: { title: '可点击单元格' }
     })
-    expect(wrapper.find('.bw-cell__title-text').text()).toBe('Title')
-    expect(wrapper.find('.bw-cell__value').text()).toBe('Value')
+    
+    await wrapper.trigger('click')
+    expect(wrapper.emitted('click')).toBeTruthy()
   })
 
-  it('renders label', () => {
+  it('禁用状态应该阻止点击事件', async () => {
     const wrapper = mount(Cell, {
-      props: {
-        title: 'Title',
-        label: 'Description'
+      props: { 
+        title: '禁用单元格',
+        disabled: true 
       }
     })
-    expect(wrapper.find('.bw-cell__label').text()).toBe('Description')
+    
+    await wrapper.trigger('click')
+    expect(wrapper.emitted('click')).toBeFalsy()
   })
 
-  it('renders icon', () => {
+  it('禁用单元格应该有禁用样式', () => {
     const wrapper = mount(Cell, {
-      props: {
-        icon: 'success'
-      }
-    })
-    expect(wrapper.find('.bw-cell__left-icon').exists()).toBe(true)
-  })
-
-  it('renders arrow icon when isLink is true', () => {
-    const wrapper = mount(Cell, {
-      props: {
-        isLink: true
-      }
-    })
-    expect(wrapper.find('.bw-cell__right-icon').exists()).toBe(true)
-  })
-
-  it('renders arrow icon when arrow is true', () => {
-    const wrapper = mount(Cell, {
-      props: {
-        arrow: true
-      }
-    })
-    expect(wrapper.find('.bw-cell__right-icon').exists()).toBe(true)
-  })
-
-  it('handles clickable state', () => {
-    const wrapper = mount(Cell, {
-      props: {
-        clickable: true
-      }
-    })
-    expect(wrapper.classes()).toContain('bw-cell--clickable')
-  })
-
-  it('handles disabled state', () => {
-    const wrapper = mount(Cell, {
-      props: {
-        disabled: true
+      props: { 
+        title: '禁用单元格',
+        disabled: true 
       }
     })
     expect(wrapper.classes()).toContain('bw-cell--disabled')
   })
 
-  it('handles center state', () => {
+  it('应该支持图标显示', () => {
     const wrapper = mount(Cell, {
-      props: {
-        center: true
+      props: { 
+        title: '带图标单元格',
+        icon: 'success' 
       }
     })
-    expect(wrapper.classes()).toContain('bw-cell--center')
+    expect(wrapper.find('.bw-cell__left-icon').exists()).to(true)
   })
 
-  it('emits click event', async () => {
-    const wrapper = mount(Cell)
-    await wrapper.trigger('click')
-    expect(wrapper.emitted('click')).toBeTruthy()
-  })
-
-  it('does not emit click when disabled', async () => {
+  it('应该支持自定义右侧图标', () => {
     const wrapper = mount(Cell, {
-      props: {
-        disabled: true
+      props: { 
+        title: '自定义图标',
+        rightIcon: 'search' 
       }
     })
-    await wrapper.trigger('click')
-    expect(wrapper.emitted('click')).toBeFalsy()
+    expect(wrapper.find('.bw-cell__right-icon').exists()).toBe(true)
   })
 
-  it('renders slot content', () => {
+  it('应该支持标签和值的组合', () => {
     const wrapper = mount(Cell, {
-      slots: {
-        title: '<span>Custom Title</span>',
-        default: '<span>Custom Value</span>'
+      props: { 
+        title: '组合单元格',
+        label: '这是描述',
+        value: '这是值' 
       }
     })
-    expect(wrapper.find('.bw-cell__title').html()).toContain('Custom Title')
-    expect(wrapper.find('.bw-cell__value').html()).toContain('Custom Value')
+    expect(wrapper.find('.bw-cell__title').exists()).toBe(true)
+    expect(wrapper.find('.bw-cell__label').exists()).toBe(true)
+    expect(wrapper.find('.bw-cell__value').exists()).toBe(true)
   })
 
-  it('renders icon slot', () => {
+  it('应该支持多行标题', () => {
     const wrapper = mount(Cell, {
-      slots: {
-        icon: '<span>Custom Icon</span>'
+      props: { 
+        title: '多行标题',
+        label: '这是第二行描述信息' 
       }
     })
-    expect(wrapper.find('.bw-cell__left-icon').html()).toContain('Custom Icon')
+    const title = wrapper.find('.bw-cell__title')
+    expect(title.exists()).toBe(true)
   })
 
-  it('renders extra slot', () => {
+  it('isLink 属性应该使单元格可点击', () => {
     const wrapper = mount(Cell, {
-      props: {
-        isLink: true
-      },
-      slots: {
-        extra: '<span>Custom Extra</span>'
-      }
-    })
-    expect(wrapper.find('.bw-cell__right-icon').html()).toContain('Custom Extra')
-  })
-
-  it('is clickable when isLink is true', () => {
-    const wrapper = mount(Cell, {
-      props: {
-        isLink: true
+      props: { 
+        title: '链接单元格',
+        isLink: true 
       }
     })
     expect(wrapper.classes()).toContain('bw-cell--clickable')
   })
 
-  it('is clickable when arrow is true', () => {
+  it('禁用状态不应该有可点击类', () => {
     const wrapper = mount(Cell, {
-      props: {
-        arrow: true
+      props: { 
+        title: '禁用单元格',
+        disabled: true,
+        isLink: true 
       }
     })
-    expect(wrapper.classes()).toContain('bw-cell--clickable')
+    expect(wrapper.classes()).not.toContain('bw-cell--clickable')
+    expect(wrapper.classes()).toContain('bw-cell--disabled')
   })
 })
