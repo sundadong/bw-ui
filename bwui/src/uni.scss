@@ -1,0 +1,42 @@
+/* uni.scss - uni-app 全局样式变量 */
+
+$uni-bg-color: #ffffff;
+$uni-text-color: #333333;
+$uni-text-color-inverse: #ffffff;
+$uni-text-color-grey: #999999;
+$uni-text-color-placeholder: #808080;
+$uni-text-color-disable: #c0c0c0;
+
+$uni-primary: #007aff;
+$uni-success: #4cd964;
+$uni-warning: #f0ad4e;
+$uni-error: #dd524d;
+
+$uni-border-color: #e5e5e5;
+$uni-border-color-light: #f1f1f1;
+
+$uni-bg-color-grey: #f8f8f8;
+$uni-bg-color-hover: #f2f2f2;
+$uni-bg-color-mask: rgba(0, 0, 0, 0.4);
+
+$uni-font-size-sm: 24rpx;
+$uni-font-size-base: 28rpx;
+$uni-font-size-lg: 32rpx;
+
+$uni-spacing-row-sm: 16rpx;
+$uni-spacing-row-base: 20rpx;
+$uni-spacing-row-lg: 24rpx;
+
+$uni-spacing-col-sm: 16rpx;
+$uni-spacing-col-base: 20rpx;
+$uni-spacing-col-lg: 24rpx;
+
+$uni-border-radius-sm: 4rpx;
+$uni-border-radius-base: 6rpx;
+$uni-border-radius-lg: 12rpx;
+$uni-border-radius-circle: 50%;
+
+$uni-shadow-base: 0 1px 6px rgba(0, 0, 0, 0.1);
+
+$uni-img-loading: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAA ICCAYAAACk7Qn5AAAAGklEQVQYV2P8////fwYKAAX9F2z9AwALvwL/yk4VjwAAAABJRU5ErkJggg==;
+$uni-img-error: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAA ICCAYAAACk7Qn5AAAAGklEQVQYV2P8////fwYKAAX9F2z9AwALvwL/yk4VjwAAAABJRU5ErkJggg==;

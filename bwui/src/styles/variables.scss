@@ -1,0 +1,117 @@
+// BWUI Vant4 Style Variables
+
+// Brand Colors
+$bw-primary-color: #1989fa !default;
+$bw-success-color: #07c160 !default;
+$bw-warning-color: #ff976a !default;
+$bw-danger-color: #ee0a24 !default;
+$bw-default-color: #fff !default;
+
+// Text Colors
+$bw-text-color: #323233 !default;
+$bw-text-color-1: #646566 !default;
+$bw-text-color-2: #969799 !default;
+$bw-text-color-3: #c8c9cc !default;
+
+// Background Colors
+$bw-bg-color: #fff !default;
+$bw-bg-color-light: #f7f8fa !default;
+$bw-bg-color-main: #fff !default;
+
+// Border Colors
+$bw-border-color: #ebedf0 !default;
+$bw-border-color-light: #f1f2f3 !default;
+
+// Active Colors
+$bw-active-color: #f2f3f5 !default;
+$bw-active-opacity: 0.6 !default;
+$bw-disabled-opacity: 0.5 !default;
+
+// Padding & Margin
+$bw-padding-base: 16px !default;
+$bw-padding-xs: 8px !default;
+$bw-padding-sm: 12px !default;
+$bw-padding-md: 16px !default;
+$bw-padding-lg: 24px !default;
+$bw-padding-xl: 32px !default;
+
+// Font Sizes
+$bw-font-size-xs: 10px !default;
+$bw-font-size-sm: 12px !default;
+$bw-font-size-md: 14px !default;
+$bw-font-size-lg: 16px !default;
+$bw-font-size-xl: 18px !default;
+
+// Font Line Height
+$bw-line-height-xs: 1.2 !default;
+$bw-line-height-sm: 1.5 !default;
+$bw-line-height-md: 1.6 !default;
+$bw-line-height-lg: 1.8 !default;
+
+// Border Radius
+$bw-border-radius-sm: 2px !default;
+$bw-border-radius-md: 4px !default;
+$bw-border-radius-lg: 8px !default;
+$bw-border-radius-xl: 16px !default;
+$bw-border-radius-round: 999px !default;
+
+// Component Sizes
+$bw-button-height-sm: 32px !default;
+$bw-button-height-md: 44px !default;
+$bw-button-height-lg: 50px !default;
+
+$bw-input-height-sm: 32px !default;
+$bw-input-height-md: 44px !default;
+$bw-input-height-lg: 50px !default;
+
+// Animation
+$bw-animation-duration-base: 0.3s !default;
+$bw-animation-duration-fast: 0.2s !default;
+$bw-animation-timing-function-base: ease-out !default;
+$bw-animation-timing-function-ease: ease !default;
+$bw-animation-timing-function-linear: linear !default;
+
+// Z-Index
+$bw-z-index-tabbar: 100 !default;
+$bw-z-index-navbar: 100 !default;
+$bw-z-index-popup: 1000 !default;
+$bw-z-index-overlay: 2000 !default;
+$bw-z-index-toast: 3000 !default;
+$bw-z-index-dialog: 3000 !default;
+$bw-z-index-notify: 3000 !default;
+
+// Component Variables
+$bw-cell-font-size: 14px !default;
+$bw-cell-line-height: 24px !default;
+$bw-cell-padding: 10px 16px !default;
+$bw-cell-border-color: $bw-border-color !default;
+
+$bw-dialog-width: 320px !default;
+$bw-dialog-border-radius: 16px !default;
+$bw-dialog-background-color: $bw-bg-color !default;
+
+$bw-popup-border-radius: 16px !default;
+
+$bw-tabbar-height: 50px !default;
+$bw-tabbar-background-color: $bw-bg-color !default;
+
+$bw-navbar-height: 44px !default;
+
+$bw-icon-size-sm: 16px !default;
+$bw-icon-size-md: 20px !default;
+$bw-icon-size-lg: 24px !default;
+
+$bw-tag-padding: 0 4px !default;
+$bw-tag-font-size: 12px !default;
+$bw-tag-border-radius: 2px !default;
+
+$bw-badge-font-size: 12px !default;
+$bw-badge-dot-size: 8px !default;
+
+$bw-progress-height: 4px !default;
+$bw-progress-background-color: #e5e5e5 !default;
+
+$bw-switch-width: 2em !default;
+$bw-switch-height: 1em !default;
+$bw-switch-border-radius: 1em !default;
+$bw-switch-node-size: 1em !default;
