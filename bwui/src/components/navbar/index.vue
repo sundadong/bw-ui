@@ -1,22 +1,22 @@
 <template>
-  <view class="bw-navbar" :class="{ 'bw-navbar--fixed': fixed }" :style="navbarStyle">
-    <view class="bw-navbar__left" @click="handleBack">
-      <view v-if="leftArrow || showBack" class="bw-navbar__arrow">
+  <div class="bw-navbar" :class="{ 'bw-navbar--fixed': fixed }" :style="navbarStyle">
+    <div class="bw-navbar__left" @click="handleBack">
+      <div v-if="leftArrow || showBack" class="bw-navbar__arrow">
         <bw-icon name="arrow-left" size="20px" />
-      </view>
-      <view v-if="$slots.left || leftText" class="bw-navbar__text">
+      </div>
+      <div v-if="$slots.left || leftText" class="bw-navbar__text">
         <slot name="left">{{ leftText }}</slot>
-      </view>
-    </view>
-    <view class="bw-navbar__title">
+      </div>
+    </div>
+    <div class="bw-navbar__title">
       <slot name="title">
         <span class="bw-navbar__title-text">{{ title }}</span>
       </slot>
-    </view>
-    <view class="bw-navbar__right">
+    </div>
+    <div class="bw-navbar__right">
       <slot name="right"></slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,34 +1,34 @@
 <template>
-  <view>
+  <div>
     <bw-popup :show="showPopup" position="center" :overlay="true" :close-on-click-overlay="false" :z-index="zIndex">
-      <view class="bw-dialog">
-        <view v-if="title || $slots.title" class="bw-dialog__header">
+      <div class="bw-dialog">
+        <div v-if="title || $slots.title" class="bw-dialog__header">
           <slot name="title">
-            <view class="bw-dialog__title">{{ title }}</view>
+            <div class="bw-dialog__title">{{ title }}</div>
           </slot>
-        </view>
-        <view class="bw-dialog__content">
+        </div>
+        <div class="bw-dialog__content">
           <slot>
-            <view v-if="message" class="bw-dialog__message" :class="{ 'bw-dialog__message--has-title': title }">
+            <div v-if="message" class="bw-dialog__message" :class="{ 'bw-dialog__message--has-title': title }">
               {{ message }}
-            </view>
+            </div>
           </slot>
-        </view>
-        <view v-if="!hideFooter" class="bw-dialog__footer" :class="[`bw-dialog__footer--${buttonLayout}`]">
-          <view v-if="showCancelButton" class="bw-dialog__cancel" @tap="handleCancel">
+        </div>
+        <div v-if="!hideFooter" class="bw-dialog__footer" :class="[`bw-dialog__footer--${buttonLayout}`]">
+          <div v-if="showCancelButton" class="bw-dialog__cancel" @tap="handleCancel">
             <slot name="cancel-button">
               {{ cancelButtonText }}
             </slot>
-          </view>
-          <view v-if="showConfirmButton" class="bw-dialog__confirm" @tap="handleConfirm">
+          </div>
+          <div v-if="showConfirmButton" class="bw-dialog__confirm" @tap="handleConfirm">
             <slot name="confirm-button">
               {{ confirmButtonText }}
             </slot>
-          </view>
-        </view>
-      </view>
+          </div>
+        </div>
+      </div>
     </bw-popup>
-  </view>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -186,3 +186,4 @@ defineExpose({
     color: $bw-text-color-2;
   }
 }
+</style>

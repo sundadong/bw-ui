@@ -1,15 +1,15 @@
 <template>
-  <view class="bw-loading" :class="[`bw-loading--${type}`, `bw-loading--${size}`]">
-    <view v-if="type === 'circular'" class="bw-loading__circular">
-      <view class="bw-loading__circular-circle"></view>
-    </view>
-    <view v-else class="bw-loading__spinner">
-      <view v-for="i in 12" :key="i" class="bw-loading__spinner-item" :style="{ animationDelay: `${(i - 1) * 0.083}s` }"></view>
-    </view>
-    <view v-if="$slots.default" class="bw-loading__text">
+  <div class="bw-loading" :class="[`bw-loading--${type}`, `bw-loading--${size}`]">
+    <div v-if="type === 'circular'" class="bw-loading__circular">
+      <div class="bw-loading__circular-circle"></div>
+    </div>
+    <div v-else class="bw-loading__spinner">
+      <div v-for="i in 12" :key="i" class="bw-loading__spinner-item" :style="{ animationDelay: `${(i - 1) * 0.083}s` }"></div>
+    </div>
+    <div v-if="$slots.default" class="bw-loading__text">
       <slot></slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -118,3 +118,4 @@ withDefaults(defineProps<LoadingProps>(), {
     opacity: 0.3;
   }
 }
+</style>

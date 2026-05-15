@@ -1,12 +1,12 @@
 <template>
-  <view class="bw-radio" :class="{ 'bw-radio--disabled': disabled }" @click="handleClick">
-    <view class="bw-radio__icon">
-      <view v-if="isChecked" class="bw-radio__icon-dot"></view>
-    </view>
-    <view v-if="$slots.default || label" class="bw-radio__label">
+  <div class="bw-radio" :class="{ 'bw-radio--disabled': disabled }" @click="handleClick">
+    <div class="bw-radio__icon">
+      <div v-if="isChecked" class="bw-radio__icon-dot"></div>
+    </div>
+    <div v-if="$slots.default || label" class="bw-radio__label">
       <slot>{{ label }}</slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -83,3 +83,4 @@ const handleClick = () => {
     line-height: 1.2;
   }
 }
+</style>

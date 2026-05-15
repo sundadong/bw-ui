@@ -1,12 +1,12 @@
 <template>
-  <view class="bw-checkbox" :class="{ 'bw-checkbox--checked': isChecked, 'bw-checkbox--disabled': disabled }" @click="handleClick">
-    <view class="bw-checkbox__icon">
+  <div class="bw-checkbox" :class="{ 'bw-checkbox--checked': isChecked, 'bw-checkbox--disabled': disabled }" @click="handleClick">
+    <div class="bw-checkbox__icon">
       <bw-icon v-if="isChecked" name="success" size="14px" />
-    </view>
-    <view v-if="$slots.default || label" class="bw-checkbox__label">
+    </div>
+    <div v-if="$slots.default || label" class="bw-checkbox__label">
       <slot>{{ label }}</slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -84,3 +84,4 @@ const handleClick = () => {
     border-radius: 50%;
   }
 }
+</style>

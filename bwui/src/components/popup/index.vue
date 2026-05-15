@@ -1,5 +1,5 @@
 <template>
-  <view v-if="show" class="bw-popup-wrapper">
+  <div v-if="show" class="bw-popup-wrapper">
     <bw-overlay
       v-if="overlay"
       :show="show"
@@ -7,28 +7,28 @@
       :opacity="overlayOpacity"
       @click="handleOverlayClick"
     />
-    <view
+    <div
       v-if="lazyRender ? show : true"
       class="bw-popup"
       :class="[popupClass, { 'bw-popup--show': show }]"
       :style="popupStyle"
     >
-      <view v-if="title || $slots.title" class="bw-popup__header">
+      <div v-if="title || $slots.title" class="bw-popup__header">
         <slot name="title">
-          <view class="bw-popup__title">{{ title }}</view>
+          <div class="bw-popup__title">{{ title }}</div>
         </slot>
-        <view v-if="closeable" class="bw-popup__close" @tap="handleClose">
+        <div v-if="closeable" class="bw-popup__close" @tap="handleClose">
           <bw-icon name="cross" size="18px" />
-        </view>
-      </view>
-      <view class="bw-popup__content">
+        </div>
+      </div>
+      <div class="bw-popup__content">
         <slot></slot>
-      </view>
-      <view v-if="$slots.footer" class="bw-popup__footer">
+      </div>
+      <div v-if="$slots.footer" class="bw-popup__footer">
         <slot name="footer"></slot>
-      </view>
-    </view>
-  </view>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -235,3 +235,4 @@ const close = () => {
     padding: $bw-padding-md;
   }
 }
+</style>

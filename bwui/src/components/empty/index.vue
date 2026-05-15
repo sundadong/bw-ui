@@ -1,20 +1,20 @@
 <template>
-  <view class="bw-empty">
-    <view class="bw-empty__image">
+  <div class="bw-empty">
+    <div class="bw-empty__image">
       <image v-if="image" :src="image" mode="aspectFit" class="bw-empty__image-img" />
-      <view v-else class="bw-empty__image-default">
+      <div v-else class="bw-empty__image-default">
         <slot name="image"></slot>
-      </view>
-    </view>
-    <view class="bw-empty__description">
+      </div>
+    </div>
+    <div class="bw-empty__description">
       <slot name="description">
         {{ description }}
       </slot>
-    </view>
-    <view v-if="$slots.default" class="bw-empty__footer">
+    </div>
+    <div v-if="$slots.default" class="bw-empty__footer">
       <slot></slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -65,3 +65,4 @@ withDefaults(defineProps<EmptyProps>(), {
     margin-top: 16px;
   }
 }
+</style>

@@ -1,7 +1,7 @@
 <template>
-  <view class="bw-icon" :class="[`bw-icon--${name}`]" :style="iconStyle">
+  <div class="bw-icon" :class="[`bw-icon--${name}`]" :style="iconStyle">
     <image v-if="isImage" class="bw-icon__image" :src="name" mode="aspectFit" />
-  </view>
+  </div>
 </template>
 
 <script setup lang="ts">

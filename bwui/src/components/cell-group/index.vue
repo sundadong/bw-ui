@@ -1,12 +1,12 @@
 <template>
-  <view class="bw-cell-group">
-    <view v-if="title || $slots.title" class="bw-cell-group__title">
+  <div class="bw-cell-group">
+    <div v-if="title || $slots.title" class="bw-cell-group__title">
       <slot name="title">{{ title }}</slot>
-    </view>
-    <view class="bw-cell-group__content">
+    </div>
+    <div class="bw-cell-group__content">
       <slot></slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

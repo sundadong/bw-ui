@@ -1,13 +1,13 @@
 <template>
-  <view v-if="isShow" class="bw-toast" :class="[`bw-toast--${type}`]">
-    <view v-if="type === 'loading'" class="bw-toast__loading">
+  <div v-if="isShow" class="bw-toast" :class="[`bw-toast--${type}`]">
+    <div v-if="type === 'loading'" class="bw-toast__loading">
       <bw-loading type="circular" :size="loadingSize" />
-    </view>
-    <view v-else-if="icon" class="bw-toast__icon">
+    </div>
+    <div v-else-if="icon" class="bw-toast__icon">
       <bw-icon :name="icon" :size="iconSize" />
-    </view>
-    <view v-if="message" class="bw-toast__text">{{ message }}</view>
-  </view>
+    </div>
+    <div v-if="message" class="bw-toast__text">{{ message }}</div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -113,3 +113,4 @@ defineExpose({
     word-break: normal;
   }
 }
+</style>

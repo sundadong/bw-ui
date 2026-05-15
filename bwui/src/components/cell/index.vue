@@ -1,5 +1,5 @@
 <template>
-  <view
+  <div
     class="bw-cell"
     :class="[
       { 'bw-cell--clickable': isClickable },
@@ -8,28 +8,28 @@
     ]"
     @click="handleClick"
   >
-    <view v-if="$slots.icon || icon" class="bw-cell__left-icon">
+    <div v-if="$slots.icon || icon" class="bw-cell__left-icon">
       <slot name="icon">
         <bw-icon :name="icon" :size="iconSize" />
       </slot>
-    </view>
-    <view class="bw-cell__title">
-      <view v-if="$slots.title || title" class="bw-cell__title-text">
+    </div>
+    <div class="bw-cell__title">
+      <div v-if="$slots.title || title" class="bw-cell__title-text">
         <slot name="title">{{ title }}</slot>
-      </view>
-      <view v-if="$slots.label || label" class="bw-cell__label">
+      </div>
+      <div v-if="$slots.label || label" class="bw-cell__label">
         <slot name="label">{{ label }}</slot>
-      </view>
-    </view>
-    <view class="bw-cell__value">
+      </div>
+    </div>
+    <div class="bw-cell__value">
       <slot>{{ value }}</slot>
-    </view>
-    <view v-if="$slots.extra || isLink || arrow" class="bw-cell__right-icon">
+    </div>
+    <div v-if="$slots.extra || isLink || arrow" class="bw-cell__right-icon">
       <slot name="extra">
         <bw-icon v-if="isLink || arrow" name="arrow" size="16px" />
       </slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

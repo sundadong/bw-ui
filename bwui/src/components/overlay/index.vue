@@ -1,5 +1,5 @@
 <template>
-  <view v-if="show" class="bw-overlay" :style="overlayStyle" @tap="handleClick"></view>
+  <div v-if="show" class="bw-overlay" :style="overlayStyle" @tap="handleClick"></div>
 </template>
 
 <script setup lang="ts">
@@ -60,3 +60,4 @@ const handleClick = (event: Event) => {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 }
+</style>

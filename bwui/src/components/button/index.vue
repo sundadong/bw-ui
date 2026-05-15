@@ -1,20 +1,20 @@
 <template>
-  <view
+  <div
     :class="buttonClass"
     :style="buttonStyle"
     :hover-class="hoverClass"
     @tap="handleClick"
   >
-    <view v-if="loading" class="bw-button__loading">
+    <div v-if="loading" class="bw-button__loading">
       <bw-loading :size="loadingSize" :type="loadingType" />
-    </view>
-    <view v-else-if="icon && !loading" class="bw-button__icon">
+    </div>
+    <div v-else-if="icon && !loading" class="bw-button__icon">
       <bw-icon :name="icon" :class-prefix="iconPrefix" />
-    </view>
-    <view class="bw-button__text">
+    </div>
+    <div class="bw-button__text">
       <slot></slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

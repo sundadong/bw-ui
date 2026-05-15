@@ -1,10 +1,10 @@
 <template>
-  <view class="bw-tag" :class="tagClass" :style="tagStyle">
+  <div class="bw-tag" :class="tagClass" :style="tagStyle">
     <slot></slot>
-    <view v-if="closable" class="bw-tag__close" @click="handleClose">
+    <div v-if="closable" class="bw-tag__close" @click="handleClose">
       <bw-icon name="cross" size="12px" />
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

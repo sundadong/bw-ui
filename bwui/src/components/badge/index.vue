@@ -1,10 +1,10 @@
 <template>
-  <view class="bw-badge" :class="badgeClass">
+  <div class="bw-badge" :class="badgeClass">
     <slot></slot>
-    <view v-if="showBadge" class="bw-badge__content" :class="{ 'bw-badge__content--dot': dot }">
+    <div v-if="showBadge" class="bw-badge__content" :class="{ 'bw-badge__content--dot': dot }">
       <template v-if="!dot && content !== undefined">{{ content }}</template>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

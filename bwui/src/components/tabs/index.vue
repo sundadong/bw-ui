@@ -1,20 +1,20 @@
 <template>
-  <view class="bw-tabs">
-    <view class="bw-tabs__nav">
-      <view
+  <div class="bw-tabs">
+    <div class="bw-tabs__nav">
+      <div
         v-for="(tab, index) in tabs"
         :key="index"
         :class="['bw-tabs__tab', { 'bw-tabs__tab--active': index === currentIndex }]"
         @click="handleTabClick(index)"
       >
         {{ tab.title }}
-      </view>
-      <view v-if="lineWidth" class="bw-tabs__line" :style="lineStyle"></view>
-    </view>
-    <view class="bw-tabs__content">
+      </div>
+      <div v-if="lineWidth" class="bw-tabs__line" :style="lineStyle"></div>
+    </div>
+    <div class="bw-tabs__content">
       <slot :name="'tab' + currentIndex"></slot>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

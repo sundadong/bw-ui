@@ -1,9 +1,9 @@
 <template>
-  <view class="bw-switch" :class="{ 'bw-switch--on': isChecked, 'bw-switch--disabled': disabled }" @click="handleClick">
-    <view class="bw-switch__node">
-      <view v-if="loading" class="bw-switch__loading"></view>
-    </view>
-  </view>
+  <div class="bw-switch" :class="{ 'bw-switch--on': isChecked, 'bw-switch--disabled': disabled }" @click="handleClick">
+    <div class="bw-switch__node">
+      <div v-if="loading" class="bw-switch__loading"></div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -105,3 +105,4 @@ const handleClick = () => {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+</style>

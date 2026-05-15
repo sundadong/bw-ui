@@ -6,6 +6,7 @@ $bw-success-color: #07c160 !default;
 $bw-warning-color: #ff976a !default;
 $bw-danger-color: #ee0a24 !default;
 $bw-default-color: #fff !default;
+$bw-white: #ffffff !default;
 
 // Text Colors
 $bw-text-color: #323233 !default;
@@ -85,12 +86,16 @@ $bw-cell-font-size: 14px !default;
 $bw-cell-line-height: 24px !default;
 $bw-cell-padding: 10px 16px !default;
 $bw-cell-border-color: $bw-border-color !default;
+$bw-cell-height: 44px !default;
 
 $bw-dialog-width: 320px !default;
 $bw-dialog-border-radius: 16px !default;
 $bw-dialog-background-color: $bw-bg-color !default;
+$bw-dialog-padding: 0 !default;
 
 $bw-popup-border-radius: 16px !default;
+$bw-popup-background-color: #fff !default;
+$bw-popup-transition-duration: 0.3s !default;
 
 $bw-tabbar-height: 50px !default;
 $bw-tabbar-background-color: $bw-bg-color !default;
@@ -115,3 +120,23 @@ $bw-switch-width: 2em !default;
 $bw-switch-height: 1em !default;
 $bw-switch-border-radius: 1em !default;
 $bw-switch-node-size: 1em !default;
+
+// Toast
+$bw-toast-max-width: 70% !default;
+$bw-toast-offset-y: 80px !default;
+
+// Field
+$bw-field-label-width: 88px !default;
+$bw-field-cell-height: 44px !default;
+$bw-field-cell-border-width: 1px !default;
+$bw-field-cell-border-color: #ebedf0 !default;
+
+// Button
+$bw-button-border-width: 1px !default;
+$bw-button-border-color: #ebedf0 !default;
+
+// Other colors
+$bw-gray-5: #f7f8fa !default;
+$bw-gray-6: #f2f3f5 !default;
+$bw-gray-7: #e5e5e5 !default;
+$bw-gray-8: #c8c9cc !default;

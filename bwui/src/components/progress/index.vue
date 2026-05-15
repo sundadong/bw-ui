@@ -1,11 +1,11 @@
 <template>
-  <view class="bw-progress">
-    <view class="bw-progress__portion">
-      <view class="bw-progress__pivot" v-if="showPivot" :style="pivotStyle">
+  <div class="bw-progress">
+    <div class="bw-progress__portion">
+      <div class="bw-progress__pivot" v-if="showPivot" :style="pivotStyle">
         {{ pivotText }}
-      </view>
-    </view>
-  </view>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -74,3 +74,4 @@ const pivotStyle = computed(() => {
     white-space: nowrap;
   }
 }
+</style>
