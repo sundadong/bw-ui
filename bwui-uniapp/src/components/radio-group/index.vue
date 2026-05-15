@@ -1,36 +1,46 @@
 <template>
-  <view class="bw-radio-group">
+  <view class="bw-radio-group" :class="{ 'bw-radio-group--horizontal': direction === 'horizontal' }">
     <slot></slot>
   </view>
 </template>
 
 <script setup>
-import { provide, watch } from 'vue';
+import { provide, ref, watch } from 'vue';
 
 const props = defineProps({
-  modelValue: { type: [String, Number, Boolean], default: '' },
-  disabled: { type: Boolean, default: false }
+  modelValue: { type: [String, Number], default: '' },
+  disabled: { type: Boolean, default: false },
+  direction: { type: String, default: 'vertical' },
+  iconSize: { type: [Number, String], default: 20 },
+  checkedColor: { type: String, default: '#1989fa' }
 });
 
 const emit = defineEmits(['update:modelValue', 'change']);
 
+const valueRef = ref(props.modelValue);
+
+const updateValue = (val) => {
+  valueRef.value = val;
+  emit('update:modelValue', val);
+  emit('change', val);
+};
+
 provide('radioGroup', {
   disabled: props.disabled,
-  value: props.modelValue,
-  toggle: (name) => {
-    emit('update:modelValue', name);
-    emit('change', name);
-  }
+  value: valueRef,
+  updateValue
 });
 
 watch(() => props.modelValue, (val) => {
-  provide('radioGroup', {
-    disabled: props.disabled,
-    value: val,
-    toggle: (name) => {
-      emit('update:modelValue', name);
-      emit('change', name);
-    }
-  });
+  valueRef.value = val;
 });
 </script>
+
+<style scoped lang="scss">
+.bw-radio-group {
+  &--horizontal {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+</style>

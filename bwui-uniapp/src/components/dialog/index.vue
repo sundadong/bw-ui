@@ -1,19 +1,30 @@
 <template>
   <transition name="bw-dialog">
-    <view v-if="modelValue" class="bw-dialog" @tap="handleClose">
-      <view class="bw-dialog__content" @tap.stop>
-        <view v-if="title" class="bw-dialog__header">
-          <text>{{ title }}</text>
+    <view v-if="show" class="bw-dialog" @tap="handleOverlayClick">
+      <view class="bw-dialog__content" :class="{ 'bw-dialog__content--round': theme === 'round-button' }" @tap.stop>
+        <view v-if="title || useSlot('title')" class="bw-dialog__header">
+          <slot name="title">{{ title }}</slot>
         </view>
-        <view class="bw-dialog__body">
+        <view class="bw-dialog__body" :class="`bw-dialog__body--${messageAlign}`">
           <slot><text>{{ message }}</text></slot>
         </view>
-        <view class="bw-dialog__footer">
-          <view v-if="showCancel" class="bw-dialog__btn bw-dialog__btn--cancel" @tap="handleCancel">
-            {{ cancelText }}
+        <view v-if="showConfirmButton || showCancelButton" class="bw-dialog__footer" :class="{ 'bw-dialog__footer--round': theme === 'round-button' }">
+          <view
+            v-if="showCancelButton"
+            class="bw-dialog__button bw-dialog__button--cancel"
+            :style="{ color: cancelButtonColor }"
+            @tap="handleCancel"
+          >
+            {{ cancelButtonText }}
           </view>
-          <view class="bw-dialog__btn bw-dialog__btn--confirm" @tap="handleConfirm">
-            {{ confirmText }}
+          <view
+            v-if="showConfirmButton"
+            class="bw-dialog__button bw-dialog__button--confirm"
+            :class="{ 'bw-dialog__button--disabled': confirmButtonDisabled }"
+            :style="{ color: confirmButtonColor }"
+            @tap="handleConfirm"
+          >
+            {{ confirmButtonText }}
           </view>
         </view>
       </view>
@@ -22,31 +33,50 @@
 </template>
 
 <script setup>
-defineProps({
-  modelValue: { type: Boolean, default: false },
+import { useSlots } from 'vue';
+
+const props = defineProps({
+  show: { type: Boolean, default: false },
   title: { type: String, default: '' },
   message: { type: String, default: '' },
-  showCancel: { type: Boolean, default: true },
-  cancelText: { type: String, default: '取消' },
-  confirmText: { type: String, default: '确认' },
-  closeOnClickOverlay: { type: Boolean, default: false }
+  messageAlign: { type: String, default: 'center' },
+  theme: { type: String, default: 'default' },
+  width: { type: [Number, String], default: 320 },
+  showCancelButton: { type: Boolean, default: false },
+  showConfirmButton: { type: Boolean, default: true },
+  confirmButtonText: { type: String, default: '确认' },
+  confirmButtonColor: { type: String, default: '#ee0a24' },
+  confirmButtonDisabled: { type: Boolean, default: false },
+  cancelButtonText: { type: String, default: '取消' },
+  cancelButtonColor: { type: String, default: 'black' },
+  cancelButtonDisabled: { type: Boolean, default: false },
+  closeOnClickOverlay: { type: Boolean, default: false },
+  closeOnPopstate: { type: Boolean, default: true },
+  zIndex: { type: Number, default: 2000 },
+  overlay: { type: Boolean, default: true },
+  overlayStyle: { type: Object, default: () => ({}) }
 });
 
-const emit = defineEmits(['update:modelValue', 'confirm', 'cancel', 'close']);
+const emit = defineEmits(['update:show', 'confirm', 'cancel', 'close', 'open', 'opened', 'close', 'closed']);
+
+const slots = useSlots();
+const useSlot = (name) => slots[name];
 
 const handleConfirm = () => {
   emit('confirm');
-  emit('update:modelValue', false);
+  emit('update:show', false);
 };
 
 const handleCancel = () => {
   emit('cancel');
-  emit('update:modelValue', false);
+  emit('update:show', false);
 };
 
-const handleClose = () => {
-  emit('close');
-  emit('update:modelValue', false);
+const handleOverlayClick = () => {
+  if (props.closeOnClickOverlay) {
+    emit('close');
+    emit('update:show', false);
+  }
 };
 </script>
 
@@ -54,55 +84,73 @@ const handleClose = () => {
 .bw-dialog {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-
+  background: rgba(0, 0, 0, 0.7);
+  
   &__content {
-    width: 80%;
-    max-width: 320px;
+    width: 320px;
+    max-width: 90%;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
+    
+    &--round {
+      border-radius: 16px;
+    }
   }
-
+  
   &__header {
-    padding: 24px 16px 16px;
+    padding: 26px 24px 16px;
     font-size: 16px;
     font-weight: 600;
+    text-align: center;
     color: #323233;
-    text-align: center;
   }
-
+  
   &__body {
-    padding: 0 16px 24px;
+    padding: 12px 24px 24px;
     font-size: 14px;
-    color: #646566;
     line-height: 1.6;
+    color: #646566;
     text-align: center;
+    
+    &--left { text-align: left; }
+    &--right { text-align: right; }
   }
-
+  
   &__footer {
     display: flex;
     border-top: 1px solid #ebedf0;
+    
+    &--round {
+      padding: 12px;
+      .bw-dialog__button { border-radius: 999px; }
+    }
   }
-
-  &__btn {
+  
+  &__button {
     flex: 1;
     padding: 16px;
     font-size: 16px;
     text-align: center;
+    background: #fff;
+    border: none;
+    cursor: pointer;
     &:active { background: #f7f8fa; }
+    
     &--cancel {
-      color: #323233;
       border-right: 1px solid #ebedf0;
     }
-    &--confirm { color: #1989fa; }
+    
+    &--confirm { }
+    
+    &--disabled { opacity: 0.5; cursor: not-allowed; }
   }
 }
 
-.bw-dialog-enter-active, .bw-dialog-leave-active { transition: opacity 0.2s; }
+.bw-dialog-enter-active, .bw-dialog-leave-active { transition: opacity 0.3s; }
 .bw-dialog-enter-from, .bw-dialog-leave-to { opacity: 0; }
 </style>

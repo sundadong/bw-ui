@@ -1,9 +1,12 @@
 <template>
-  <view class="bw-radio" :class="{ 'bw-radio--disabled': isDisabled }">
-    <view class="bw-radio__icon" :class="{ 'bw-radio__icon--checked': isChecked }" @tap="toggle">
+  <view class="bw-radio" :class="{ 'bw-radio--disabled': isDisabled }" @tap="handleClick">
+    <view
+      class="bw-radio__icon"
+      :class="{ 'bw-radio__icon--checked': isChecked }"
+    >
       <view class="bw-radio__dot"></view>
     </view>
-    <view class="bw-radio__label" @tap="toggle">
+    <view class="bw-radio__label" @tap.stop>
       <slot>{{ label }}</slot>
     </view>
   </view>
@@ -19,25 +22,26 @@ const props = defineProps({
   label: { type: String, default: '' }
 });
 
-const emit = defineEmits(['update:modelValue', 'change']);
+const emit = defineEmits(['update:modelValue', 'change', 'click']);
 
-const checkboxGroup = inject('radioGroup', null);
+const radioGroup = inject('radioGroup', null);
 
 const isDisabled = computed(() => {
-  return props.disabled || (checkboxGroup?.disabled?.value ?? false);
+  return props.disabled || (radioGroup?.disabled?.value ?? false);
 });
 
 const isChecked = computed(() => {
-  if (checkboxGroup) {
-    return checkboxGroup.value?.value?.includes(props.name);
+  if (radioGroup) {
+    return radioGroup.value?.value?.value === props.name;
   }
   return props.modelValue === props.name;
 });
 
-const toggle = () => {
+const handleClick = () => {
   if (isDisabled.value) return;
-  if (checkboxGroup) {
-    checkboxGroup.toggle(props.name);
+  emit('click');
+  if (radioGroup?.updateValue) {
+    radioGroup.updateValue(props.name);
   } else {
     emit('update:modelValue', props.name);
     emit('change', props.name);
@@ -49,18 +53,24 @@ const toggle = () => {
 .bw-radio {
   display: inline-flex;
   align-items: center;
+  
   &--disabled { opacity: 0.5; cursor: not-allowed; }
+  
   &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
     height: 20px;
     border: 1px solid #c8c9cc;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all 0.2s;
-    &--checked { border-color: #1989fa; }
+    
+    &--checked {
+      border-color: #1989fa;
+    }
   }
+  
   &__dot {
     width: 8px;
     height: 8px;
@@ -69,8 +79,17 @@ const toggle = () => {
     opacity: 0;
     transform: scale(0);
     transition: all 0.2s;
-    .bw-radio__icon--checked & { opacity: 1; transform: scale(1); }
+    
+    .bw-radio__icon--checked & {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
-  &__label { margin-left: 8px; font-size: 14px; color: #323233; }
+  
+  &__label {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #323233;
+  }
 }
 </style>
