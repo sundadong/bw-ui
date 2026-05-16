@@ -120,10 +120,11 @@ $bw-progress-height: 4px !default;
 $bw-progress-background-color: #e5e5e5 !default;
 
 // Switch
-$bw-switch-width: 2em !default;
-$bw-switch-height: 1em !default;
-$bw-switch-border-radius: 1em !default;
-$bw-switch-node-size: 1em !default;
+$bw-switch-width: 48px !default;
+$bw-switch-height: 24px !default;
+$bw-switch-border-radius: 12px !default;
+$bw-switch-node-size: 22px !default;
+$bw-switch-node-offset: 1px !default;
 
 // Toast
 $bw-toast-max-width: 70% !default;

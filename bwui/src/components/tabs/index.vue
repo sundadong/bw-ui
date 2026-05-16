@@ -80,12 +80,14 @@ const lineStyle = computed(() => {
   const tabCount = tabList.value.length || 1
   const tabWidth = 100 / tabCount
   const lineWidthVal = typeof props.lineWidth === 'number' ? props.lineWidth : parseInt(props.lineWidth as string)
-  const offset = tabWidth / 2 - lineWidthVal / 2 + currentIndex.value * tabWidth
+  
+  const tabElementWidth = tabCount > 0 ? (100 / tabCount) : 100
+  const offset = (tabElementWidth * currentIndex.value) + (tabElementWidth - lineWidthVal) / 2
 
   return {
-    width: `${props.lineWidth}px`,
+    width: `${lineWidthVal}px`,
     backgroundColor: props.color,
-    transform: `translateX(${offset}%)`
+    left: `${offset}%`
   }
 })
 

@@ -1,16 +1,16 @@
 <template>
-  <div v-if="show" class="bw-popup-wrapper">
+  <div v-if="isShow" class="bw-popup-wrapper">
     <bw-overlay
       v-if="overlay"
-      :show="show"
+      :show="isShow"
       :z-index="zIndex"
       :opacity="overlayOpacity"
       @click="handleOverlayClick"
     />
     <div
-      v-if="lazyRender ? show : true"
+      v-if="lazyRender ? isShow : true"
       class="bw-popup"
-      :class="[popupClass, { 'bw-popup--show': show }]"
+      :class="[popupClass, { 'bw-popup--show': isShow }]"
       :style="popupStyle"
     >
       <div v-if="title || $slots.title" class="bw-popup__header">

@@ -1,5 +1,5 @@
 <template>
-  <div class="bw-radio" :class="{ 'bw-radio--disabled': disabled }" @click="handleClick">
+  <div class="bw-radio" :class="{ 'bw-radio--disabled': disabled, 'bw-radio--checked': isChecked }" @click="handleClick">
     <div class="bw-radio__icon">
       <div v-if="isChecked" class="bw-radio__icon-dot"></div>
     </div>

@@ -1,9 +1,9 @@
 <template>
   <div class="bw-empty">
     <div class="bw-empty__image">
-      <image v-if="image" :src="image" mode="aspectFit" class="bw-empty__image-img" />
+      <img v-if="image" :src="image" class="bw-empty__image-img" alt="" />
       <div v-else class="bw-empty__image-default">
-        <slot name="image"></slot>
+        <div class="bw-empty__icon">{{ emptyIcon }}</div>
       </div>
     </div>
     <div class="bw-empty__description">
@@ -18,16 +18,27 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 export interface EmptyProps {
   image?: string
   description?: string
   type?: 'empty' | 'error' | 'network'
 }
 
-withDefaults(defineProps<EmptyProps>(), {
+const props = withDefaults(defineProps<EmptyProps>(), {
   image: '',
   description: '暂无数据',
   type: 'empty'
+})
+
+const emptyIcon = computed(() => {
+  const icons: Record<string, string> = {
+    empty: '📭',
+    error: '⚠',
+    network: '📡'
+  }
+  return icons[props.type] || icons.empty
 })
 </script>
 
@@ -47,9 +58,17 @@ withDefaults(defineProps<EmptyProps>(), {
       height: 200px;
     }
 
-    &-default {
+    &__default {
       width: 200px;
       height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-icon {
+      font-size: 80px;
+      line-height: 1;
     }
   }
 

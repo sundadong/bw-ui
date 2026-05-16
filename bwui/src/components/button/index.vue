@@ -2,8 +2,7 @@
   <div
     :class="buttonClass"
     :style="buttonStyle"
-    :hover-class="hoverClass"
-    @tap="handleClick"
+    @click="handleClick"
   >
     <div v-if="loading" class="bw-button__loading">
       <bw-loading :size="loadingSize" :type="loadingType" />
