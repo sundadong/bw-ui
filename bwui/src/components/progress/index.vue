@@ -12,7 +12,7 @@
 import { computed } from 'vue'
 
 export interface ProgressProps {
-  percentage: number
+  percentage?: number
   color?: string
   trackColor?: string
   strokeWidth?: number | string

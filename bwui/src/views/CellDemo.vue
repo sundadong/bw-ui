@@ -9,28 +9,71 @@
     </div>
 
     <div class="demo-block">
-      <div class="demo-title">图标</div>
-      <bw-cell-group>
-        <bw-cell title="单元格" icon="success" />
-        <bw-cell title="单元格" icon="fail" />
-        <bw-cell title="单元格" icon="warning" />
-        <bw-cell title="单元格" icon="info" />
+      <div class="demo-title">卡片风格</div>
+      <bw-cell-group inset>
+        <bw-cell title="单元格" value="内容" />
+        <bw-cell title="单元格" value="内容" label="描述信息" />
       </bw-cell-group>
     </div>
 
     <div class="demo-block">
-      <div class="demo-title">可跳转</div>
+      <div class="demo-title">展示箭头</div>
       <bw-cell-group>
-        <bw-cell title="单元格" value="内容" is-link />
-        <bw-cell title="单元格" value="内容" is-link />
+        <bw-cell title="单元格" is-link />
+        <bw-cell title="单元格" is-link value="内容" />
+        <bw-cell title="单元格" is-link value="内容" label="描述信息" />
       </bw-cell-group>
     </div>
 
     <div class="demo-block">
-      <div class="demo-title">大型单元格</div>
+      <div class="demo-title">分组标题</div>
+      <bw-cell-group title="分组 1">
+        <bw-cell title="单元格" value="内容" />
+        <bw-cell title="单元格" value="内容" label="描述信息" />
+      </bw-cell-group>
+      <bw-cell-group title="分组 2">
+        <bw-cell title="单元格" value="内容" />
+        <bw-cell title="单元格" value="内容" label="描述信息" />
+      </bw-cell-group>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-title">使用插槽</div>
       <bw-cell-group>
-        <bw-cell title="单元格" value="内容" large />
-        <bw-cell title="单元格" value="内容" large label="描述信息" />
+        <bw-cell value="内容" is-link>
+          <template #title>
+            <span>单元格</span>
+            <bw-tag type="danger" style="margin-left: 8px">标签</bw-tag>
+          </template>
+        </bw-cell>
+        <bw-cell title="单元格" value="内容">
+          <template #right-icon>
+            <span style="font-size: 14px; color: #969799">搜索</span>
+          </template>
+        </bw-cell>
+      </bw-cell-group>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-title">垂直居中</div>
+      <bw-cell-group>
+        <bw-cell title="单元格" value="内容" center label="描述信息" />
+      </bw-cell-group>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-title">单元格大小</div>
+      <bw-cell-group>
+        <bw-cell title="单元格" value="内容" />
+        <bw-cell title="单元格" value="内容" label="描述信息" large />
+      </bw-cell-group>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-title">展示图标</div>
+      <bw-cell-group>
+        <bw-cell title="单元格" value="内容" icon="success" />
+        <bw-cell title="单元格" value="内容" icon="fail" is-link />
       </bw-cell-group>
     </div>
 
@@ -60,6 +103,7 @@
 import DemoLayout from './DemoLayout.vue'
 import BwCell from '../components/cell/index.vue'
 import BwCellGroup from '../components/cell-group/index.vue'
+import BwTag from '../components/tag/index.vue'
 </script>
 
 <style lang="scss" scoped>

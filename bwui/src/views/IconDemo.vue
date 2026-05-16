@@ -27,6 +27,26 @@
           <bw-icon name="search" size="24px" />
           <span class="demo-icon-name">search</span>
         </div>
+        <div class="demo-icon-item">
+          <bw-icon name="star" size="24px" />
+          <span class="demo-icon-name">star</span>
+        </div>
+        <div class="demo-icon-item">
+          <bw-icon name="heart" size="24px" />
+          <span class="demo-icon-name">heart</span>
+        </div>
+        <div class="demo-icon-item">
+          <bw-icon name="setting" size="24px" />
+          <span class="demo-icon-name">setting</span>
+        </div>
+        <div class="demo-icon-item">
+          <bw-icon name="clock" size="24px" />
+          <span class="demo-icon-name">clock</span>
+        </div>
+        <div class="demo-icon-item">
+          <bw-icon name="location" size="24px" />
+          <span class="demo-icon-name">location</span>
+        </div>
       </div>
     </div>
 
@@ -70,6 +90,16 @@
         <div class="demo-icon-item">
           <bw-icon name="success" size="24px" color="#ee0a24" />
           <span class="demo-icon-name">danger</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-title">使用图片 URL</div>
+      <div class="demo-icons">
+        <div class="demo-icon-item">
+          <bw-icon name="https://fastly.jsdelivr.net/npm/@vant/assets/icon-demo.png" size="32px" />
+          <span class="demo-icon-name">图片图标</span>
         </div>
       </div>
     </div>

@@ -16,6 +16,23 @@
         <bw-radio v-model="disabledValue" name="2" disabled>禁用选项</bw-radio>
       </div>
     </div>
+
+    <div class="demo-block">
+      <div class="demo-title">水平排列</div>
+      <div class="demo-radio demo-radio--horizontal">
+        <bw-radio v-model="value2" name="a">选项 A</bw-radio>
+        <bw-radio v-model="value2" name="b">选项 B</bw-radio>
+        <bw-radio v-model="value2" name="c">选项 C</bw-radio>
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-title">自定义形状</div>
+      <div class="demo-radio">
+        <bw-radio v-model="value3" name="round" shape="round">圆形</bw-radio>
+        <bw-radio v-model="value3" name="square" shape="square">方形</bw-radio>
+      </div>
+    </div>
   </demo-layout>
 </template>
 
@@ -26,6 +43,8 @@ import BwRadio from '../components/radio/index.vue'
 
 const value = ref('1')
 const disabledValue = ref('1')
+const value2 = ref('a')
+const value3 = ref('round')
 </script>
 
 <style lang="scss" scoped>
@@ -45,6 +64,12 @@ const disabledValue = ref('1')
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    &--horizontal {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
   }
 }
 </style>

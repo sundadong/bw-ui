@@ -31,6 +31,7 @@ export interface NavbarProps {
   placeholder?: boolean
   zIndex?: number | string
   safeAreaInsetTop?: boolean
+  showBack?: boolean
 }
 
 const props = withDefaults(defineProps<NavbarProps>(), {

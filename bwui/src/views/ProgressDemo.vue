@@ -8,12 +8,31 @@
     </div>
 
     <div class="demo-block">
+      <div class="demo-title">线条粗细</div>
+      <div class="demo-progress">
+        <bw-progress :percentage="50" :stroke-width="8" />
+        <bw-progress :percentage="50" :stroke-width="12" />
+        <bw-progress :percentage="50" :stroke-width="16" />
+      </div>
+    </div>
+
+    <div class="demo-block">
       <div class="demo-title">进度值</div>
       <div class="demo-progress">
+        <bw-progress :percentage="0" />
         <bw-progress :percentage="25" />
         <bw-progress :percentage="50" />
         <bw-progress :percentage="75" />
         <bw-progress :percentage="100" />
+      </div>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-title">样式定制</div>
+      <div class="demo-progress">
+        <bw-progress :percentage="50" pivot-text="50%" :show-pivot="true" />
+        <bw-progress :percentage="50" color="#07c160" track-color="#f7f8fa" />
+        <bw-progress :percentage="50" color="#ff976a" pivot-text="50%" :show-pivot="true" />
       </div>
     </div>
 
