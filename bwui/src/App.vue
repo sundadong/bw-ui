@@ -208,9 +208,15 @@
           <div class="component-card">
             <h3 class="card-title">Tabs 标签页</h3>
             <bw-tabs v-model="currentTab">
-              <div class="tab-content">标签 1 内容</div>
-              <div class="tab-content">标签 2 内容</div>
-              <div class="tab-content">标签 3 内容</div>
+              <template #tab0>
+                <div class="tab-content">标签 1 内容</div>
+              </template>
+              <template #tab1>
+                <div class="tab-content">标签 2 内容</div>
+              </template>
+              <template #tab2>
+                <div class="tab-content">标签 3 内容</div>
+              </template>
             </bw-tabs>
           </div>
 

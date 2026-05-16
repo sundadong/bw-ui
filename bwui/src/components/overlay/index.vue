@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show" class="bw-overlay" :style="overlayStyle" @tap="handleClick"></div>
+  <div v-if="show" class="bw-overlay" :style="overlayStyle" @click="handleClick"></div>
 </template>
 
 <script setup lang="ts">

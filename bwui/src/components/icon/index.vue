@@ -1,6 +1,7 @@
 <template>
   <div class="bw-icon" :class="[`bw-icon--${name}`]" :style="iconStyle">
-    <image v-if="isImage" class="bw-icon__image" :src="name" mode="aspectFit" />
+    <img v-if="isImage" class="bw-icon__image" :src="name" alt="" />
+    <span v-else class="bw-icon__text">{{ iconMap[name] || '' }}</span>
   </div>
 </template>
 
@@ -34,6 +35,23 @@ const iconStyle = computed(() => {
 const isImage = computed(() => {
   return /\.(gif|jpg|jpeg|png|webp|svg)/i.test(props.name)
 })
+
+const iconMap: Record<string, string> = {
+  success: '✓',
+  fail: '✕',
+  warning: '⚠',
+  info: 'ℹ',
+  arrow: '→',
+  search: '⌕',
+  plus: '+',
+  minus: '-',
+  close: '✕',
+  location: '📍',
+  setting: '⚙',
+  star: '★',
+  heart: '♥',
+  clock: '⏰'
+}
 </script>
 
 <style lang="scss" scoped>

@@ -17,7 +17,7 @@
         <slot name="title">
           <div class="bw-popup__title">{{ title }}</div>
         </slot>
-        <div v-if="closeable" class="bw-popup__close" @tap="handleClose">
+        <div v-if="closeable" class="bw-popup__close" @click="handleClose">
           <bw-icon name="cross" size="18px" />
         </div>
       </div>

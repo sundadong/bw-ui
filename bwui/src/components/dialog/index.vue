@@ -15,12 +15,12 @@
           </slot>
         </div>
         <div v-if="!hideFooter" class="bw-dialog__footer" :class="[`bw-dialog__footer--${buttonLayout}`]">
-          <div v-if="showCancelButton" class="bw-dialog__cancel" @tap="handleCancel">
+          <div v-if="showCancelButton" class="bw-dialog__cancel" @click="handleCancel">
             <slot name="cancel-button">
               {{ cancelButtonText }}
             </slot>
           </div>
-          <div v-if="showConfirmButton" class="bw-dialog__confirm" @tap="handleConfirm">
+          <div v-if="showConfirmButton" class="bw-dialog__confirm" @click="handleConfirm">
             <slot name="confirm-button">
               {{ confirmButtonText }}
             </slot>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import BwPopup from '../popup/index.vue'
 
 export interface DialogProps {
@@ -74,6 +74,10 @@ const emit = defineEmits<{
 }>()
 
 const showPopup = ref(props.show)
+
+watch(() => props.show, (newVal) => {
+  showPopup.value = newVal
+})
 
 const handleConfirm = async () => {
   if (props.beforeClose) {

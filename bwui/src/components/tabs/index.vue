@@ -2,23 +2,25 @@
   <div class="bw-tabs">
     <div class="bw-tabs__nav">
       <div
-        v-for="(tab, index) in tabs"
+        v-for="(tab, index) in tabList"
         :key="index"
-        :class="['bw-tabs__tab', { 'bw-tabs__tab--active': index === currentIndex }]"
+        :class="['bw-tabs__tab', { 'bw-tabs__tab--active': index === currentIndex, 'bw-tabs__tab--disabled': tab.disabled }]"
         @click="handleTabClick(index)"
       >
         {{ tab.title }}
       </div>
-      <div v-if="lineWidth" class="bw-tabs__line" :style="lineStyle"></div>
+      <div class="bw-tabs__line" :style="lineStyle"></div>
     </div>
     <div class="bw-tabs__content">
-      <slot :name="'tab' + currentIndex"></slot>
+      <div v-for="(tab, index) in tabList" :key="index" v-show="index === currentIndex">
+        <slot :name="'tab' + index"></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, useSlots } from 'vue'
 
 export interface Tab {
   title: string
@@ -52,6 +54,22 @@ const emit = defineEmits<{
   change: [index: number]
 }>()
 
+const slots = useSlots()
+
+const tabList = computed(() => {
+  if (props.tabs && props.tabs.length > 0) {
+    return props.tabs
+  }
+  
+  const tabSlots: Tab[] = []
+  let index = 0
+  while (slots[`tab${index}`]) {
+    tabSlots.push({ title: `标签 ${index + 1}` })
+    index++
+  }
+  return tabSlots
+})
+
 const currentIndex = ref(props.modelValue as number)
 
 watch(() => props.modelValue, (val) => {
@@ -59,9 +77,10 @@ watch(() => props.modelValue, (val) => {
 })
 
 const lineStyle = computed(() => {
-  const tabWidth = 100 / (props.tabs?.length || 1)
-  const lineWidth = typeof props.lineWidth === 'number' ? props.lineWidth : parseInt(props.lineWidth as string)
-  const offset = tabWidth / 2 - lineWidth / 2 + currentIndex.value * tabWidth
+  const tabCount = tabList.value.length || 1
+  const tabWidth = 100 / tabCount
+  const lineWidthVal = typeof props.lineWidth === 'number' ? props.lineWidth : parseInt(props.lineWidth as string)
+  const offset = tabWidth / 2 - lineWidthVal / 2 + currentIndex.value * tabWidth
 
   return {
     width: `${props.lineWidth}px`,
@@ -71,7 +90,7 @@ const lineStyle = computed(() => {
 })
 
 const handleTabClick = (index: number) => {
-  if (props.tabs[index]?.disabled) return
+  if (tabList.value[index]?.disabled) return
   currentIndex.value = index
   emit('update:modelValue', index)
   emit('change', index)
