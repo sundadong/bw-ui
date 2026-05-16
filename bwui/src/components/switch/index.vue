@@ -69,17 +69,17 @@ const handleClick = () => {
 
   &__node {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1px;
+    left: 1px;
     width: $bw-switch-node-size;
-    height: 100%;
+    height: calc(#{$bw-switch-height} - 2px);
     background-color: $bw-white;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: transform $bw-animation-duration-base $bw-animation-timing-function-ease;
 
     .bw-switch--on & {
-      transform: translateX(#{$bw-switch-width - $bw-switch-node-size});
+      transform: translateX(calc(#{$bw-switch-width} - #{$bw-switch-node-size} - 2px));
     }
   }
 

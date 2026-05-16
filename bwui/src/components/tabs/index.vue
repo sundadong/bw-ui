@@ -4,12 +4,17 @@
       <div
         v-for="(tab, index) in tabList"
         :key="index"
+        :ref="el => { if (el) tabRefs[index] = el as HTMLElement }"
         :class="['bw-tabs__tab', { 'bw-tabs__tab--active': index === currentIndex, 'bw-tabs__tab--disabled': tab.disabled }]"
         @click="handleTabClick(index)"
       >
         {{ tab.title }}
       </div>
-      <div class="bw-tabs__line" :style="lineStyle"></div>
+      <div
+        ref="lineRef"
+        class="bw-tabs__line"
+        :style="{ width: typeof lineWidth === 'number' ? lineWidth + 'px' : lineWidth, backgroundColor: color }"
+      ></div>
     </div>
     <div class="bw-tabs__content">
       <div v-for="(tab, index) in tabList" :key="index" v-show="index === currentIndex">
@@ -20,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, useSlots } from 'vue'
+import { ref, computed, watch, useSlots, nextTick, onMounted } from 'vue'
 
 export interface Tab {
   title: string
@@ -55,6 +60,8 @@ const emit = defineEmits<{
 }>()
 
 const slots = useSlots()
+const lineRef = ref<HTMLElement | null>(null)
+const tabRefs = ref<HTMLElement[]>([])
 
 const tabList = computed(() => {
   if (props.tabs && props.tabs.length > 0) {
@@ -76,19 +83,27 @@ watch(() => props.modelValue, (val) => {
   currentIndex.value = val as number
 })
 
-const lineStyle = computed(() => {
-  const tabCount = tabList.value.length || 1
-  const tabWidth = 100 / tabCount
-  const lineWidthVal = typeof props.lineWidth === 'number' ? props.lineWidth : parseInt(props.lineWidth as string)
-  
-  const tabElementWidth = tabCount > 0 ? (100 / tabCount) : 100
-  const offset = (tabElementWidth * currentIndex.value) + (tabElementWidth - lineWidthVal) / 2
-
-  return {
-    width: `${lineWidthVal}px`,
-    backgroundColor: props.color,
-    left: `${offset}%`
+const updateLinePosition = () => {
+  const currentTabEl = tabRefs.value[currentIndex.value]
+  if (currentTabEl && lineRef.value) {
+    const tabRect = currentTabEl.getBoundingClientRect()
+    const parentRect = currentTabEl.parentElement?.getBoundingClientRect() || { left: 0 }
+    const lineWidthVal = typeof props.lineWidth === 'number' ? props.lineWidth : parseInt(props.lineWidth as string) || 35
+    const left = tabRect.left - parentRect.left + (tabRect.width - lineWidthVal) / 2
+    lineRef.value.style.left = `${left}px`
   }
+}
+
+watch(currentIndex, () => {
+  nextTick(() => {
+    updateLinePosition()
+  })
+})
+
+onMounted(() => {
+  nextTick(() => {
+    updateLinePosition()
+  })
 })
 
 const handleTabClick = (index: number) => {

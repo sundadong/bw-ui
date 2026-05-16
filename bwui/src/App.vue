@@ -250,6 +250,13 @@
       @confirm="dialogVisible = false"
       @cancel="dialogVisible = false"
     />
+
+    <bw-toast
+      :show="toastVisible"
+      :type="toastType"
+      :message="toastMessage"
+      @update:show="toastVisible = $event"
+    />
   </div>
 </template>
 
@@ -272,6 +279,7 @@ import BwDialog from './components/dialog/index.vue'
 import BwOverlay from './components/overlay/index.vue'
 import BwTabs from './components/tabs/index.vue'
 import BwNavbar from './components/navbar/index.vue'
+import BwToast from './components/toast/index.vue'
 
 const currentTab = ref(0)
 const switchValue = ref(false)
@@ -289,6 +297,9 @@ const dialogTitle = ref('')
 const dialogMessage = ref('')
 const showConfirmButton = ref(true)
 const showCancelButton = ref(true)
+const toastVisible = ref(false)
+const toastType = ref<'text' | 'loading' | 'success' | 'fail' | 'warning'>('text')
+const toastMessage = ref('')
 
 const handleBack = () => {
   alert('返回上一页')
@@ -328,7 +339,15 @@ const showCustomDialog = () => {
 }
 
 const showToast = (type: string) => {
-  alert(`Toast: ${type}`)
+  toastType.value = type as any
+  toastMessage.value = type === 'text' ? '提示文字' : type === 'success' ? '成功' : type === 'fail' ? '失败' : type === 'loading' ? '加载中...' : '提示'
+  toastVisible.value = true
+  
+  if (type !== 'loading') {
+    setTimeout(() => {
+      toastVisible.value = false
+    }, 2000)
+  }
 }
 
 const showOverlay = () => {

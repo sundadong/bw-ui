@@ -4,13 +4,17 @@
     :class="[
       { 'bw-cell--clickable': isClickable },
       { 'bw-cell--disabled': disabled },
-      { 'bw-cell--center': center }
+      { 'bw-cell--center': center },
+      { 'bw-cell--large': large },
+      { 'bw-cell--required': required }
     ]"
     @click="handleClick"
   >
-    <div v-if="$slots.icon || icon" class="bw-cell__left-icon">
-      <slot name="icon">
-        <bw-icon :name="icon" :size="iconSize" />
+    <div v-if="$slots['left-icon'] || $slots.icon || icon" class="bw-cell__left-icon">
+      <slot name="left-icon">
+        <slot name="icon">
+          <bw-icon :name="icon" :size="iconSize" />
+        </slot>
       </slot>
     </div>
     <div class="bw-cell__title">
@@ -24,9 +28,11 @@
     <div class="bw-cell__value">
       <slot>{{ value }}</slot>
     </div>
-    <div v-if="$slots.extra || isLink || arrow" class="bw-cell__right-icon">
-      <slot name="extra">
-        <bw-icon v-if="isLink || arrow" name="arrow" size="16px" />
+    <div v-if="$slots['right-icon'] || $slots.extra || isLink || arrow" class="bw-cell__right-icon">
+      <slot name="right-icon">
+        <slot name="extra">
+          <bw-icon v-if="isLink || arrow" name="arrow" size="16px" />
+        </slot>
       </slot>
     </div>
   </div>
@@ -47,6 +53,9 @@ export interface CellProps {
   center?: boolean
   disabled?: boolean
   clickable?: boolean
+  large?: boolean
+  required?: boolean
+  border?: boolean
 }
 
 const props = withDefaults(defineProps<CellProps>(), {
@@ -55,7 +64,10 @@ const props = withDefaults(defineProps<CellProps>(), {
   arrow: false,
   center: false,
   disabled: false,
-  clickable: false
+  clickable: false,
+  large: false,
+  required: false,
+  border: true
 })
 
 const emit = defineEmits<{
@@ -63,7 +75,7 @@ const emit = defineEmits<{
 }>()
 
 const isClickable = computed(() => {
-  return props.clickable || props.isLink || props.arrow
+  return (props.clickable || props.isLink || props.arrow) && !props.disabled
 })
 
 const handleClick = (event: Event) => {
@@ -103,6 +115,31 @@ const handleClick = (event: Event) => {
     align-items: center;
   }
 
+  &--large {
+    min-height: $bw-cell-large-height;
+    padding-top: $bw-padding-md;
+    padding-bottom: $bw-padding-md;
+
+    .bw-cell__title-text {
+      font-size: $bw-font-size-lg;
+    }
+
+    .bw-cell__label {
+      font-size: $bw-font-size-md;
+    }
+  }
+
+  &--required {
+    .bw-cell__title-text {
+      &::before {
+        content: '*';
+        position: absolute;
+        left: -8px;
+        color: $bw-cell-required-color;
+      }
+    }
+  }
+
   &__left-icon {
     display: flex;
     align-items: center;
@@ -113,6 +150,7 @@ const handleClick = (event: Event) => {
   &__title {
     flex: 1;
     min-width: 0;
+    position: relative;
 
     &-text {
       color: $bw-text-color;

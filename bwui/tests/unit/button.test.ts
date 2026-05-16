@@ -175,8 +175,10 @@ describe('Button 组件测试', () => {
 
   it('应该正确渲染图标插槽', () => {
     const wrapper = mount(Button, {
-      slots: { icon: '<span class="custom-icon">★</span>' },
-      slots: { default: '带图标' }
+      slots: { 
+        icon: '<span class="custom-icon">★</span>',
+        default: '带图标' 
+      }
     })
     expect(wrapper.find('.custom-icon').exists()).toBe(true)
   })

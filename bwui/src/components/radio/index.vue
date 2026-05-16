@@ -14,11 +14,10 @@ import { computed } from 'vue'
 
 export interface RadioProps {
   modelValue?: boolean | string | number
-  name?: string
+  name?: string | number | boolean
   shape?: 'round' | 'square'
   disabled?: boolean
   label?: string
-  value?: string | number | boolean
 }
 
 const props = withDefaults(defineProps<RadioProps>(), {
@@ -27,18 +26,18 @@ const props = withDefaults(defineProps<RadioProps>(), {
 })
 
 const emit = defineEmits<{
-  'update:modelValue': [value: boolean]
-  'change': [value: boolean]
+  'update:modelValue': [value: string | number | boolean]
+  'change': [value: string | number | boolean]
 }>()
 
 const isChecked = computed(() => {
-  return props.modelValue === props.value
+  return props.modelValue === props.name
 })
 
 const handleClick = () => {
   if (props.disabled) return
-  emit('update:modelValue', props.value)
-  emit('change', props.value)
+  emit('update:modelValue', props.name)
+  emit('change', props.name)
 }
 </script>
 

@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import BwLoading from '../loading/index.vue'
 import BwIcon from '../icon/index.vue'
 
@@ -26,6 +26,7 @@ export interface ToastProps {
   forbidClick?: boolean
   overlay?: boolean
   zIndex?: number
+  show?: boolean
 }
 
 const props = withDefaults(defineProps<ToastProps>(), {
@@ -36,10 +37,20 @@ const props = withDefaults(defineProps<ToastProps>(), {
   position: 'center',
   forbidClick: false,
   overlay: false,
-  zIndex: 3000
+  zIndex: 3000,
+  show: false
 })
 
-const isShow = ref(false)
+const isShow = ref(props.show)
+
+watch(() => props.show, (val) => {
+  isShow.value = val
+  if (val && props.duration > 0) {
+    setTimeout(() => {
+      isShow.value = false
+    }, props.duration)
+  }
+})
 
 const show = () => {
   isShow.value = true
