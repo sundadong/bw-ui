@@ -4,92 +4,92 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('./views/Home.vue')
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/button',
     name: 'Button',
-    component: () => import('./views/ButtonDemo.vue')
+    component: () => import('../views/ButtonDemo.vue')
   },
   {
     path: '/cell',
     name: 'Cell',
-    component: () => import('./views/CellDemo.vue')
+    component: () => import('../views/CellDemo.vue')
   },
   {
     path: '/icon',
     name: 'Icon',
-    component: () => import('./views/IconDemo.vue')
+    component: () => import('../views/IconDemo.vue')
   },
   {
     path: '/tag',
     name: 'Tag',
-    component: () => import('./views/TagDemo.vue')
+    component: () => import('../views/TagDemo.vue')
   },
   {
     path: '/badge',
     name: 'Badge',
-    component: () => import('./views/BadgeDemo.vue')
+    component: () => import('../views/BadgeDemo.vue')
   },
   {
     path: '/empty',
     name: 'Empty',
-    component: () => import('./views/EmptyDemo.vue')
+    component: () => import('../views/EmptyDemo.vue')
   },
   {
     path: '/progress',
     name: 'Progress',
-    component: () => import('./views/ProgressDemo.vue')
+    component: () => import('../views/ProgressDemo.vue')
   },
   {
     path: '/switch',
     name: 'Switch',
-    component: () => import('./views/SwitchDemo.vue')
+    component: () => import('../views/SwitchDemo.vue')
   },
   {
     path: '/checkbox',
     name: 'Checkbox',
-    component: () => import('./views/CheckboxDemo.vue')
+    component: () => import('../views/CheckboxDemo.vue')
   },
   {
     path: '/radio',
     name: 'Radio',
-    component: () => import('./views/RadioDemo.vue')
+    component: () => import('../views/RadioDemo.vue')
   },
   {
     path: '/field',
     name: 'Field',
-    component: () => import('./views/FieldDemo.vue')
+    component: () => import('../views/FieldDemo.vue')
   },
   {
     path: '/popup',
     name: 'Popup',
-    component: () => import('./views/PopupDemo.vue')
+    component: () => import('../views/PopupDemo.vue')
   },
   {
     path: '/dialog',
     name: 'Dialog',
-    component: () => import('./views/DialogDemo.vue')
+    component: () => import('../views/DialogDemo.vue')
   },
   {
     path: '/toast',
     name: 'Toast',
-    component: () => import('./views/ToastDemo.vue')
+    component: () => import('../views/ToastDemo.vue')
   },
   {
     path: '/overlay',
     name: 'Overlay',
-    component: () => import('./views/OverlayDemo.vue')
+    component: () => import('../views/OverlayDemo.vue')
   },
   {
     path: '/tabs',
     name: 'Tabs',
-    component: () => import('./views/TabsDemo.vue')
+    component: () => import('../views/TabsDemo.vue')
   },
   {
     path: '/navbar',
     name: 'Navbar',
-    component: () => import('./views/NavbarDemo.vue')
+    component: () => import('../views/NavbarDemo.vue')
   }
 ]
 

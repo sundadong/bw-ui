@@ -14,6 +14,7 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import BwNavbar from '../components/navbar/index.vue'
 
 interface Props {
   title: string
