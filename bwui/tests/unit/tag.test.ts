@@ -170,11 +170,11 @@ describe('Tag 组件测试', () => {
       slots: { default: '朴素彩色标签' }
     })
     expect(wrapper.attributes('style')).toContain('color: #ff0000')
-    expect(wrapper.attributes('style')).toContain('background-color: #fff')
+    expect(wrapper.attributes('style')).toContain('background-color: transparent')
     expect(wrapper.attributes('style')).toContain('border-color: #ff0000')
   })
 
-  it('无 color 属性时不应设置内联样式', () => {
+  it('无 color 属性时不应该设置内联样式', () => {
     const wrapper = mount(Tag, {
       slots: { default: '标签' }
     })

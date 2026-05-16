@@ -120,11 +120,38 @@ $bw-progress-height: 4px !default;
 $bw-progress-background-color: #e5e5e5 !default;
 
 // Switch
-$bw-switch-width: 48px !default;
-$bw-switch-height: 24px !default;
-$bw-switch-border-radius: 12px !default;
-$bw-switch-node-size: 22px !default;
-$bw-switch-node-offset: 1px !default;
+$bw-switch-size: 26px !default;
+$bw-switch-width: calc(1.8em + 4px) !default;
+$bw-switch-height: calc(1em + 4px) !default;
+$bw-switch-border-radius: 999px !default;
+$bw-switch-node-size: 1em !default;
+$bw-switch-node-background: $bw-white !default;
+$bw-switch-node-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05) !default;
+$bw-switch-background: rgba(120, 120, 128, 0.16) !default;
+$bw-switch-on-background: $bw-primary-color !default;
+$bw-switch-duration: $bw-animation-duration-base !default;
+$bw-switch-disabled-opacity: $bw-disabled-opacity !default;
+
+// Checkbox & Radio
+$bw-checkbox-icon-size: 20px !default;
+$bw-checkbox-border-color: $bw-border-color !default;
+$bw-checkbox-checked-color: $bw-primary-color !default;
+$bw-checkbox-disabled-opacity: $bw-disabled-opacity !default;
+$bw-radio-icon-size: 20px !default;
+$bw-radio-border-color: $bw-border-color !default;
+$bw-radio-checked-color: $bw-primary-color !default;
+
+// Field
+$bw-field-label-width: 88px !default;
+$bw-field-cell-height: 44px !default;
+$bw-field-cell-border-width: 1px !default;
+$bw-field-cell-border-color: $bw-border-color !default;
+$bw-field-padding-left: 16px !default;
+$bw-field-padding-right: 16px !default;
+$bw-field-label-color: $bw-text-color !default;
+$bw-field-input-text-color: $bw-text-color !default;
+$bw-field-input-placeholder-color: $bw-text-color-3 !default;
+$bw-field-error-message-color: $bw-danger-color !default;
 
 // Toast
 $bw-toast-max-width: 70% !default;

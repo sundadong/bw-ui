@@ -17,11 +17,11 @@ describe('Progress 组件测试', () => {
     expect(wrapper.classes()).toContain('bw-progress')
   })
 
-  it('应该包含 bw-progress__portion 元素', () => {
+  it('应该包含 bw-progress__inner 元素', () => {
     const wrapper = mount(Progress, {
       props: { percentage: 50 }
     })
-    expect(wrapper.find('.bw-progress__portion').exists()).toBe(true)
+    expect(wrapper.find('.bw-progress__inner').exists()).toBe(true)
   })
 
   it('默认不显示 pivot 文字', () => {
@@ -45,19 +45,19 @@ describe('Progress 组件测试', () => {
     expect(wrapper.find('.bw-progress__pivot').text()).toBe('50%')
   })
 
-  it('默认 pivotText 为空字符串', () => {
+  it('默认 pivotText 为空，应该显示百分比', () => {
     const wrapper = mount(Progress, {
       props: { percentage: 50, showPivot: true }
     })
-    expect(wrapper.find('.bw-progress__pivot').text()).toBe('')
+    expect(wrapper.find('.bw-progress__pivot').text()).toBe('50%')
   })
 
-  it('pivot 应该有正确的宽度样式', () => {
+  it('pivot 应该有正确的 left 位置样式', () => {
     const wrapper = mount(Progress, {
       props: { percentage: 75, showPivot: true, pivotText: '75%' }
     })
     const pivot = wrapper.find('.bw-progress__pivot')
-    expect(pivot.attributes('style')).toContain('width: 75%')
+    expect(pivot.attributes('style')).toContain('left: 75%')
   })
 
   it('pivot 应该有正确的背景色', () => {
@@ -79,7 +79,7 @@ describe('Progress 组件测试', () => {
       props: { percentage: 80, showPivot: true, pivotText: '80%' }
     })
     const pivot = wrapper.find('.bw-progress__pivot')
-    expect(pivot.attributes('style')).toContain('width: 80%')
+    expect(pivot.attributes('style')).toContain('left: 80%')
   })
 
   it('应该支持自定义 color', () => {
@@ -116,15 +116,15 @@ describe('Progress 组件测试', () => {
       props: { percentage: 100, showPivot: true, pivotText: '100%' }
     })
     const pivot = wrapper.find('.bw-progress__pivot')
-    expect(pivot.attributes('style')).toContain('width: 100%')
+    expect(pivot.attributes('style')).toContain('left: 100%')
   })
 
-  it('percentage 为 0 时 pivot 宽度应为 0%', () => {
+  it('percentage 为 0 时 pivot left 应为 0%', () => {
     const wrapper = mount(Progress, {
       props: { percentage: 0, showPivot: true, pivotText: '0%' }
     })
     const pivot = wrapper.find('.bw-progress__pivot')
-    expect(pivot.attributes('style')).toContain('width: 0%')
+    expect(pivot.attributes('style')).toContain('left: 0%')
   })
 
   it('自定义 pivotText 应该正确显示', () => {
@@ -155,7 +155,7 @@ describe('Progress 组件测试', () => {
     const pivot = wrapper.find('.bw-progress__pivot')
     expect(pivot.exists()).toBe(true)
     expect(pivot.text()).toBe('85%')
-    expect(pivot.attributes('style')).toContain('width: 85%')
+    expect(pivot.attributes('style')).toContain('left: 85%')
     expect(pivot.attributes('style')).toContain('background-color: #07c160')
   })
 

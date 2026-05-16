@@ -1,5 +1,13 @@
 <template>
-  <div class="bw-switch" :class="{ 'bw-switch--on': isChecked, 'bw-switch--disabled': disabled }" @click="handleClick">
+  <div 
+    class="bw-switch" 
+    :class="{ 'bw-switch--on': isChecked, 'bw-switch--disabled': disabled }" 
+    :style="{
+      fontSize: size,
+      backgroundColor: isChecked ? (activeColor || '') : (inactiveColor || '')
+    }"
+    @click="handleClick"
+  >
     <div class="bw-switch__node">
       <div v-if="loading" class="bw-switch__loading"></div>
     </div>
@@ -13,6 +21,7 @@ export interface SwitchProps {
   modelValue?: boolean
   loading?: boolean
   disabled?: boolean
+  size?: string | number
   activeColor?: string
   inactiveColor?: string
   activeValue?: boolean | string | number
@@ -23,13 +32,14 @@ const props = withDefaults(defineProps<SwitchProps>(), {
   modelValue: false,
   loading: false,
   disabled: false,
+  size: '26px',
   activeValue: true,
   inactiveValue: false
 })
 
 const emit = defineEmits<{
-  'update:modelValue': [value: boolean]
-  'change': [value: boolean]
+  'update:modelValue': [value: any]
+  'change': [value: any]
 }>()
 
 const isChecked = computed(() => {
@@ -50,36 +60,35 @@ const handleClick = () => {
   position: relative;
   display: inline-block;
   box-sizing: content-box;
-  width: $bw-switch-width;
-  height: $bw-switch-height;
-  font-size: 10px;
-  background-color: $bw-gray-5;
-  border-radius: $bw-switch-border-radius;
+  width: calc(1.8em + 4px);
+  height: calc(1em + 4px);
+  background-color: rgba(120, 120, 128, 0.16);
+  border-radius: 999px;
   cursor: pointer;
-  transition: background-color $bw-animation-duration-base $bw-animation-timing-function-ease;
+  transition: background-color 0.3s;
 
   &--on {
     background-color: $bw-primary-color;
   }
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: 0.5;
     cursor: not-allowed;
   }
 
   &__node {
     position: absolute;
-    top: 1px;
-    left: 1px;
-    width: $bw-switch-node-size;
-    height: calc(#{$bw-switch-height} - 2px);
+    top: 2px;
+    left: 2px;
+    width: 1em;
+    height: 1em;
     background-color: $bw-white;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform $bw-animation-duration-base $bw-animation-timing-function-ease;
+    box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
 
     .bw-switch--on & {
-      transform: translateX(calc(#{$bw-switch-width} - #{$bw-switch-node-size} - 2px));
+      transform: translateX(calc(100% - 4px));
     }
   }
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="bw-checkbox" :class="{ 'bw-checkbox--checked': isChecked, 'bw-checkbox--disabled': disabled }" @click="handleClick">
+  <div class="bw-checkbox" :class="{ 'bw-checkbox--checked': isChecked, 'bw-checkbox--disabled': disabled, 'bw-checkbox--round': shape === 'round' }" @click="handleClick">
     <div class="bw-checkbox__icon">
-      <bw-icon v-if="isChecked" name="success" size="14px" />
+      <bw-icon v-if="isChecked" name="success" :size="iconSize" />
     </div>
     <div v-if="$slots.default || label" class="bw-checkbox__label">
       <slot>{{ label }}</slot>
@@ -19,12 +19,16 @@ export interface CheckboxProps {
   shape?: 'square' | 'round'
   disabled?: boolean
   label?: string
+  iconSize?: string | number
+  checkedColor?: string
 }
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
   modelValue: false,
-  shape: 'round',
-  disabled: false
+  shape: 'square',
+  disabled: false,
+  iconSize: '20px',
+  checkedColor: '#1989fa'
 })
 
 const emit = defineEmits<{
@@ -50,38 +54,40 @@ const handleClick = () => {
 
   &--disabled {
     cursor: not-allowed;
-    opacity: $bw-disabled-opacity;
+    opacity: 0.5;
+  }
+
+  &--checked {
+    .bw-checkbox__icon {
+      background-color: v-bind(checkedColor);
+      border-color: v-bind(checkedColor);
+    }
+  }
+
+  &--round {
+    .bw-checkbox__icon {
+      border-radius: 50%;
+    }
   }
 
   &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: v-bind(iconSize);
+    height: v-bind(iconSize);
     border: 1px solid $bw-border-color;
-    border-radius: $bw-border-radius-sm;
+    border-radius: 2px;
     background-color: $bw-white;
-    transition: all $bw-animation-duration-fast $bw-animation-timing-function-ease;
+    transition: all 0.2s;
     color: $bw-white;
-
-    .bw-checkbox--checked & {
-      background-color: $bw-primary-color;
-      border-color: $bw-primary-color;
-    }
   }
 
   &__label {
-    margin-left: $bw-padding-sm;
-    font-size: $bw-font-size-md;
+    margin-left: 12px;
+    font-size: 14px;
     color: $bw-text-color;
     line-height: 1.2;
-  }
-}
-
-.bw-checkbox--round {
-  .bw-checkbox__icon {
-    border-radius: 50%;
   }
 }
 </style>

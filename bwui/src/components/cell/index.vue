@@ -86,6 +86,8 @@ const handleClick = (event: Event) => {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/variables.scss';
+
 .bw-cell {
   display: flex;
   align-items: center;
@@ -93,10 +95,24 @@ const handleClick = (event: Event) => {
   width: 100%;
   min-height: $bw-cell-height;
   padding: $bw-cell-padding;
+  padding-left: $bw-cell-padding-left;
+  padding-right: $bw-cell-padding-right;
   font-size: $bw-cell-font-size;
   line-height: $bw-cell-line-height;
   color: $bw-text-color;
   background-color: $bw-bg-color;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: $bw-cell-padding-left;
+    right: 0;
+    height: 1px;
+    background-color: $bw-border-color;
+    transform: scaleY(0.5);
+  }
 
   &--clickable {
     cursor: pointer;
@@ -154,13 +170,14 @@ const handleClick = (event: Event) => {
 
     &-text {
       color: $bw-text-color;
+      word-wrap: break-word;
     }
   }
 
   &__label {
     margin-top: $bw-padding-xs;
     font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
+    color: $bw-cell-label-color;
     line-height: $bw-line-height-sm;
   }
 
@@ -168,7 +185,7 @@ const handleClick = (event: Event) => {
     flex: 1;
     min-width: 0;
     margin-right: $bw-padding-sm;
-    color: $bw-text-color-2;
+    color: $bw-cell-value-color;
     text-align: right;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -179,7 +196,7 @@ const handleClick = (event: Event) => {
     display: flex;
     align-items: center;
     margin-left: $bw-padding-xs;
-    color: $bw-text-color-3;
+    color: $bw-cell-arrow-color;
   }
 }
 </style>

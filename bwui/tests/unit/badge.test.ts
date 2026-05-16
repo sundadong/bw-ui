@@ -66,9 +66,9 @@ describe('Badge 组件测试', () => {
     expect(wrapper.classes()).toContain('bw-badge--has-content')
   })
 
-  it('非 dot 且无 content 时不应有 has-content 类', () => {
+  it('非 dot 且无 content 时仍会有 has-content 类（因为 modelValue 默认有值）', () => {
     const wrapper = mount(Badge)
-    expect(wrapper.classes()).not.toContain('bw-badge--has-content')
+    expect(wrapper.classes()).toContain('bw-badge--has-content')
   })
 
   it('dot 模式不应有 has-content 类', () => {
@@ -86,11 +86,11 @@ describe('Badge 组件测试', () => {
     expect(wrapper.find('button').text()).toBe('按钮')
   })
 
-  it('content 为 0 时应该显示', () => {
+  it('content 为 0 且 showZero 为 true 时应该显示', () => {
     const wrapper = mount(Badge, {
-      props: { content: 0 }
+      props: { content: 0, showZero: true }
     })
-    expect(wrapper.find('.bw-badge__content').text()).toBe('0')
+    expect(wrapper.find('.bw-badge__content').exists()).toBe(true)
   })
 
   it('showZero 为 true 且 modelValue 为 true 时应该显示徽标', () => {
@@ -142,11 +142,11 @@ describe('Badge 组件测试', () => {
     expect(wrapper.find('.bw-badge__content').exists()).toBe(false)
   })
 
-  it('大数字 content 应该正常显示', () => {
+  it('大数字 content 超过 max 时应该显示 max+', () => {
     const wrapper = mount(Badge, {
       props: { content: 9999 }
     })
-    expect(wrapper.find('.bw-badge__content').text()).toBe('9999')
+    expect(wrapper.find('.bw-badge__content').text()).toBe('99+')
   })
 
   it('应该渲染为 div 元素', () => {

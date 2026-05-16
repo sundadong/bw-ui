@@ -2,7 +2,7 @@
   <div class="bw-tag" :class="tagClass" :style="tagStyle">
     <slot></slot>
     <div v-if="closable" class="bw-tag__close" @click="handleClose">
-      <bw-icon name="cross" size="12px" />
+      <bw-icon name="cross" :size="closeSize" />
     </div>
   </div>
 </template>
@@ -36,6 +36,8 @@ const emit = defineEmits<{
   close: [event: Event]
 }>()
 
+const closeSize = computed(() => props.size === 'small' ? '10px' : '12px')
+
 const tagClass = computed(() => {
   return [
     `bw-tag--${props.type}`,
@@ -54,7 +56,7 @@ const tagStyle = computed(() => {
   if (props.color) {
     return {
       color: props.plain ? props.color : '#fff',
-      backgroundColor: props.plain ? '#fff' : props.color,
+      backgroundColor: props.plain ? 'transparent' : props.color,
       borderColor: props.color
     }
   }
@@ -69,77 +71,112 @@ const handleClose = (event: Event) => {
 </script>
 
 <style lang="scss">
+@import '../../styles/variables.scss';
+
 .bw-tag {
+  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   box-sizing: border-box;
-  padding: 0 4px;
-  font-size: 12px;
-  line-height: 1.2;
-  border-radius: 2px;
+  padding: $bw-tag-padding;
+  font-size: $bw-tag-font-size;
+  line-height: 1.5;
+  border-radius: $bw-tag-border-radius;
   border: 1px solid transparent;
+  white-space: nowrap;
+  vertical-align: middle;
 
   &--small {
     height: 18px;
-    font-size: 10px;
+    padding: 0 4px;
+    font-size: $bw-font-size-xs;
   }
 
   &--medium {
-    height: 22px;
-    font-size: 12px;
+    height: 24px;
+    padding: 0 6px;
+    font-size: $bw-tag-font-size;
   }
 
   &--plain {
-    background-color: #fff;
+    background-color: transparent;
     border-color: currentColor;
   }
 
   &--round {
-    border-radius: 999px;
+    border-radius: $bw-border-radius-round;
   }
 
   &--mark {
-    border-radius: 999px 0 0 999px;
-    padding-left: 6px;
+    border-radius: 0 $bw-border-radius-round $bw-border-radius-round 0;
   }
 
   &--closable {
-    padding-right: 18px;
+    padding-right: 20px;
   }
 
   &--disabled {
-    opacity: 0.5;
+    opacity: $bw-disabled-opacity;
     cursor: not-allowed;
   }
 
   &--default {
-    color: #969799;
-    background-color: #f2f3f5;
-    border-color: #ebedf0;
+    color: $bw-text-color-2;
+    background-color: $bw-gray-6;
+    border-color: $bw-gray-6;
   }
 
   &--primary {
-    color: #fff;
-    background-color: #1989fa;
-    border-color: #1989fa;
+    color: $bw-white;
+    background-color: $bw-primary-color;
+    border-color: $bw-primary-color;
   }
 
   &--success {
-    color: #fff;
-    background-color: #07c160;
-    border-color: #07c160;
+    color: $bw-white;
+    background-color: $bw-success-color;
+    border-color: $bw-success-color;
   }
 
   &--warning {
-    color: #fff;
-    background-color: #ff976a;
-    border-color: #ff976a;
+    color: $bw-white;
+    background-color: $bw-warning-color;
+    border-color: $bw-warning-color;
   }
 
   &--danger {
-    color: #fff;
-    background-color: #ee0a24;
-    border-color: #ee0a24;
+    color: $bw-white;
+    background-color: $bw-danger-color;
+    border-color: $bw-danger-color;
+  }
+
+  &--plain {
+    &.bw-tag--default {
+      color: $bw-text-color-2;
+      background-color: transparent;
+      border-color: $bw-text-color-2;
+    }
+    &.bw-tag--primary {
+      color: $bw-primary-color;
+      background-color: transparent;
+      border-color: $bw-primary-color;
+    }
+    &.bw-tag--success {
+      color: $bw-success-color;
+      background-color: transparent;
+      border-color: $bw-success-color;
+    }
+    &.bw-tag--warning {
+      color: $bw-warning-color;
+      background-color: transparent;
+      border-color: $bw-warning-color;
+    }
+    &.bw-tag--danger {
+      color: $bw-danger-color;
+      background-color: transparent;
+      border-color: $bw-danger-color;
+    }
   }
 
   &__close {
@@ -150,7 +187,7 @@ const handleClose = (event: Event) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;
+    padding: 0 4px;
     cursor: pointer;
   }
 }

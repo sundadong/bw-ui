@@ -1,10 +1,10 @@
 <template>
-  <div class="bw-field" :class="{ 'bw-field--disabled': disabled }">
+  <div class="bw-field" :class="{ 'bw-field--disabled': disabled, 'bw-field--focused': isFocus, 'bw-field--error': !!errorMessage }">
     <div v-if="$slots.label || label" class="bw-field__label">
       <slot name="label">{{ label }}</slot>
     </div>
     <div class="bw-field__body">
-      <div v-if="$slots.left-icon || leftIcon" class="bw-field__left-icon" @click="$emit('click-icon', 'left')">
+      <div v-if="$slots['left-icon'] || leftIcon" class="bw-field__left-icon" @click="$emit('click-icon', 'left')">
         <slot name="left-icon">
           <bw-icon :name="leftIcon" />
         </slot>
@@ -17,19 +17,18 @@
         :disabled="disabled"
         :readonly="readonly"
         :maxlength="maxlength"
-        :placeholder-style="placeholderStyle"
         @input="handleInput"
         @focus="handleFocus"
         @blur="handleBlur"
         @confirm="handleConfirm"
       />
-      <div v-if="$slots.right-icon || rightIcon" class="bw-field__right-icon" @click="$emit('click-icon', 'right')">
+      <div v-if="clearable && modelValue && isFocus" class="bw-field__clear" @click="handleClear">
+        <bw-icon name="cross" size="14px" />
+      </div>
+      <div v-if="$slots['right-icon'] || rightIcon" class="bw-field__right-icon" @click="$emit('click-icon', 'right')">
         <slot name="right-icon">
           <bw-icon :name="rightIcon" />
         </slot>
-      </div>
-      <div v-if="clearable && modelValue && isFocus" class="bw-field__clear" @click="handleClear">
-        <bw-icon name="cross-circle" size="14px" />
       </div>
     </div>
     <div v-if="$slots.footer || errorMessage" class="bw-field__footer">
@@ -53,7 +52,6 @@ export interface FieldProps {
   maxlength?: number | string
   leftIcon?: string
   rightIcon?: string
-  placeholderStyle?: string
   errorMessage?: string
 }
 
@@ -79,8 +77,9 @@ const emit = defineEmits<{
 const isFocus = ref(false)
 
 const handleInput = (event: any) => {
-  emit('update:modelValue', event.detail.value)
-  emit('change', event.detail.value)
+  const value = event.target.value
+  emit('update:modelValue', value)
+  emit('change', value)
 }
 
 const handleFocus = (event: Event) => {
@@ -100,29 +99,36 @@ const handleClear = () => {
 }
 
 const handleConfirm = (event: any) => {
-  emit('confirm', event.detail.value)
+  emit('confirm', event.target.value)
 }
 </script>
 
 <style lang="scss" scoped>
 .bw-field {
-  padding: $bw-padding-md $bw-padding-md;
-  background-color: $bw-bg-color;
+  padding: 12px 16px;
+  background-color: $bw-white;
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: 0.5;
+  }
+
+  &--error {
+    .bw-field__label,
+    .bw-field__input {
+      color: $bw-danger-color;
+    }
   }
 
   &__label {
-    margin-bottom: $bw-padding-xs;
-    font-size: $bw-font-size-md;
+    margin-bottom: 4px;
+    font-size: 14px;
     color: $bw-text-color;
   }
 
   &__body {
     display: flex;
     align-items: center;
-    min-height: $bw-input-height-md;
+    min-height: 24px;
   }
 
   &__left-icon,
@@ -133,22 +139,23 @@ const handleConfirm = (event: any) => {
   }
 
   &__left-icon {
-    margin-right: $bw-padding-xs;
+    margin-right: 8px;
   }
 
   &__right-icon {
-    margin-left: $bw-padding-xs;
+    margin-left: 8px;
   }
 
   &__input {
     flex: 1;
-    min-height: $bw-input-height-md;
+    min-height: 24px;
     padding: 0;
-    font-size: $bw-font-size-md;
+    font-size: 14px;
     color: $bw-text-color;
     background-color: transparent;
     border: none;
     outline: none;
+    resize: none;
 
     &::placeholder {
       color: $bw-text-color-3;
@@ -158,13 +165,13 @@ const handleConfirm = (event: any) => {
   &__clear {
     display: flex;
     align-items: center;
-    margin-left: $bw-padding-xs;
+    margin-left: 8px;
     color: $bw-text-color-3;
   }
 
   &__footer {
-    margin-top: $bw-padding-xs;
-    font-size: $bw-font-size-sm;
+    margin-top: 4px;
+    font-size: 12px;
     color: $bw-danger-color;
   }
 }

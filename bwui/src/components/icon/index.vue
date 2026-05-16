@@ -1,5 +1,5 @@
 <template>
-  <div class="bw-icon" :class="[`bw-icon--${name}`]" :style="iconStyle">
+  <div class="bw-icon" :class="iconClass" :style="iconStyle">
     <img v-if="isImage" class="bw-icon__image" :src="name" alt="" />
     <span v-else class="bw-icon__text">{{ iconMap[name] || '' }}</span>
   </div>
@@ -21,10 +21,16 @@ const props = withDefaults(defineProps<IconProps>(), {
   classPrefix: 'bwicon'
 })
 
+const iconClass = computed(() => {
+  return [`bw-icon--${props.name}`]
+})
+
 const iconStyle = computed(() => {
   const style: Record<string, string> = {}
   if (props.size !== 'inherit') {
     style.fontSize = typeof props.size === 'number' ? `${props.size}px` : props.size
+    style.width = style.fontSize
+    style.height = style.fontSize
   }
   if (props.color !== 'inherit') {
     style.color = props.color
@@ -46,11 +52,16 @@ const iconMap: Record<string, string> = {
   plus: '+',
   minus: '-',
   close: '✕',
+  cross: '✕',
   location: '📍',
   setting: '⚙',
   star: '★',
   heart: '♥',
-  clock: '⏰'
+  clock: '⏰',
+  photo: '🖼',
+  like: '👍',
+  chat: '💬',
+  shop: '🛒'
 }
 </script>
 
@@ -63,14 +74,20 @@ const iconMap: Record<string, string> = {
   justify-content: center;
   font-size: $bw-icon-size-md;
   line-height: 1;
-
-  &--inherit {
-    font-size: inherit;
-  }
+  color: inherit;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
 
   &__image {
-    width: 1em;
-    height: 1em;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  &__text {
+    font-size: inherit;
+    line-height: 1;
   }
 }
 </style>

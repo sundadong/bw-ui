@@ -1,8 +1,16 @@
 <template>
   <div class="bw-progress">
-    <div class="bw-progress__portion">
-      <div class="bw-progress__pivot" v-if="showPivot" :style="pivotStyle">
-        {{ pivotText }}
+    <div class="bw-progress__outer">
+      <div 
+        class="bw-progress__inner" 
+        :style="innerStyle"
+      ></div>
+      <div 
+        v-if="showPivot" 
+        class="bw-progress__pivot" 
+        :style="pivotStyle"
+      >
+        {{ displayText }}
       </div>
     </div>
   </div>
@@ -29,48 +37,69 @@ const props = withDefaults(defineProps<ProgressProps>(), {
   showPivot: false
 })
 
+const safePercentage = computed(() => {
+  let percentage = props.percentage
+  percentage = Math.max(0, Math.min(100, percentage))
+  return percentage
+})
+
+const displayText = computed(() => {
+  return props.pivotText || `${safePercentage.value}%`
+})
+
+const innerStyle = computed(() => {
+  return {
+    width: `${safePercentage.value}%`,
+    backgroundColor: props.color
+  }
+})
+
 const pivotStyle = computed(() => {
   return {
-    backgroundColor: props.color,
-    width: `${props.percentage}%`
+    left: `${safePercentage.value}%`,
+    backgroundColor: props.color
   }
 })
 </script>
 
 <style lang="scss">
+@import '../../styles/variables.scss';
+
 .bw-progress {
   width: 100%;
+  display: flex;
+  align-items: center;
 
-  &__portion {
+  &__outer {
     position: relative;
-    height: 4px;
-    background-color: #ebedf0;
-    border-radius: 999px;
-    overflow: hidden;
+    flex: 1;
+    height: $bw-progress-height;
+    background-color: v-bind('trackColor');
+    border-radius: $bw-border-radius-round;
+    overflow: visible;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: v-bind('percentage + "%"');
-      background-color: v-bind('color');
-      border-radius: inherit;
-      transition: width 0.3s ease;
-    }
+  &__inner {
+    position: relative;
+    height: 100%;
+    background-color: $bw-primary-color;
+    border-radius: inherit;
+    transition: width $bw-animation-duration-base $bw-animation-timing-function-base;
   }
 
   &__pivot {
     position: absolute;
     top: 50%;
+    left: 0;
     transform: translate(-50%, -50%);
-    padding: 0 5px;
-    font-size: 10px;
+    min-width: 36px;
+    padding: 0 6px;
+    font-size: $bw-font-size-xs;
     line-height: 1.5;
-    color: #fff;
-    background-color: #1989fa;
-    border-radius: 999px;
+    color: $bw-white;
+    text-align: center;
+    background-color: $bw-primary-color;
+    border-radius: $bw-border-radius-round;
     white-space: nowrap;
   }
 }

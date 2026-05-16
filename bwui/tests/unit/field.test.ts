@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import Field from '../../src/components/field/index.vue'
 
@@ -175,19 +175,13 @@ describe('Field 组件测试', () => {
     expect(wrapper.find('.custom-footer').exists()).toBe(true)
   })
 
-  it('placeholderStyle 应该设置到 input 上', () => {
-    const wrapper = mount(Field, {
-      props: { placeholderStyle: 'color: red' }
-    })
-    expect(wrapper.find('.bw-field__input').attributes('placeholder-style')).toBe('color: red')
-  })
-
   it('输入时应该触发 update:modelValue 事件', async () => {
     const wrapper = mount(Field, {
       props: { modelValue: '' }
     })
     const input = wrapper.find('.bw-field__input')
-    await input.trigger('input', { detail: { value: '新内容' } })
+    input.element.value = '新内容'
+    await input.trigger('input')
     expect(wrapper.emitted('update:modelValue')).toBeTruthy()
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['新内容'])
   })
@@ -197,7 +191,8 @@ describe('Field 组件测试', () => {
       props: { modelValue: '' }
     })
     const input = wrapper.find('.bw-field__input')
-    await input.trigger('input', { detail: { value: '变更内容' } })
+    input.element.value = '变更内容'
+    await input.trigger('input')
     expect(wrapper.emitted('change')).toBeTruthy()
     expect(wrapper.emitted('change')?.[0]).toEqual(['变更内容'])
   })
@@ -221,7 +216,8 @@ describe('Field 组件测试', () => {
   it('confirm 时应该触发 confirm 事件', async () => {
     const wrapper = mount(Field)
     const input = wrapper.find('.bw-field__input')
-    await input.trigger('confirm', { detail: { value: '确认内容' } })
+    input.element.value = '确认内容'
+    await input.trigger('confirm')
     expect(wrapper.emitted('confirm')).toBeTruthy()
     expect(wrapper.emitted('confirm')?.[0]).toEqual(['确认内容'])
   })

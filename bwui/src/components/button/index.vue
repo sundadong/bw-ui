@@ -115,37 +115,41 @@ const handleClick = (event: Event) => {
 </script>
 
 <style lang="scss">
+@import '../../styles/variables.scss';
+
 .bw-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   padding: 0;
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: $bw-font-size-md;
+  line-height: 1.4;
   text-align: center;
-  border: none;
-  border-radius: 4px;
-  background-color: #fff;
+  border: $bw-button-border-width solid $bw-button-border-color;
+  border-radius: $bw-border-radius-md;
+  background-color: $bw-white;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: opacity $bw-animation-duration-fast;
+  -webkit-appearance: none;
+  user-select: none;
 
   &--small {
-    height: 32px;
-    padding: 0 8px;
-    font-size: 12px;
+    height: $bw-button-height-sm;
+    padding: 0 $bw-padding-sm;
+    font-size: $bw-font-size-sm;
   }
 
   &--medium {
-    height: 44px;
-    padding: 0 12px;
-    font-size: 14px;
+    height: $bw-button-height-md;
+    padding: 0 $bw-padding-md;
+    font-size: $bw-font-size-md;
   }
 
   &--large {
-    height: 50px;
-    padding: 0 16px;
-    font-size: 16px;
+    height: $bw-button-height-lg;
+    padding: 0 $bw-padding-lg;
+    font-size: $bw-font-size-lg;
   }
 
   &--block {
@@ -154,7 +158,7 @@ const handleClick = (event: Event) => {
   }
 
   &--round {
-    border-radius: 999px;
+    border-radius: $bw-border-radius-round;
   }
 
   &--square {
@@ -163,7 +167,7 @@ const handleClick = (event: Event) => {
 
   &--disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: $bw-disabled-opacity;
   }
 
   &--loading {
@@ -171,68 +175,72 @@ const handleClick = (event: Event) => {
   }
 
   &--hairline {
-    border-width: 1px;
+    border-width: 0.5px;
   }
 
   &--text {
     background-color: transparent;
     border-color: transparent;
+    
+    &:active {
+      opacity: $bw-active-opacity;
+    }
   }
 
   &--primary {
-    color: #fff;
-    background-color: #1989fa;
-    border-color: #1989fa;
+    color: $bw-white;
+    background-color: $bw-primary-color;
+    border-color: $bw-primary-color;
   }
 
   &--success {
-    color: #fff;
-    background-color: #07c160;
-    border-color: #07c160;
+    color: $bw-white;
+    background-color: $bw-success-color;
+    border-color: $bw-success-color;
   }
 
   &--warning {
-    color: #fff;
-    background-color: #ff976a;
-    border-color: #ff976a;
+    color: $bw-white;
+    background-color: $bw-warning-color;
+    border-color: $bw-warning-color;
   }
 
   &--danger {
-    color: #fff;
-    background-color: #ee0a24;
-    border-color: #ee0a24;
+    color: $bw-white;
+    background-color: $bw-danger-color;
+    border-color: $bw-danger-color;
   }
 
   &--default {
-    color: #323233;
-    background-color: #fff;
-    border: 1px solid #ebedf0;
+    color: $bw-text-color;
+    background-color: $bw-white;
+    border-color: $bw-border-color;
   }
 
   &--plain {
     &.bw-button--primary {
       color: $bw-primary-color;
-      background-color: #e6f4ff;
+      background-color: rgba($bw-primary-color, 0.1);
       border-color: $bw-primary-color;
     }
     &.bw-button--success {
       color: $bw-success-color;
-      background-color: #e7f7ed;
+      background-color: rgba($bw-success-color, 0.1);
       border-color: $bw-success-color;
     }
     &.bw-button--warning {
       color: $bw-warning-color;
-      background-color: #fff3e6;
+      background-color: rgba($bw-warning-color, 0.1);
       border-color: $bw-warning-color;
     }
     &.bw-button--danger {
       color: $bw-danger-color;
-      background-color: #fff0f0;
+      background-color: rgba($bw-danger-color, 0.1);
       border-color: $bw-danger-color;
     }
     &.bw-button--default {
       color: $bw-text-color;
-      background-color: #f7f8fa;
+      background-color: $bw-bg-color-gray;
       border-color: $bw-border-color;
     }
   }
@@ -256,8 +264,8 @@ const handleClick = (event: Event) => {
     align-items: center;
   }
 
-  &--active {
-    opacity: 0.6;
+  &:active {
+    opacity: $bw-active-opacity;
   }
 }
 </style>

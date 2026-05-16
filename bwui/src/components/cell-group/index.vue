@@ -1,5 +1,5 @@
 <template>
-  <div class="bw-cell-group">
+  <div class="bw-cell-group" :class="{ 'bw-cell-group--inset': inset }">
     <div v-if="title || $slots.title" class="bw-cell-group__title">
       <slot name="title">{{ title }}</slot>
     </div>
@@ -21,10 +21,12 @@ withDefaults(defineProps<CellGroupProps>(), {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/variables.scss';
+
 .bw-cell-group {
   &__title {
     padding: $bw-padding-md $bw-padding-md $bw-padding-sm;
-    font-size: $bw-font-size-md;
+    font-size: $bw-font-size-sm;
     color: $bw-text-color-2;
     line-height: $bw-line-height-sm;
   }
@@ -32,15 +34,15 @@ withDefaults(defineProps<CellGroupProps>(), {
   &__content {
     background-color: $bw-bg-color;
   }
-}
 
-.bw-cell-group--inset {
-  margin: $bw-padding-md;
-  border-radius: $bw-border-radius-lg;
-
-  .bw-cell-group__content {
+  &--inset {
+    margin: $bw-padding-md;
     border-radius: $bw-border-radius-lg;
     overflow: hidden;
+
+    .bw-cell-group__content {
+      border-radius: $bw-border-radius-lg;
+    }
   }
 }
 </style>

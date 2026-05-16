@@ -18,16 +18,20 @@ export interface RadioProps {
   shape?: 'round' | 'square'
   disabled?: boolean
   label?: string
+  iconSize?: string | number
+  checkedColor?: string
 }
 
 const props = withDefaults(defineProps<RadioProps>(), {
   shape: 'round',
-  disabled: false
+  disabled: false,
+  iconSize: '20px',
+  checkedColor: '#1989fa'
 })
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string | number | boolean]
-  'change': [value: string | number | boolean]
+  'update:modelValue': [value: any]
+  'change': [value: any]
 }>()
 
 const isChecked = computed(() => {
@@ -49,35 +53,39 @@ const handleClick = () => {
 
   &--disabled {
     cursor: not-allowed;
-    opacity: $bw-disabled-opacity;
+    opacity: 0.5;
+  }
+
+  &--checked {
+    .bw-radio__icon {
+      border-color: v-bind(checkedColor);
+    }
+    .bw-radio__icon-dot {
+      background-color: v-bind(checkedColor);
+    }
   }
 
   &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: v-bind(iconSize);
+    height: v-bind(iconSize);
     border: 1px solid $bw-border-color;
     border-radius: 50%;
     background-color: $bw-white;
-    transition: all $bw-animation-duration-fast $bw-animation-timing-function-ease;
+    transition: all 0.2s;
+  }
 
-    .bw-radio--checked & {
-      border-color: $bw-primary-color;
-    }
-
-    &-dot {
-      width: 8px;
-      height: 8px;
-      background-color: $bw-primary-color;
-      border-radius: 50%;
-    }
+  &__icon-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
   }
 
   &__label {
-    margin-left: $bw-padding-sm;
-    font-size: $bw-font-size-md;
+    margin-left: 12px;
+    font-size: 14px;
     color: $bw-text-color;
     line-height: 1.2;
   }
