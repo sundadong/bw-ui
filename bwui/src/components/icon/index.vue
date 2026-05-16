@@ -48,6 +48,7 @@ const iconMap: Record<string, string> = {
   warning: '⚠',
   info: 'ℹ',
   arrow: '→',
+  'arrow-left': '←',
   search: '⌕',
   plus: '+',
   minus: '-',
