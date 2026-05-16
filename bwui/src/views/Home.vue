@@ -62,10 +62,19 @@ const categories = reactive<Category[]>([
   {
     name: '表单组件',
     components: [
+      { name: 'Field 输入框', path: '/field' },
+      { name: 'Textarea 文本域', path: '/textarea' },
       { name: 'Switch 开关', path: '/switch' },
       { name: 'Checkbox 复选框', path: '/checkbox' },
       { name: 'Radio 单选框', path: '/radio' },
-      { name: 'Field 输入框', path: '/field' }
+      { name: 'Stepper 步进器', path: '/stepper' },
+      { name: 'Slider 滑块', path: '/slider' },
+      { name: 'Rate 评分', path: '/rate' },
+      { name: 'Search 搜索', path: '/search' },
+      { name: 'Picker 选择器', path: '/picker' },
+      { name: 'Calendar 日历', path: '/calendar' },
+      { name: 'DatePicker 日期选择', path: '/date-picker' },
+      { name: 'AreaPicker 地区选择', path: '/area-picker' }
     ]
   },
   {
@@ -74,14 +83,46 @@ const categories = reactive<Category[]>([
       { name: 'Popup 弹出层', path: '/popup' },
       { name: 'Dialog 对话框', path: '/dialog' },
       { name: 'Toast 轻提示', path: '/toast' },
-      { name: 'Overlay 遮罩层', path: '/overlay' }
+      { name: 'Overlay 遮罩层', path: '/overlay' },
+      { name: 'Loading 加载', path: '/loading' },
+      { name: 'Notify 消息通知', path: '/notify' },
+      { name: 'ActionSheet 动作面板', path: '/action-sheet' }
+    ]
+  },
+  {
+    name: '布局组件',
+    components: [
+      { name: 'Grid 宫格', path: '/grid' },
+      { name: 'Space 间距', path: '/space' },
+      { name: 'SafeArea 安全区', path: '/safe-area' }
     ]
   },
   {
     name: '导航组件',
     components: [
       { name: 'Tabs 标签页', path: '/tabs' },
-      { name: 'Navbar 导航栏', path: '/navbar' }
+      { name: 'Navbar 导航栏', path: '/navbar' },
+      { name: 'Sidebar 侧边导航', path: '/sidebar' },
+      { name: 'Tabbar 底部标签栏', path: '/tabbar' },
+      { name: 'Pagination 分页', path: '/pagination' }
+    ]
+  },
+  {
+    name: '展示组件',
+    components: [
+      { name: 'Avatar 头像', path: '/avatar' },
+      { name: 'Card 卡片', path: '/card' },
+      { name: 'Skeleton 骨架屏', path: '/skeleton' },
+      { name: 'Collapse 折叠面板', path: '/collapse' },
+      { name: 'Image 图片', path: '/image' },
+      { name: 'Swipe 轮播', path: '/swipe' },
+      { name: 'NoticeBar 通知栏', path: '/notice-bar' },
+      { name: 'Sticky 粘性布局', path: '/sticky' },
+      { name: 'Divider 分割线', path: '/divider' },
+      { name: 'Circle 环形进度', path: '/circle' },
+      { name: 'Timeline 时间轴', path: '/timeline' },
+      { name: 'BackTop 回到顶部', path: '/back-top' },
+      { name: 'Article 文章', path: '/article' }
     ]
   }
 ])
