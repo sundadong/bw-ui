@@ -249,6 +249,23 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import BwButton from './components/button/index.vue'
+import BwCell from './components/cell/index.vue'
+import BwCellGroup from './components/cell-group/index.vue'
+import BwIcon from './components/icon/index.vue'
+import BwEmpty from './components/empty/index.vue'
+import BwProgress from './components/progress/index.vue'
+import BwTag from './components/tag/index.vue'
+import BwBadge from './components/badge/index.vue'
+import BwSwitch from './components/switch/index.vue'
+import BwCheckbox from './components/checkbox/index.vue'
+import BwRadio from './components/radio/index.vue'
+import BwField from './components/field/index.vue'
+import BwPopup from './components/popup/index.vue'
+import BwDialog from './components/dialog/index.vue'
+import BwOverlay from './components/overlay/index.vue'
+import BwTabs from './components/tabs/index.vue'
+import BwNavbar from './components/navbar/index.vue'
 
 const currentTab = ref(0)
 const switchValue = ref(false)
