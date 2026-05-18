@@ -100,7 +100,7 @@ const handleClick = (event: Event) => {
   font-size: $bw-cell-font-size;
   line-height: $bw-cell-line-height;
   color: $bw-text-color;
-  background-color: $bw-bg-color;
+  background-color: inherit;
   position: relative;
   
   &::after {
