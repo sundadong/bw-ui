@@ -89,9 +89,34 @@ const buttonClass = computed(() => {
 const buttonStyle = computed(() => {
   const style: Record<string, string> = {}
   if (props.color) {
-    style.color = props.text ? props.color : '#fff'
-    if (!props.text && !props.loading) {
-      style.backgroundColor = props.color
+    if (props.plain) {
+      style.color = props.color
+      // 解析颜色并生成半透明背景
+      if (props.color.startsWith('#')) {
+        // 处理十六进制颜色
+        let r = parseInt(props.color.slice(1, 3), 16)
+        let g = parseInt(props.color.slice(3, 5), 16)
+        let b = parseInt(props.color.slice(5, 7), 16)
+        if (props.color.length === 4) {
+          r = parseInt(props.color[1] + props.color[1], 16)
+          g = parseInt(props.color[2] + props.color[2], 16)
+          b = parseInt(props.color[3] + props.color[3], 16)
+        }
+        style.backgroundColor = `rgba(${r}, ${g}, ${b}, 0.1)`
+      } else {
+        style.backgroundColor = props.color
+      }
+      style.borderColor = props.color
+    } else if (props.text) {
+      style.color = props.color
+      style.backgroundColor = 'transparent'
+      style.borderColor = 'transparent'
+    } else {
+      style.color = '#fff'
+      if (!props.loading) {
+        style.backgroundColor = props.color
+      }
+      style.borderColor = props.color
     }
     if (props.hairline) {
       style.borderColor = props.color
