@@ -17,109 +17,12 @@ describe('Icon 组件测试', () => {
     expect(wrapper.classes()).toContain('bw-icon')
   })
 
-  it('应该包含 bw-icon--name 类', () => {
+  it('应该包含 van-icon 和 van-icon-name 类', () => {
     const wrapper = mount(Icon, {
       props: { name: 'success' }
     })
-    expect(wrapper.classes()).toContain('bw-icon--success')
-  })
-
-  it('应该渲染 success 图标为 ✓', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'success' }
-    })
-    expect(wrapper.text()).toBe('✓')
-  })
-
-  it('应该渲染 fail 图标为 ✕', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'fail' }
-    })
-    expect(wrapper.text()).toBe('✕')
-  })
-
-  it('应该渲染 warning 图标为 ⚠', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'warning' }
-    })
-    expect(wrapper.text()).toBe('⚠')
-  })
-
-  it('应该渲染 info 图标为 ℹ', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'info' }
-    })
-    expect(wrapper.text()).toBe('ℹ')
-  })
-
-  it('应该渲染 arrow 图标为 →', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'arrow' }
-    })
-    expect(wrapper.text()).toBe('→')
-  })
-
-  it('应该渲染 search 图标为 ⌕', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'search' }
-    })
-    expect(wrapper.text()).toBe('⌕')
-  })
-
-  it('应该渲染 star 图标为 ★', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'star' }
-    })
-    expect(wrapper.text()).toBe('★')
-  })
-
-  it('应该渲染 heart 图标为 ♥', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'heart' }
-    })
-    expect(wrapper.text()).toBe('♥')
-  })
-
-  it('应该渲染 clock 图标为 ⏰', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'clock' }
-    })
-    expect(wrapper.text()).toBe('⏰')
-  })
-
-  it('应该渲染 location 图标为 📍', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'location' }
-    })
-    expect(wrapper.text()).toBe('📍')
-  })
-
-  it('应该渲染 setting 图标为 ⚙', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'setting' }
-    })
-    expect(wrapper.text()).toBe('⚙')
-  })
-
-  it('应该渲染 plus 图标为 +', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'plus' }
-    })
-    expect(wrapper.text()).toBe('+')
-  })
-
-  it('应该渲染 minus 图标为 -', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'minus' }
-    })
-    expect(wrapper.text()).toBe('-')
-  })
-
-  it('应该渲染 close 图标为 ✕', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'close' }
-    })
-    expect(wrapper.text()).toBe('✕')
+    expect(wrapper.classes()).toContain('van-icon')
+    expect(wrapper.classes()).toContain('van-icon-success')
   })
 
   it('图片名称应该渲染 img 元素', () => {
@@ -127,7 +30,6 @@ describe('Icon 组件测试', () => {
       props: { name: 'icon.png' }
     })
     expect(wrapper.find('img').exists()).toBe(true)
-    expect(wrapper.find('.bw-icon__image').exists()).toBe(true)
   })
 
   it('svg 图片名称应该渲染 img 元素', () => {
@@ -137,11 +39,11 @@ describe('Icon 组件测试', () => {
     expect(wrapper.find('img').exists()).toBe(true)
   })
 
-  it('非图片名称应该渲染 span 元素', () => {
+  it('非图片名称应该渲染 i 元素', () => {
     const wrapper = mount(Icon, {
       props: { name: 'success' }
     })
-    expect(wrapper.find('span.bw-icon__text').exists()).toBe(true)
+    expect(wrapper.element.tagName.toLowerCase()).toBe('i')
   })
 
   it('应该应用 size 属性（数字类型）', () => {
@@ -187,25 +89,12 @@ describe('Icon 组件测试', () => {
     expect(wrapper.attributes('style')).toContain('color: #00ff00')
   })
 
-  it('未知图标名称应该渲染空字符串', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'unknown-icon' }
-    })
-    expect(wrapper.text()).toBe('')
-  })
-
-  it('空名称应该渲染空字符串', () => {
-    const wrapper = mount(Icon, {
-      props: { name: '' }
-    })
-    expect(wrapper.text()).toBe('')
-  })
-
   it('应该接受 classPrefix 属性', () => {
     const wrapper = mount(Icon, {
       props: { name: 'success', classPrefix: 'custom' }
     })
-    expect(wrapper.exists()).toBe(true)
+    expect(wrapper.classes()).toContain('custom-icon')
+    expect(wrapper.classes()).toContain('custom-icon-success')
   })
 
   it('图片元素的 src 属性应该正确', () => {
@@ -215,13 +104,6 @@ describe('Icon 组件测试', () => {
     expect(wrapper.find('img').attributes('src')).toBe('test.jpg')
   })
 
-  it('应该渲染为 div 元素', () => {
-    const wrapper = mount(Icon, {
-      props: { name: 'success' }
-    })
-    expect(wrapper.element.tagName.toLowerCase()).toBe('div')
-  })
-
   it('不同图标的 class 应该不同', () => {
     const wrapper1 = mount(Icon, {
       props: { name: 'success' }
@@ -229,7 +111,7 @@ describe('Icon 组件测试', () => {
     const wrapper2 = mount(Icon, {
       props: { name: 'warning' }
     })
-    expect(wrapper1.classes()).toContain('bw-icon--success')
-    expect(wrapper2.classes()).toContain('bw-icon--warning')
+    expect(wrapper1.classes()).toContain('van-icon-success')
+    expect(wrapper2.classes()).toContain('van-icon-warning')
   })
 })

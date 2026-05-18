@@ -1,8 +1,6 @@
 <template>
-  <div class="bw-icon" :class="iconClass" :style="iconStyle">
-    <img v-if="isImage" class="bw-icon__image" :src="name" alt="" />
-    <span v-else class="bw-icon__text">{{ iconMap[name] || '' }}</span>
-  </div>
+  <img v-if="isImage" class="bw-icon" :src="name" alt="" :style="iconStyle" />
+  <i v-else class="bw-icon" :class="iconClass" :style="iconStyle"></i>
 </template>
 
 <script setup lang="ts">
@@ -18,19 +16,17 @@ export interface IconProps {
 const props = withDefaults(defineProps<IconProps>(), {
   size: 'inherit',
   color: 'inherit',
-  classPrefix: 'bwicon'
+  classPrefix: 'van'
 })
 
 const iconClass = computed(() => {
-  return [`bw-icon--${props.name}`]
+  return [`${props.classPrefix}-icon`, `${props.classPrefix}-icon-${props.name}`]
 })
 
 const iconStyle = computed(() => {
   const style: Record<string, string> = {}
   if (props.size !== 'inherit') {
     style.fontSize = typeof props.size === 'number' ? `${props.size}px` : props.size
-    style.width = style.fontSize
-    style.height = style.fontSize
   }
   if (props.color !== 'inherit') {
     style.color = props.color
@@ -41,54 +37,23 @@ const iconStyle = computed(() => {
 const isImage = computed(() => {
   return /\.(gif|jpg|jpeg|png|webp|svg)/i.test(props.name)
 })
-
-const iconMap: Record<string, string> = {
-  success: '✓',
-  fail: '✕',
-  warning: '⚠',
-  info: 'ℹ',
-  arrow: '→',
-  'arrow-left': '←',
-  search: '⌕',
-  plus: '+',
-  minus: '-',
-  close: '✕',
-  cross: '✕',
-  location: '📍',
-  setting: '⚙',
-  star: '★',
-  heart: '♥',
-  clock: '⏰',
-  photo: '🖼',
-  like: '👍',
-  chat: '💬',
-  shop: '🛒'
-}
 </script>
 
 <style lang="scss" scoped>
 @import '../../styles/variables.scss';
 
 .bw-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: inline-block;
+  font: normal normal normal 14px/1 'vant-icon';
+  font: normal normal normal 14px/1 var(--van-icon-font-family, 'vant-icon');
   font-size: $bw-icon-size-md;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
   line-height: 1;
   color: inherit;
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  
-  &__text {
-    font-size: inherit;
-    line-height: 1;
-  }
 }
 </style>
