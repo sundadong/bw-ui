@@ -108,16 +108,15 @@ import BwTag from '../components/tag/index.vue'
 
 <style lang="scss" scoped>
 .demo-block {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 16px 0;
-  margin-bottom: 16px;
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 24px;
 
   .demo-title {
     font-size: 14px;
     color: #969799;
-    padding: 0 16px;
-    margin-bottom: 12px;
+    padding: 0 16px 8px;
+    margin-bottom: 0;
   }
 }
 
