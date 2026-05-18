@@ -89,6 +89,9 @@ const buttonClass = computed(() => {
 const buttonStyle = computed(() => {
   const style: Record<string, string> = {}
   if (props.color) {
+    // 判断是否为渐变颜色
+    const isGradient = props.color.includes('gradient')
+    
     if (props.plain) {
       style.color = props.color
       // 解析颜色并生成半透明背景
@@ -103,22 +106,37 @@ const buttonStyle = computed(() => {
           b = parseInt(props.color[3] + props.color[3], 16)
         }
         style.backgroundColor = `rgba(${r}, ${g}, ${b}, 0.1)`
+        style.borderColor = props.color
+      } else if (isGradient) {
+        // 渐变颜色在plain模式下不使用渐变，只使用边框
+        style.backgroundColor = 'transparent'
+        style.borderColor = '#969799'
+        style.color = '#969799'
       } else {
-        style.backgroundColor = props.color
+        style.backgroundColor = 'transparent'
+        style.borderColor = props.color
       }
-      style.borderColor = props.color
     } else if (props.text) {
       style.color = props.color
       style.backgroundColor = 'transparent'
       style.borderColor = 'transparent'
     } else {
-      style.color = '#fff'
-      if (!props.loading) {
-        style.backgroundColor = props.color
+      // 普通模式
+      if (isGradient) {
+        style.color = '#fff'
+        if (!props.loading) {
+          style.background = props.color
+        }
+        style.borderColor = 'transparent'
+      } else {
+        style.color = '#fff'
+        if (!props.loading) {
+          style.backgroundColor = props.color
+        }
+        style.borderColor = props.color
       }
-      style.borderColor = props.color
     }
-    if (props.hairline) {
+    if (props.hairline && !isGradient) {
       style.borderColor = props.color
     }
   }
