@@ -121,7 +121,7 @@ import BwButton from '../components/button/index.vue'
 import BwSpace from '../components/space/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

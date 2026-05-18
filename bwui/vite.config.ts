@@ -11,6 +11,10 @@ export default defineConfig({
   },
   css: {
     preprocessorOptions: {
+      less: {
+        additionalData: `@import "@/styles/variables.less";`,
+        javascriptEnabled: true
+      },
       scss: {
         additionalData: `@import "@/styles/variables.scss";`
       }

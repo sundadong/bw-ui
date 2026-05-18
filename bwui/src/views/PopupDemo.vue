@@ -37,7 +37,7 @@
     <bw-popup
       :show="positionVisible"
       :position="currentPosition"
-      @update:show="positionVisible = $event"
+      @update:show="positionVisible =  @event"
     >
       <div class="popup-content" :class="{ 'popup-content--side': currentPosition === 'left' || currentPosition === 'right' }">
         <p>{{ positionText }}</p>
@@ -50,7 +50,7 @@
       position="bottom"
       :closeable="true"
       title="标题"
-      @update:show="closeableVisible = $event"
+      @update:show="closeableVisible =  @event"
     >
       <div class="popup-content">
         <p>内容</p>
@@ -61,7 +61,7 @@
       :show="roundVisible"
       position="bottom"
       :round="true"
-      @update:show="roundVisible = $event"
+      @update:show="roundVisible =  @event"
     >
       <div class="popup-content">
         <p>圆角弹窗内容</p>
@@ -74,7 +74,7 @@
       position="bottom"
       :closeable="true"
       title="监听事件"
-      @update:show="eventVisible = $event"
+      @update:show="eventVisible =  @event"
       @close="handlePopupClose"
     >
       <div class="popup-content">
@@ -118,7 +118,7 @@ const handlePopupClose = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

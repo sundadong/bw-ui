@@ -66,7 +66,7 @@ import BwNoticeBar from '../components/notice-bar/index.vue'
 const noticeText = ref('这是一条可关闭的通知消息')
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

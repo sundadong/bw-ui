@@ -1,6 +1,6 @@
 <template>
   <div class="bw-notice-bar" :class="{ 'bw-notice-bar--wrapable': wrapable }" :style="barStyle" @click="handleClick">
-    <div v-if="leftIcon || $slots['left-icon']" class="bw-notice-bar__left-icon">
+    <div v-if="leftIcon ||  $slots['left-icon']" class="bw-notice-bar__left-icon">
       <slot name="left-icon">
         <bw-icon v-if="leftIcon" :name="leftIcon" size="16px" />
       </slot>
@@ -19,7 +19,7 @@
         {{ modelValue }}
       </span>
     </div>
-    <div v-if="mode !== '' || $slots['right-icon'] || rightIcon" class="bw-notice-bar__right-icon">
+    <div v-if="mode !== '' ||  $slots['right-icon'] || rightIcon" class="bw-notice-bar__right-icon">
       <slot name="right-icon">
         <bw-icon
           v-if="mode === 'closeable'"
@@ -143,15 +143,15 @@ onUnmounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-notice-bar {
   display: flex;
   align-items: center;
   height: 40px;
-  padding: 0 $bw-padding-md;
-  font-size: $bw-font-size-md;
+  padding: 0  @bw-padding-md;
+  font-size: @bw-font-size-md;
   line-height: 24px;
   color: #ed6a0c;
   background-color: #fffbe8;
@@ -171,7 +171,7 @@ onUnmounted(() => {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    margin-right: $bw-padding-xs;
+    margin-right: @bw-padding-xs;
     min-width: 20px;
   }
 
@@ -200,7 +200,7 @@ onUnmounted(() => {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    margin-left: $bw-padding-xs;
+    margin-left: @bw-padding-xs;
     min-width: 20px;
     cursor: pointer;
   }

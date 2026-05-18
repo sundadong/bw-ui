@@ -27,11 +27,11 @@ provide('bwTimelineReverse', props.reverse)
 provide('bwTimelineDirection', props.direction)
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-timeline {
-  padding: 0 $bw-padding-md;
+  padding: 0  @bw-padding-md;
 
   &--reverse {
     display: flex;

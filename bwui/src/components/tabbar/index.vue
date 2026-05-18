@@ -74,15 +74,15 @@ const tabbarStyle = computed(() => {
 })
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-tabbar {
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  height: $bw-tabbar-height;
-  background-color: $bw-tabbar-background-color;
+  height: @bw-tabbar-height;
+  background-color: @bw-tabbar-background-color;
 
   &--fixed {
     position: fixed;
@@ -99,7 +99,7 @@ const tabbarStyle = computed(() => {
       left: 0;
       right: 0;
       height: 1px;
-      background-color: $bw-border-color;
+      background-color: @bw-border-color;
       transform: scaleY(0.5);
     }
   }

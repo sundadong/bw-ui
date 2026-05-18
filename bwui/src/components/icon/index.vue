@@ -39,15 +39,15 @@ const isImage = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-icon {
   position: relative;
   display: inline-block;
   font: normal normal normal 14px/1 'vant-icon';
   font: normal normal normal 14px/1 var(--van-icon-font-family, 'vant-icon');
-  font-size: $bw-icon-size-md;
+  font-size: @bw-icon-size-md;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   line-height: 1;

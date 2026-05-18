@@ -157,8 +157,8 @@ const handleClick = (event: Event) => {
 }
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-button {
   display: inline-flex;
@@ -166,33 +166,33 @@ const handleClick = (event: Event) => {
   justify-content: center;
   box-sizing: border-box;
   padding: 0;
-  font-size: $bw-font-size-md;
+  font-size: @bw-font-size-md;
   line-height: 1.4;
   text-align: center;
-  border: $bw-button-border-width solid $bw-button-border-color;
-  border-radius: $bw-border-radius-md;
-  background-color: $bw-white;
+  border: @bw-button-border-width solid  @bw-button-border-color;
+  border-radius: @bw-border-radius-md;
+  background-color: @bw-white;
   cursor: pointer;
-  transition: opacity $bw-animation-duration-fast;
+  transition: opacity  @bw-animation-duration-fast;
   -webkit-appearance: none;
   user-select: none;
 
   &--small {
-    height: $bw-button-height-sm;
-    padding: 0 $bw-padding-sm;
-    font-size: $bw-font-size-sm;
+    height: @bw-button-height-sm;
+    padding: 0  @bw-padding-sm;
+    font-size: @bw-font-size-sm;
   }
 
   &--medium {
-    height: $bw-button-height-md;
-    padding: 0 $bw-padding-md;
-    font-size: $bw-font-size-md;
+    height: @bw-button-height-md;
+    padding: 0  @bw-padding-md;
+    font-size: @bw-font-size-md;
   }
 
   &--large {
-    height: $bw-button-height-lg;
-    padding: 0 $bw-padding-lg;
-    font-size: $bw-font-size-lg;
+    height: @bw-button-height-lg;
+    padding: 0  @bw-padding-lg;
+    font-size: @bw-font-size-lg;
   }
 
   &--block {
@@ -201,7 +201,7 @@ const handleClick = (event: Event) => {
   }
 
   &--round {
-    border-radius: $bw-border-radius-round;
+    border-radius: @bw-border-radius-round;
   }
 
   &--square {
@@ -210,7 +210,7 @@ const handleClick = (event: Event) => {
 
   &--disabled {
     cursor: not-allowed;
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
   }
 
   &--loading {
@@ -226,65 +226,65 @@ const handleClick = (event: Event) => {
     border-color: transparent;
     
     &:active {
-      opacity: $bw-active-opacity;
+      opacity: @bw-active-opacity;
     }
   }
 
   &--primary {
-    color: $bw-white;
-    background-color: $bw-primary-color;
-    border-color: $bw-primary-color;
+    color: @bw-white;
+    background-color: @bw-primary-color;
+    border-color: @bw-primary-color;
   }
 
   &--success {
-    color: $bw-white;
-    background-color: $bw-success-color;
-    border-color: $bw-success-color;
+    color: @bw-white;
+    background-color: @bw-success-color;
+    border-color: @bw-success-color;
   }
 
   &--warning {
-    color: $bw-white;
-    background-color: $bw-warning-color;
-    border-color: $bw-warning-color;
+    color: @bw-white;
+    background-color: @bw-warning-color;
+    border-color: @bw-warning-color;
   }
 
   &--danger {
-    color: $bw-white;
-    background-color: $bw-danger-color;
-    border-color: $bw-danger-color;
+    color: @bw-white;
+    background-color: @bw-danger-color;
+    border-color: @bw-danger-color;
   }
 
   &--default {
-    color: $bw-text-color;
-    background-color: $bw-white;
-    border-color: $bw-border-color;
+    color: @bw-text-color;
+    background-color: @bw-white;
+    border-color: @bw-border-color;
   }
 
   &--plain {
     &.bw-button--primary {
-      color: $bw-primary-color;
-      background-color: rgba($bw-primary-color, 0.1);
-      border-color: $bw-primary-color;
+      color: @bw-primary-color;
+      background-color: rgba( @bw-primary-color, 0.1);
+      border-color: @bw-primary-color;
     }
     &.bw-button--success {
-      color: $bw-success-color;
-      background-color: rgba($bw-success-color, 0.1);
-      border-color: $bw-success-color;
+      color: @bw-success-color;
+      background-color: rgba( @bw-success-color, 0.1);
+      border-color: @bw-success-color;
     }
     &.bw-button--warning {
-      color: $bw-warning-color;
-      background-color: rgba($bw-warning-color, 0.1);
-      border-color: $bw-warning-color;
+      color: @bw-warning-color;
+      background-color: rgba( @bw-warning-color, 0.1);
+      border-color: @bw-warning-color;
     }
     &.bw-button--danger {
-      color: $bw-danger-color;
-      background-color: rgba($bw-danger-color, 0.1);
-      border-color: $bw-danger-color;
+      color: @bw-danger-color;
+      background-color: rgba( @bw-danger-color, 0.1);
+      border-color: @bw-danger-color;
     }
     &.bw-button--default {
-      color: $bw-text-color;
-      background-color: $bw-bg-color-gray;
-      border-color: $bw-border-color;
+      color: @bw-text-color;
+      background-color: @bw-bg-color-gray;
+      border-color: @bw-border-color;
     }
   }
 
@@ -308,7 +308,7 @@ const handleClick = (event: Event) => {
   }
 
   &:active {
-    opacity: $bw-active-opacity;
+    opacity: @bw-active-opacity;
   }
 }
 </style>

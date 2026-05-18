@@ -111,7 +111,7 @@ import DemoLayout from './DemoLayout.vue'
 import BwIcon from '../components/icon/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

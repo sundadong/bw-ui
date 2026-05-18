@@ -167,15 +167,15 @@ const handleBlur = (event: Event) => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-stepper {
   display: inline-flex;
   align-items: center;
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
   }
 
   &__minus,
@@ -184,17 +184,17 @@ const handleBlur = (event: Event) => {
     align-items: center;
     justify-content: center;
     padding: 0;
-    border: 1px solid $bw-border-color;
-    background-color: $bw-white;
-    color: $bw-text-color;
-    font-size: $bw-font-size-lg;
+    border: 1px solid  @bw-border-color;
+    background-color: @bw-white;
+    color: @bw-text-color;
+    font-size: @bw-font-size-lg;
     cursor: pointer;
     box-sizing: border-box;
     border-radius: 0;
     outline: none;
 
     &--disabled {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
       cursor: not-allowed;
     }
   }
@@ -208,28 +208,28 @@ const handleBlur = (event: Event) => {
     width: 40px;
     padding: 0;
     border: none;
-    border-top: 1px solid $bw-border-color;
-    border-bottom: 1px solid $bw-border-color;
-    background-color: $bw-white;
-    color: $bw-text-color;
-    font-size: $bw-font-size-md;
+    border-top: 1px solid  @bw-border-color;
+    border-bottom: 1px solid  @bw-border-color;
+    background-color: @bw-white;
+    color: @bw-text-color;
+    font-size: @bw-font-size-md;
     text-align: center;
     outline: none;
     box-sizing: border-box;
 
     &:disabled {
-      background-color: $bw-bg-color-light;
+      background-color: @bw-bg-color-light;
       cursor: not-allowed;
     }
   }
 
   &--round {
     .bw-stepper__minus {
-      border-radius: $bw-border-radius-round 0 0 $bw-border-radius-round;
+      border-radius: @bw-border-radius-round 0 0  @bw-border-radius-round;
     }
 
     .bw-stepper__plus {
-      border-radius: 0 $bw-border-radius-round $bw-border-radius-round 0;
+      border-radius: 0  @bw-border-radius-round  @bw-border-radius-round 0;
     }
   }
 }

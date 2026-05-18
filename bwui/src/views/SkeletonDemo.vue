@@ -65,7 +65,7 @@ import BwButton from '../components/button/index.vue'
 const showSkeleton = ref(true)
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

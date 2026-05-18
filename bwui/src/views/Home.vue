@@ -128,7 +128,7 @@ const categories = reactive<Category[]>([
 ])
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .home-page {
   min-height: 100vh;
   background-color: #f7f8fa;

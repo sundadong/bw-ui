@@ -44,7 +44,7 @@
       :show="showDate"
       type="date"
       title="选择日期"
-      @update:show="showDate = $event"
+      @update:show="showDate =  @event"
     />
 
     <bw-date-picker
@@ -52,7 +52,7 @@
       :show="showTime"
       type="time"
       title="选择时间"
-      @update:show="showTime = $event"
+      @update:show="showTime =  @event"
     />
 
     <bw-date-picker
@@ -60,7 +60,7 @@
       :show="showDatetime"
       type="datetime"
       title="选择日期时间"
-      @update:show="showDatetime = $event"
+      @update:show="showDatetime =  @event"
     />
 
     <bw-date-picker
@@ -68,7 +68,7 @@
       :show="showYearMonth"
       type="year-month"
       title="选择年月"
-      @update:show="showYearMonth = $event"
+      @update:show="showYearMonth =  @event"
     />
 
     <bw-date-picker
@@ -77,7 +77,7 @@
       type="date"
       title="选择日期"
       :columns-order="['month', 'day', 'year']"
-      @update:show="showOrder = $event"
+      @update:show="showOrder =  @event"
     />
   </demo-layout>
 </template>
@@ -122,7 +122,7 @@ const formatYearMonth = (date: Date): string => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

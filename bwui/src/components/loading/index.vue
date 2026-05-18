@@ -28,8 +28,8 @@ withDefaults(defineProps<LoadingProps>(), {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-loading {
   display: inline-flex;
@@ -40,15 +40,15 @@ withDefaults(defineProps<LoadingProps>(), {
   }
 
   &--small {
-    font-size: $bw-icon-size-sm;
+    font-size: @bw-icon-size-sm;
   }
 
   &--medium {
-    font-size: $bw-icon-size-md;
+    font-size: @bw-icon-size-md;
   }
 
   &--large {
-    font-size: $bw-icon-size-lg;
+    font-size: @bw-icon-size-lg;
   }
 
   &__circular {
@@ -92,8 +92,8 @@ withDefaults(defineProps<LoadingProps>(), {
   }
 
   &__text {
-    margin-left: $bw-padding-xs;
-    font-size: $bw-font-size-md;
+    margin-left: @bw-padding-xs;
+    font-size: @bw-font-size-md;
   }
 }
 

@@ -70,8 +70,8 @@ const handleClose = (event: Event) => {
 }
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-tag {
   position: relative;
@@ -79,10 +79,10 @@ const handleClose = (event: Event) => {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: $bw-tag-padding;
-  font-size: $bw-tag-font-size;
+  padding: @bw-tag-padding;
+  font-size: @bw-tag-font-size;
   line-height: 1.5;
-  border-radius: $bw-tag-border-radius;
+  border-radius: @bw-tag-border-radius;
   border: 1px solid transparent;
   white-space: nowrap;
   vertical-align: middle;
@@ -90,13 +90,13 @@ const handleClose = (event: Event) => {
   &--small {
     height: 18px;
     padding: 0 4px;
-    font-size: $bw-font-size-xs;
+    font-size: @bw-font-size-xs;
   }
 
   &--medium {
     height: 24px;
     padding: 0 6px;
-    font-size: $bw-tag-font-size;
+    font-size: @bw-tag-font-size;
   }
 
   &--plain {
@@ -105,11 +105,11 @@ const handleClose = (event: Event) => {
   }
 
   &--round {
-    border-radius: $bw-border-radius-round;
+    border-radius: @bw-border-radius-round;
   }
 
   &--mark {
-    border-radius: 0 $bw-border-radius-round $bw-border-radius-round 0;
+    border-radius: 0  @bw-border-radius-round  @bw-border-radius-round 0;
   }
 
   &--closable {
@@ -117,65 +117,65 @@ const handleClose = (event: Event) => {
   }
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
     cursor: not-allowed;
   }
 
   &--default {
-    color: $bw-text-color-2;
-    background-color: $bw-gray-6;
-    border-color: $bw-gray-6;
+    color: @bw-text-color-2;
+    background-color: @bw-gray-6;
+    border-color: @bw-gray-6;
   }
 
   &--primary {
-    color: $bw-white;
-    background-color: $bw-primary-color;
-    border-color: $bw-primary-color;
+    color: @bw-white;
+    background-color: @bw-primary-color;
+    border-color: @bw-primary-color;
   }
 
   &--success {
-    color: $bw-white;
-    background-color: $bw-success-color;
-    border-color: $bw-success-color;
+    color: @bw-white;
+    background-color: @bw-success-color;
+    border-color: @bw-success-color;
   }
 
   &--warning {
-    color: $bw-white;
-    background-color: $bw-warning-color;
-    border-color: $bw-warning-color;
+    color: @bw-white;
+    background-color: @bw-warning-color;
+    border-color: @bw-warning-color;
   }
 
   &--danger {
-    color: $bw-white;
-    background-color: $bw-danger-color;
-    border-color: $bw-danger-color;
+    color: @bw-white;
+    background-color: @bw-danger-color;
+    border-color: @bw-danger-color;
   }
 
   &--plain {
     &.bw-tag--default {
-      color: $bw-text-color-2;
+      color: @bw-text-color-2;
       background-color: transparent;
-      border-color: $bw-text-color-2;
+      border-color: @bw-text-color-2;
     }
     &.bw-tag--primary {
-      color: $bw-primary-color;
+      color: @bw-primary-color;
       background-color: transparent;
-      border-color: $bw-primary-color;
+      border-color: @bw-primary-color;
     }
     &.bw-tag--success {
-      color: $bw-success-color;
+      color: @bw-success-color;
       background-color: transparent;
-      border-color: $bw-success-color;
+      border-color: @bw-success-color;
     }
     &.bw-tag--warning {
-      color: $bw-warning-color;
+      color: @bw-warning-color;
       background-color: transparent;
-      border-color: $bw-warning-color;
+      border-color: @bw-warning-color;
     }
     &.bw-tag--danger {
-      color: $bw-danger-color;
+      color: @bw-danger-color;
       background-color: transparent;
-      border-color: $bw-danger-color;
+      border-color: @bw-danger-color;
     }
   }
 

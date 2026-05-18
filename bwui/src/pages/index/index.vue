@@ -65,7 +65,7 @@
         <cell-group>
           <cell title="开关">
             <template #right-icon>
-              <switch :checked="switchChecked" @change="switchChecked = $event.detail.value" />
+              <switch :checked="switchChecked" @change="switchChecked =  @event.detail.value" />
             </template>
           </cell>
         </cell-group>
@@ -74,7 +74,7 @@
       <view class="component-group">
         <text class="group-title">Checkbox 复选框</text>
         <view class="demo-row">
-          <checkbox :checked="checkboxChecked" @change="checkboxChecked = $event.detail.value">复选框</checkbox>
+          <checkbox :checked="checkboxChecked" @change="checkboxChecked =  @event.detail.value">复选框</checkbox>
         </view>
       </view>
 
@@ -131,7 +131,7 @@
     <popup 
       :show="showPopup" 
       position="bottom"
-      @update:show="showPopup = $event"
+      @update:show="showPopup =  @event"
     >
       <view class="popup-content">
         <text>这是底部弹出层</text>
@@ -170,7 +170,7 @@ const showToast = (type: string) => {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 page {
   background-color: #f7f8fa;
 }

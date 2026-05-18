@@ -60,7 +60,7 @@ import BwTimeline from '../components/timeline/index.vue'
 import BwTimelineItem from '../components/timeline-item/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

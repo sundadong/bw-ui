@@ -106,7 +106,7 @@ import BwCellGroup from '../components/cell-group/index.vue'
 import BwTag from '../components/tag/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: transparent;
   padding: 0;

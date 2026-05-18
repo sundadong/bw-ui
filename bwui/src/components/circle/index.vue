@@ -168,8 +168,8 @@ watch(() => props.currentRate, () => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-circle {
   position: relative;
@@ -182,12 +182,12 @@ watch(() => props.currentRate, () => {
   }
 
   &__track {
-    transition: stroke $bw-animation-duration-base $bw-animation-timing-function-base;
+    transition: stroke  @bw-animation-duration-base  @bw-animation-timing-function-base;
   }
 
   &__progress {
-    transition: stroke-dashoffset $bw-animation-duration-base $bw-animation-timing-function-base,
-      stroke $bw-animation-duration-base $bw-animation-timing-function-base;
+    transition: stroke-dashoffset  @bw-animation-duration-base  @bw-animation-timing-function-base,
+      stroke  @bw-animation-duration-base  @bw-animation-timing-function-base;
   }
 
   &__text {
@@ -199,8 +199,8 @@ watch(() => props.currentRate, () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: $bw-font-size-md;
-    color: $bw-text-color;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color;
     line-height: 1;
   }
 }

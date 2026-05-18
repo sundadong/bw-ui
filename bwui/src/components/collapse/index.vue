@@ -56,13 +56,13 @@ provide('collapse', {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-collapse {
   &--border {
-    border-top: 1px solid $bw-border-color;
-    border-bottom: 1px solid $bw-border-color;
+    border-top: 1px solid  @bw-border-color;
+    border-bottom: 1px solid  @bw-border-color;
   }
 }
 </style>

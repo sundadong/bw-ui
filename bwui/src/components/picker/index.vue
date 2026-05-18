@@ -366,8 +366,8 @@ defineExpose({
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-picker {
   &__toolbar {
@@ -375,30 +375,30 @@ defineExpose({
     align-items: center;
     justify-content: space-between;
     height: 44px;
-    padding: 0 $bw-padding-md;
-    border-bottom: 1px solid $bw-border-color;
+    padding: 0  @bw-padding-md;
+    border-bottom: 1px solid  @bw-border-color;
   }
 
   &__cancel {
-    font-size: $bw-font-size-lg;
-    color: $bw-text-color-2;
+    font-size: @bw-font-size-lg;
+    color: @bw-text-color-2;
     cursor: pointer;
-    padding: 0 $bw-padding-xs;
+    padding: 0  @bw-padding-xs;
   }
 
   &__title {
-    font-size: $bw-font-size-lg;
+    font-size: @bw-font-size-lg;
     font-weight: 500;
-    color: $bw-text-color;
+    color: @bw-text-color;
     max-width: 50%;
     text-align: center;
   }
 
   &__confirm {
-    font-size: $bw-font-size-lg;
-    color: $bw-primary-color;
+    font-size: @bw-font-size-lg;
+    color: @bw-primary-color;
     cursor: pointer;
-    padding: 0 $bw-padding-xs;
+    padding: 0  @bw-padding-xs;
   }
 
   &__loading {
@@ -412,7 +412,7 @@ defineExpose({
     display: flex;
     position: relative;
     overflow: hidden;
-    background: $bw-bg-color;
+    background: @bw-bg-color;
   }
 
   &__column {
@@ -441,8 +441,8 @@ defineExpose({
     left: 0;
     right: 0;
     z-index: 3;
-    border-top: 1px solid $bw-border-color;
-    border-bottom: 1px solid $bw-border-color;
+    border-top: 1px solid  @bw-border-color;
+    border-bottom: 1px solid  @bw-border-color;
     pointer-events: none;
   }
 
@@ -456,8 +456,8 @@ defineExpose({
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: $bw-font-size-lg;
-    color: $bw-text-color;
+    font-size: @bw-font-size-lg;
+    color: @bw-text-color;
     padding: 0;
     text-align: center;
     white-space: nowrap;
@@ -467,11 +467,11 @@ defineExpose({
 
     &--selected {
       font-weight: 500;
-      color: $bw-text-color;
+      color: @bw-text-color;
     }
 
     &--disabled {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
       cursor: not-allowed;
     }
   }

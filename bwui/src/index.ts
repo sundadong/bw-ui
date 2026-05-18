@@ -68,9 +68,9 @@ export { default as BwTimelineItem } from './components/timeline-item/index.vue'
 export { default as BwArticle } from './components/article/index.vue'
 
 // 样式导出
-import './styles/variables.scss'
-import './styles/mixins.scss'
-import './styles/common.scss'
+import './styles/variables.less'
+import './styles/mixins.less'
+import './styles/common.less'
 
 // 类型导出
 export type { ButtonProps } from './components/button/index.vue'

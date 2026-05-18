@@ -53,17 +53,17 @@ const gridStyle = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-grid {
   display: flex;
   flex-wrap: wrap;
-  background-color: $bw-bg-color;
+  background-color: @bw-bg-color;
 
   &--border {
-    border-top: 1px solid $bw-border-color;
-    border-left: 1px solid $bw-border-color;
+    border-top: 1px solid  @bw-border-color;
+    border-left: 1px solid  @bw-border-color;
   }
 
   &--square {

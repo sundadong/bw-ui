@@ -41,8 +41,8 @@ provide('sidebar', {
 })
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-sidebar {
   display: flex;
@@ -51,7 +51,7 @@ provide('sidebar', {
   width: 85px;
   height: 100%;
   overflow-y: auto;
-  background-color: $bw-bg-color-gray;
+  background-color: @bw-bg-color-gray;
   -webkit-overflow-scrolling: touch;
 }
 </style>

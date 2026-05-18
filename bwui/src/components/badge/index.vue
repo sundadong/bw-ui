@@ -80,8 +80,8 @@ const contentStyle = computed(() => {
 })
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-badge {
   position: relative;
@@ -102,22 +102,22 @@ const contentStyle = computed(() => {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: $bw-badge-font-size * 1.5;
-    height: $bw-badge-font-size * 1.5;
+    min-width: @bw-badge-font-size * 1.5;
+    height: @bw-badge-font-size * 1.5;
     padding: 0 3px;
-    font-size: $bw-badge-font-size;
+    font-size: @bw-badge-font-size;
     font-weight: 500;
     line-height: 1.2;
-    color: $bw-white;
-    background-color: $bw-danger-color;
-    border-radius: $bw-border-radius-round;
+    color: @bw-white;
+    background-color: @bw-danger-color;
+    border-radius: @bw-border-radius-round;
     box-sizing: border-box;
     transform-origin: center;
     white-space: nowrap;
 
     &--dot {
-      width: $bw-badge-dot-size;
-      height: $bw-badge-dot-size;
+      width: @bw-badge-dot-size;
+      height: @bw-badge-dot-size;
       min-width: 0;
       padding: 0;
       border-radius: 50%;

@@ -46,7 +46,7 @@ const handleClick = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .bw-checkbox {
   display: inline-flex;
   align-items: center;
@@ -76,17 +76,17 @@ const handleClick = () => {
     justify-content: center;
     width: v-bind(iconSize);
     height: v-bind(iconSize);
-    border: 1px solid $bw-border-color;
+    border: 1px solid  @bw-border-color;
     border-radius: 2px;
-    background-color: $bw-white;
+    background-color: @bw-white;
     transition: all 0.2s;
-    color: $bw-white;
+    color: @bw-white;
   }
 
   &__label {
     margin-left: 12px;
     font-size: 14px;
-    color: $bw-text-color;
+    color: @bw-text-color;
     line-height: 1.2;
   }
 }

@@ -51,7 +51,7 @@ import BwButton from '../components/button/index.vue'
 import BwSafeArea from '../components/safe-area/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

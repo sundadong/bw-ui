@@ -6,7 +6,7 @@
   >
     <div class="bw-search__content">
       <div class="bw-search__field" :class="{ 'bw-search__field--disabled': disabled }">
-        <div v-if="leftIcon || $slots['left-icon']" class="bw-search__left-icon">
+        <div v-if="leftIcon ||  $slots['left-icon']" class="bw-search__left-icon">
           <slot name="left-icon">
             <span v-if="leftIcon" class="bw-search__icon-search">🔍</span>
           </slot>
@@ -115,8 +115,8 @@ const handleAction = () => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-search {
   display: flex;
@@ -129,13 +129,13 @@ const handleAction = () => {
 
   &--square {
     .bw-search__field {
-      border-radius: $bw-border-radius-md;
+      border-radius: @bw-border-radius-md;
     }
   }
 
   &--round {
     .bw-search__field {
-      border-radius: $bw-border-radius-round;
+      border-radius: @bw-border-radius-round;
     }
   }
 
@@ -147,11 +147,11 @@ const handleAction = () => {
     display: flex;
     align-items: center;
     padding: 6px 12px;
-    background-color: $bw-bg-color-light;
-    border-radius: $bw-border-radius-md;
+    background-color: @bw-bg-color-light;
+    border-radius: @bw-border-radius-md;
 
     &--disabled {
-      opacity: $bw-disabled-opacity;
+      opacity: @bw-disabled-opacity;
     }
   }
 
@@ -159,27 +159,27 @@ const handleAction = () => {
     display: flex;
     align-items: center;
     margin-right: 6px;
-    color: $bw-text-color-3;
-    font-size: $bw-font-size-md;
+    color: @bw-text-color-3;
+    font-size: @bw-font-size-md;
   }
 
   &__icon-search {
-    font-size: $bw-font-size-lg;
+    font-size: @bw-font-size-lg;
     line-height: 1;
   }
 
   &__input {
     flex: 1;
     padding: 0;
-    font-size: $bw-font-size-md;
-    color: $bw-text-color;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color;
     background-color: transparent;
     border: none;
     outline: none;
     line-height: 1.5;
 
     &::placeholder {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
     }
 
     &:disabled {
@@ -197,25 +197,25 @@ const handleAction = () => {
     justify-content: center;
     margin-left: 6px;
     padding: 2px;
-    color: $bw-text-color-3;
+    color: @bw-text-color-3;
     cursor: pointer;
     border-radius: 50%;
-    background-color: $bw-text-color-3;
+    background-color: @bw-text-color-3;
     width: 16px;
     height: 16px;
   }
 
   &__clear-icon {
     font-size: 10px;
-    color: $bw-white;
+    color: @bw-white;
     line-height: 1;
   }
 
   &__action {
     padding: 0 12px;
-    font-size: $bw-font-size-md;
-    color: $bw-text-color;
-    line-height: $bw-button-height-md;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color;
+    line-height: @bw-button-height-md;
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;

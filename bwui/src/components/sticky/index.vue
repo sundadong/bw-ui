@@ -117,8 +117,8 @@ onUnmounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-sticky {
   &--fixed {

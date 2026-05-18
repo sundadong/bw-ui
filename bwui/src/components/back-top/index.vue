@@ -164,15 +164,15 @@ onBeforeUnmount(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-back-top {
   position: fixed;
   width: 44px;
   height: 44px;
-  background-color: $bw-bg-color;
-  border-radius: $bw-border-radius-round;
+  background-color: @bw-bg-color;
+  border-radius: @bw-border-radius-round;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
@@ -181,20 +181,20 @@ onBeforeUnmount(() => {
   user-select: none;
 
   &:active {
-    background-color: $bw-active-color;
+    background-color: @bw-active-color;
   }
 
   &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $bw-primary-color;
+    color: @bw-primary-color;
   }
 }
 
 .bw-back-top-fade-enter-active,
 .bw-back-top-fade-leave-active {
-  transition: opacity $bw-animation-duration-base $bw-animation-timing-function-base;
+  transition: opacity  @bw-animation-duration-base  @bw-animation-timing-function-base;
 }
 
 .bw-back-top-fade-enter-from,

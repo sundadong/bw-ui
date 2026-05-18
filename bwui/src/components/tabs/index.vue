@@ -114,7 +114,7 @@ const handleTabClick = (index: number) => {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 .bw-tabs {
   background-color: #fff;
 

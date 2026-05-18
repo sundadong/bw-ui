@@ -551,39 +551,39 @@ watch(() => props.modelValue, () => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-calendar {
   &__header {
-    padding: $bw-padding-md;
+    padding: @bw-padding-md;
     text-align: center;
-    border-bottom: 1px solid $bw-border-color;
+    border-bottom: 1px solid  @bw-border-color;
   }
 
   &__header-title {
-    font-size: $bw-font-size-lg;
+    font-size: @bw-font-size-lg;
     font-weight: 500;
-    color: $bw-text-color;
+    color: @bw-text-color;
   }
 
   &__header-subtitle {
-    font-size: $bw-font-size-sm;
-    color: $bw-primary-color;
+    font-size: @bw-font-size-sm;
+    color: @bw-primary-color;
     margin-top: 4px;
   }
 
   &__weekdays {
     display: flex;
     padding: 8px 0;
-    border-bottom: 1px solid $bw-border-color;
+    border-bottom: 1px solid  @bw-border-color;
   }
 
   &__weekday {
     flex: 1;
     text-align: center;
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
     font-weight: 500;
   }
 
@@ -598,13 +598,13 @@ watch(() => props.modelValue, () => {
   }
 
   &__month {
-    padding: 0 $bw-padding-sm;
+    padding: 0  @bw-padding-sm;
   }
 
   &__month-title {
-    font-size: $bw-font-size-md;
+    font-size: @bw-font-size-md;
     font-weight: 500;
-    color: $bw-text-color;
+    color: @bw-text-color;
     padding: 12px 0;
     text-align: center;
   }
@@ -625,14 +625,14 @@ watch(() => props.modelValue, () => {
     }
 
     &--disabled {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
       cursor: not-allowed;
       pointer-events: none;
     }
 
     &--prev-month,
     &--next-month {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
     }
 
     &--in-range {
@@ -665,20 +665,20 @@ watch(() => props.modelValue, () => {
   &__day-text {
     position: relative;
     z-index: 1;
-    font-size: $bw-font-size-md;
+    font-size: @bw-font-size-md;
   }
 
   &__day-bottom {
     position: relative;
     z-index: 1;
-    font-size: $bw-font-size-xs;
+    font-size: @bw-font-size-xs;
     line-height: 1;
     margin-top: 2px;
   }
 
   &__footer {
-    padding: $bw-padding-md;
-    border-top: 1px solid $bw-border-color;
+    padding: @bw-padding-md;
+    border-top: 1px solid  @bw-border-color;
   }
 }
 </style>

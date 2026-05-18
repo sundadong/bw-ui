@@ -120,8 +120,8 @@ const fallbackText = computed(() => {
 })
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-avatar {
   position: relative;
@@ -130,8 +130,8 @@ const fallbackText = computed(() => {
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
-  color: $bw-white;
-  background-color: $bw-text-color-3;
+  color: @bw-white;
+  background-color: @bw-text-color-3;
 
   &--small {
     width: 32px;
@@ -153,7 +153,7 @@ const fallbackText = computed(() => {
   }
 
   &--square {
-    border-radius: $bw-border-radius-sm;
+    border-radius: @bw-border-radius-sm;
   }
 
   &__image {

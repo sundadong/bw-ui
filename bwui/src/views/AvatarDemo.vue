@@ -62,7 +62,7 @@ import DemoLayout from './DemoLayout.vue'
 import BwAvatar from '../components/avatar/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

@@ -87,8 +87,8 @@ const handleClick = (event: Event) => {
 }
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-tabbar-item {
   display: flex;
@@ -96,16 +96,16 @@ const handleClick = (event: Event) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: $bw-text-color-2;
-  font-size: $bw-font-size-sm;
+  color: @bw-text-color-2;
+  font-size: @bw-font-size-sm;
   line-height: 1;
   cursor: pointer;
   text-decoration: none;
   user-select: none;
-  transition: color $bw-animation-duration-fast;
+  transition: color  @bw-animation-duration-fast;
 
   &--active {
-    color: $bw-primary-color;
+    color: @bw-primary-color;
   }
 
   &__icon {
@@ -118,10 +118,10 @@ const handleClick = (event: Event) => {
     position: absolute;
     top: -2px;
     right: -8px;
-    width: $bw-badge-dot-size;
-    height: $bw-badge-dot-size;
+    width: @bw-badge-dot-size;
+    height: @bw-badge-dot-size;
     border-radius: 50%;
-    background-color: $bw-danger-color;
+    background-color: @bw-danger-color;
   }
 
   &__badge {
@@ -129,7 +129,7 @@ const handleClick = (event: Event) => {
   }
 
   &__text {
-    font-size: $bw-font-size-sm;
+    font-size: @bw-font-size-sm;
   }
 }
 </style>

@@ -1,0 +1,101 @@
+// BWUI 公共样式
+@import './variables.less';
+@import './mixins.less';
+
+// Reset 样式
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  font-size: @bw-font-size-md;
+  color: @bw-text-color;
+  background-color: @bw-bg-color-light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 全局变量注入
+:root {
+  --bw-primary-color: @bw-primary-color;
+  --bw-success-color: @bw-success-color;
+  --bw-warning-color: @bw-warning-color;
+  --bw-danger-color: @bw-danger-color;
+  --bw-text-color: @bw-text-color;
+  --bw-text-color-1: @bw-text-color-1;
+  --bw-text-color-2: @bw-text-color-2;
+  --bw-text-color-3: @bw-text-color-3;
+  --bw-white: @bw-white;
+  --bw-border-color: @bw-border-color;
+  --bw-active-color: @bw-active-color;
+  --bw-active-opacity: @bw-active-opacity;
+  --bw-disabled-opacity: @bw-disabled-opacity;
+}
+
+// 常用工具类
+.bw-ellipsis {
+  .text-ellipsis(1);
+}
+
+.bw-ellipsis-multi {
+  .text-ellipsis(2);
+}
+
+.bw-clearfix {
+  .clearfix();
+}
+
+.bw-flex-center {
+  .flex-center();
+}
+
+// 滚动优化
+.bw-scroll-view {
+  -webkit-overflow-scrolling: touch;
+}
+
+// 文字对齐
+.bw-text-left { text-align: left; }
+.bw-text-center { text-align: center; }
+.bw-text-right { text-align: right; }
+
+// 间距
+.bw-mt-xs { margin-top: @bw-padding-xs; }
+.bw-mt-sm { margin-top: @bw-padding-sm; }
+.bw-mt-md { margin-top: @bw-padding-md; }
+.bw-mt-lg { margin-top: @bw-padding-lg; }
+.bw-mb-xs { margin-bottom: @bw-padding-xs; }
+.bw-mb-sm { margin-bottom: @bw-padding-sm; }
+.bw-mb-md { margin-bottom: @bw-padding-md; }
+.bw-mb-lg { margin-bottom: @bw-padding-lg; }
+.bw-ml-xs { margin-left: @bw-padding-xs; }
+.bw-ml-sm { margin-left: @bw-padding-sm; }
+.bw-ml-md { margin-left: @bw-padding-md; }
+.bw-ml-lg { margin-left: @bw-padding-lg; }
+.bw-mr-xs { margin-right: @bw-padding-xs; }
+.bw-mr-sm { margin-right: @bw-padding-sm; }
+.bw-mr-md { margin-right: @bw-padding-md; }
+.bw-mr-lg { margin-right: @bw-padding-lg; }
+
+// 内边距
+.bw-pt-xs { padding-top: @bw-padding-xs; }
+.bw-pt-sm { padding-top: @bw-padding-sm; }
+.bw-pt-md { padding-top: @bw-padding-md; }
+.bw-pt-lg { padding-top: @bw-padding-lg; }
+.bw-pb-xs { padding-bottom: @bw-padding-xs; }
+.bw-pb-sm { padding-bottom: @bw-padding-sm; }
+.bw-pb-md { padding-bottom: @bw-padding-md; }
+.bw-pb-lg { padding-bottom: @bw-padding-lg; }
+.bw-pl-xs { padding-left: @bw-padding-xs; }
+.bw-pl-sm { padding-left: @bw-padding-sm; }
+.bw-pl-md { padding-left: @bw-padding-md; }
+.bw-pl-lg { padding-left: @bw-padding-lg; }
+.bw-pr-xs { padding-right: @bw-padding-xs; }
+.bw-pr-sm { padding-right: @bw-padding-sm; }
+.bw-pr-md { padding-right: @bw-padding-md; }
+.bw-pr-lg { padding-right: @bw-padding-lg; }

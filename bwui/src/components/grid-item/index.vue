@@ -93,8 +93,8 @@ const handleClick = (event: Event) => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-grid-item {
   position: relative;
@@ -104,12 +104,12 @@ const handleClick = (event: Event) => {
   justify-content: center;
   box-sizing: border-box;
   text-decoration: none;
-  color: $bw-text-color;
-  background-color: $bw-bg-color;
+  color: @bw-text-color;
+  background-color: @bw-bg-color;
 
   &--border {
-    border-right: 1px solid $bw-border-color;
-    border-bottom: 1px solid $bw-border-color;
+    border-right: 1px solid  @bw-border-color;
+    border-bottom: 1px solid  @bw-border-color;
   }
 
   &--square {
@@ -120,7 +120,7 @@ const handleClick = (event: Event) => {
     cursor: pointer;
 
     &:active {
-      background-color: $bw-active-color;
+      background-color: @bw-active-color;
     }
   }
 
@@ -151,11 +151,11 @@ const handleClick = (event: Event) => {
 
   &__text {
     margin-top: 8px;
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-1;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-1;
     text-align: center;
     word-break: break-all;
-    line-height: $bw-line-height-sm;
+    line-height: @bw-line-height-sm;
   }
 }
 </style>

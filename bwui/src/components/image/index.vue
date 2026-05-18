@@ -163,19 +163,19 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-image {
   position: relative;
   display: inline-block;
   width: 100px;
   height: 100px;
-  background-color: $bw-bg-color-gray;
+  background-color: @bw-bg-color-gray;
   overflow: hidden;
 
   &--round {
-    border-radius: $bw-border-radius-round;
+    border-radius: @bw-border-radius-round;
   }
 
   &__img {
@@ -193,8 +193,8 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $bw-text-color-3;
-    font-size: $bw-font-size-xl;
+    color: @bw-text-color-3;
+    font-size: @bw-font-size-xl;
   }
 
   &__error {
@@ -206,8 +206,8 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $bw-text-color-3;
-    font-size: $bw-font-size-xl;
+    color: @bw-text-color-3;
+    font-size: @bw-font-size-xl;
   }
 }
 </style>

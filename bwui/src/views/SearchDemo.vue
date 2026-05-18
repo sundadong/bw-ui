@@ -85,7 +85,7 @@ const handleSearch = (val: string) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

@@ -70,7 +70,7 @@ const value6 = ref(0)
 const value7 = ref(0)
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

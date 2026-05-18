@@ -102,7 +102,7 @@ const active3 = ref('home')
 const active4 = ref('home')
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

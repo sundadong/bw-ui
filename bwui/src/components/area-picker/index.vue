@@ -278,8 +278,8 @@ watch(() => props.modelValue, (val) => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-area-picker {
   width: 100%;

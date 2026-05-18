@@ -62,7 +62,7 @@ const handleBack = (event: Event) => {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 .bw-navbar {
   position: relative;
   display: flex;

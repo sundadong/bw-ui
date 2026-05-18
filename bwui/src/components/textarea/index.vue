@@ -88,15 +88,15 @@ const handleBlur = (event: Event) => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-textarea {
   position: relative;
-  padding: $bw-padding-sm $bw-padding-md;
+  padding: @bw-padding-sm  @bw-padding-md;
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
   }
 
   &__inner {
@@ -104,9 +104,9 @@ const handleBlur = (event: Event) => {
     width: 100%;
     min-height: 72px;
     padding: 0;
-    font-size: $bw-font-size-md;
-    line-height: $bw-line-height-md;
-    color: $bw-text-color;
+    font-size: @bw-font-size-md;
+    line-height: @bw-line-height-md;
+    color: @bw-text-color;
     background-color: transparent;
     border: none;
     outline: none;
@@ -114,7 +114,7 @@ const handleBlur = (event: Event) => {
     box-sizing: border-box;
 
     &::placeholder {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
     }
 
     &:disabled {
@@ -129,8 +129,8 @@ const handleBlur = (event: Event) => {
 
   &__word-limit {
     text-align: right;
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
     margin-top: 4px;
     line-height: 1.5;
   }

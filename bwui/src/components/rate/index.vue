@@ -128,15 +128,15 @@ const handleClick = (index: number, event: MouseEvent) => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-rate {
   display: inline-flex;
   align-items: center;
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
   }
 
   &--readonly {

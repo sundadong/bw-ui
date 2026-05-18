@@ -2,7 +2,7 @@
   <div>
     <bw-popup :show="showPopup" position="center" :overlay="true" :close-on-click-overlay="false" :z-index="zIndex">
       <div class="bw-dialog">
-        <div v-if="title || $slots.title" class="bw-dialog__header">
+        <div v-if="title ||  $slots.title" class="bw-dialog__header">
           <slot name="title">
             <div class="bw-dialog__title">{{ title }}</div>
           </slot>
@@ -114,39 +114,39 @@ defineExpose({
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-dialog {
-  width: $bw-dialog-width;
-  padding: $bw-dialog-padding;
-  font-size: $bw-font-size-md;
-  border-radius: $bw-dialog-border-radius;
+  width: @bw-dialog-width;
+  padding: @bw-dialog-padding;
+  font-size: @bw-font-size-md;
+  border-radius: @bw-dialog-border-radius;
 
   &__header {
     padding-top: 0;
   }
 
   &__title {
-    font-size: $bw-font-size-lg;
+    font-size: @bw-font-size-lg;
     font-weight: 500;
-    color: $bw-text-color;
+    color: @bw-text-color;
     text-align: center;
   }
 
   &__content {
-    padding: $bw-padding-md 0;
+    padding: @bw-padding-md 0;
   }
 
   &__message {
-    color: $bw-text-color-1;
+    color: @bw-text-color-1;
     text-align: center;
     word-wrap: break-word;
-    line-height: $bw-line-height-lg;
+    line-height: @bw-line-height-lg;
 
     &--has-title {
-      margin-top: $bw-padding-sm;
-      color: $bw-text-color-2;
+      margin-top: @bw-padding-sm;
+      color: @bw-text-color-2;
     }
   }
 
@@ -156,7 +156,7 @@ defineExpose({
     &--horizontal {
       .bw-dialog__cancel {
         flex: 1;
-        border-right: 1px solid $bw-border-color;
+        border-right: 1px solid  @bw-border-color;
       }
       .bw-dialog__confirm {
         flex: 1;
@@ -167,10 +167,10 @@ defineExpose({
       flex-direction: column;
 
       .bw-dialog__cancel {
-        border-top: 1px solid $bw-border-color;
+        border-top: 1px solid  @bw-border-color;
       }
       .bw-dialog__confirm {
-        border-top: 1px solid $bw-border-color;
+        border-top: 1px solid  @bw-border-color;
       }
     }
   }
@@ -180,14 +180,14 @@ defineExpose({
     display: flex;
     align-items: center;
     justify-content: center;
-    height: $bw-button-height-md;
-    font-size: $bw-font-size-md;
-    color: $bw-primary-color;
+    height: @bw-button-height-md;
+    font-size: @bw-font-size-md;
+    color: @bw-primary-color;
     cursor: pointer;
   }
 
   &__cancel {
-    color: $bw-text-color-2;
+    color: @bw-text-color-2;
   }
 }
 </style>

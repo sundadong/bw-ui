@@ -77,8 +77,8 @@ const handleClick = (event: Event) => {
 defineExpose({ setIndex })
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-sidebar-item {
   position: relative;
@@ -87,28 +87,28 @@ defineExpose({ setIndex })
   justify-content: center;
   box-sizing: border-box;
   padding: 20px 12px;
-  font-size: $bw-font-size-md;
-  line-height: $bw-line-height-md;
-  color: $bw-text-color;
-  background-color: $bw-bg-color-gray;
+  font-size: @bw-font-size-md;
+  line-height: @bw-line-height-md;
+  color: @bw-text-color;
+  background-color: @bw-bg-color-gray;
   cursor: pointer;
   user-select: none;
   text-decoration: none;
-  transition: background-color $bw-animation-duration-fast;
+  transition: background-color  @bw-animation-duration-fast;
 
   &--active {
-    color: $bw-text-color;
+    color: @bw-text-color;
     font-weight: 500;
-    background-color: $bw-white;
+    background-color: @bw-white;
 
     .bw-sidebar-item__text {
-      color: $bw-text-color;
+      color: @bw-text-color;
     }
   }
 
   &--disabled {
     cursor: not-allowed;
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
   }
 
   &__content {
@@ -123,10 +123,10 @@ defineExpose({ setIndex })
     position: absolute;
     top: -2px;
     right: -8px;
-    width: $bw-badge-dot-size;
-    height: $bw-badge-dot-size;
+    width: @bw-badge-dot-size;
+    height: @bw-badge-dot-size;
     border-radius: 50%;
-    background-color: $bw-danger-color;
+    background-color: @bw-danger-color;
   }
 
   &__badge {
@@ -139,7 +139,7 @@ defineExpose({ setIndex })
   }
 
   &:active:not(&--disabled) {
-    background-color: $bw-active-color;
+    background-color: @bw-active-color;
   }
 }
 </style>

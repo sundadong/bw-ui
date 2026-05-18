@@ -55,7 +55,7 @@ const handleClick = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .bw-switch {
   position: relative;
   display: inline-block;
@@ -68,7 +68,7 @@ const handleClick = () => {
   transition: background-color 0.3s;
 
   &--on {
-    background-color: $bw-primary-color;
+    background-color: @bw-primary-color;
   }
 
   &--disabled {
@@ -82,7 +82,7 @@ const handleClick = () => {
     left: 2px;
     width: 1em;
     height: 1em;
-    background-color: $bw-white;
+    background-color: @bw-white;
     border-radius: 50%;
     box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05);
     transition: transform 0.3s;

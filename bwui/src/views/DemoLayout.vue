@@ -29,7 +29,7 @@ const handleBack = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-page {
   min-height: 100vh;
   background-color: #f7f8fa;

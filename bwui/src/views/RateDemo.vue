@@ -72,7 +72,7 @@ const value6 = ref(3.5)
 const value7 = ref(4)
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

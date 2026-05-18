@@ -62,8 +62,8 @@ const pivotStyle = computed(() => {
 })
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-progress {
   width: 100%;
@@ -73,18 +73,18 @@ const pivotStyle = computed(() => {
   &__outer {
     position: relative;
     flex: 1;
-    height: $bw-progress-height;
+    height: @bw-progress-height;
     background-color: v-bind('trackColor');
-    border-radius: $bw-border-radius-round;
+    border-radius: @bw-border-radius-round;
     overflow: visible;
   }
 
   &__inner {
     position: relative;
     height: 100%;
-    background-color: $bw-primary-color;
+    background-color: @bw-primary-color;
     border-radius: inherit;
-    transition: width $bw-animation-duration-base $bw-animation-timing-function-base;
+    transition: width  @bw-animation-duration-base  @bw-animation-timing-function-base;
   }
 
   &__pivot {
@@ -94,12 +94,12 @@ const pivotStyle = computed(() => {
     transform: translate(-50%, -50%);
     min-width: 36px;
     padding: 0 6px;
-    font-size: $bw-font-size-xs;
+    font-size: @bw-font-size-xs;
     line-height: 1.5;
-    color: $bw-white;
+    color: @bw-white;
     text-align: center;
-    background-color: $bw-primary-color;
-    border-radius: $bw-border-radius-round;
+    background-color: @bw-primary-color;
+    border-radius: @bw-border-radius-round;
     white-space: nowrap;
   }
 }

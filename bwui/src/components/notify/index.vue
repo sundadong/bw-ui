@@ -127,15 +127,15 @@ defineExpose({
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-notify-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: $bw-z-index-notify;
+  z-index: @bw-z-index-notify;
 }
 
 .bw-notify {
@@ -147,9 +147,9 @@ defineExpose({
   justify-content: center;
   min-height: 40px;
   padding: 8px 16px;
-  font-size: $bw-font-size-md;
-  line-height: $bw-line-height-md;
-  color: $bw-white;
+  font-size: @bw-font-size-md;
+  line-height: @bw-line-height-md;
+  color: @bw-white;
   text-align: center;
   word-wrap: break-word;
   box-sizing: border-box;
@@ -168,19 +168,19 @@ defineExpose({
   }
 
   &--primary {
-    background-color: $bw-primary-color;
+    background-color: @bw-primary-color;
   }
 
   &--success {
-    background-color: $bw-success-color;
+    background-color: @bw-success-color;
   }
 
   &--warning {
-    background-color: $bw-warning-color;
+    background-color: @bw-warning-color;
   }
 
   &--danger {
-    background-color: $bw-danger-color;
+    background-color: @bw-danger-color;
   }
 
   &__content {

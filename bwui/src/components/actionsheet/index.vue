@@ -130,8 +130,8 @@ defineExpose({
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-action-sheet-wrapper {
   position: fixed;
@@ -139,7 +139,7 @@ defineExpose({
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: $bw-z-index-popup;
+  z-index: @bw-z-index-popup;
 }
 
 .bw-action-sheet {
@@ -147,11 +147,11 @@ defineExpose({
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $bw-bg-color;
+  background-color: @bw-bg-color;
   border-radius: 0;
 
   &--round {
-    border-radius: $bw-border-radius-xl $bw-border-radius-xl 0 0;
+    border-radius: @bw-border-radius-xl  @bw-border-radius-xl 0 0;
   }
 
   &--safe-area-inset-bottom {
@@ -160,11 +160,11 @@ defineExpose({
   }
 
   &__description {
-    padding: $bw-padding-md;
-    font-size: $bw-font-size-md;
-    color: $bw-text-color-2;
+    padding: @bw-padding-md;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color-2;
     text-align: center;
-    line-height: $bw-line-height-md;
+    line-height: @bw-line-height-md;
   }
 
   &__actions {
@@ -178,25 +178,25 @@ defineExpose({
     align-items: center;
     justify-content: center;
     height: 50px;
-    font-size: $bw-font-size-lg;
-    color: $bw-text-color;
+    font-size: @bw-font-size-lg;
+    color: @bw-text-color;
     cursor: pointer;
-    background-color: $bw-bg-color;
+    background-color: @bw-bg-color;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: $bw-padding-md;
-      right: $bw-padding-md;
+      left: @bw-padding-md;
+      right: @bw-padding-md;
       height: 1px;
-      background-color: $bw-border-color;
+      background-color: @bw-border-color;
       transform: scaleY(0.5);
     }
 
     &--disabled {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
       cursor: not-allowed;
     }
 
@@ -205,7 +205,7 @@ defineExpose({
     }
 
     &:active {
-      background-color: $bw-active-color;
+      background-color: @bw-active-color;
     }
   }
 
@@ -214,13 +214,13 @@ defineExpose({
   }
 
   &__name {
-    font-size: $bw-font-size-lg;
-    line-height: $bw-line-height-md;
+    font-size: @bw-font-size-lg;
+    line-height: @bw-line-height-md;
   }
 
   &__subname {
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
     margin-top: 4px;
   }
 
@@ -229,14 +229,14 @@ defineExpose({
     align-items: center;
     justify-content: center;
     height: 50px;
-    font-size: $bw-font-size-lg;
-    color: $bw-text-color-1;
+    font-size: @bw-font-size-lg;
+    color: @bw-text-color-1;
     cursor: pointer;
-    background-color: $bw-bg-color;
+    background-color: @bw-bg-color;
     margin-top: 8px;
 
     &:active {
-      background-color: $bw-active-color;
+      background-color: @bw-active-color;
     }
   }
 }

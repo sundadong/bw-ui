@@ -1,6 +1,6 @@
 <template>
   <div class="bw-article">
-    <div v-if="title || $slots.title" class="bw-article__title">
+    <div v-if="title ||  $slots.title" class="bw-article__title">
       <slot name="title">{{ title }}</slot>
     </div>
     <div v-if="$slots.meta" class="bw-article__meta">
@@ -69,62 +69,62 @@ const renderedMarkdown = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-article {
-  padding: $bw-padding-md;
-  background-color: $bw-bg-color;
-  border-radius: $bw-border-radius-lg;
+  padding: @bw-padding-md;
+  background-color: @bw-bg-color;
+  border-radius: @bw-border-radius-lg;
 
   &__title {
-    font-size: $bw-font-size-xxl;
+    font-size: @bw-font-size-xxl;
     font-weight: 600;
-    color: $bw-text-color;
+    color: @bw-text-color;
     margin-bottom: 12px;
     line-height: 1.4;
   }
 
   &__meta {
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
-    margin-bottom: $bw-padding-md;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
+    margin-bottom: @bw-padding-md;
     display: flex;
     align-items: center;
-    gap: $bw-padding-xs;
+    gap: @bw-padding-xs;
   }
 
   &__content {
-    font-size: $bw-font-size-md;
-    color: $bw-text-color;
-    line-height: $bw-line-height-lg;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color;
+    line-height: @bw-line-height-lg;
     word-break: break-word;
 
     &--markdown {
       :deep(h1) {
-        font-size: $bw-font-size-xxl;
+        font-size: @bw-font-size-xxl;
         font-weight: 600;
-        margin: $bw-padding-md 0 $bw-padding-xs;
+        margin: @bw-padding-md 0  @bw-padding-xs;
         line-height: 1.4;
       }
 
       :deep(h2) {
-        font-size: $bw-font-size-xl;
+        font-size: @bw-font-size-xl;
         font-weight: 600;
-        margin: $bw-padding-sm 0 $bw-padding-xs;
+        margin: @bw-padding-sm 0  @bw-padding-xs;
         line-height: 1.4;
       }
 
       :deep(h3) {
-        font-size: $bw-font-size-lg;
+        font-size: @bw-font-size-lg;
         font-weight: 600;
-        margin: $bw-padding-xs 0;
+        margin: @bw-padding-xs 0;
         line-height: 1.4;
       }
 
       :deep(p) {
-        margin: $bw-padding-xs 0;
-        line-height: $bw-line-height-lg;
+        margin: @bw-padding-xs 0;
+        line-height: @bw-line-height-lg;
       }
 
       :deep(strong) {
@@ -136,12 +136,12 @@ const renderedMarkdown = computed(() => {
       }
 
       :deep(code) {
-        background-color: $bw-bg-color-light;
+        background-color: @bw-bg-color-light;
         padding: 2px 6px;
-        border-radius: $bw-border-radius-sm;
+        border-radius: @bw-border-radius-sm;
         font-family: 'Courier New', monospace;
-        font-size: $bw-font-size-sm;
-        color: $bw-danger-color;
+        font-size: @bw-font-size-sm;
+        color: @bw-danger-color;
       }
     }
   }

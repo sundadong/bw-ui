@@ -77,39 +77,39 @@ const handleToggle = () => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-collapse-item {
   &--large {
     .bw-collapse-item__title {
-      height: $bw-cell-large-height;
+      height: @bw-cell-large-height;
     }
   }
 
   &--border {
     & + .bw-collapse-item {
-      border-top: 1px solid $bw-border-color;
+      border-top: 1px solid  @bw-border-color;
     }
   }
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
   }
 
   &__title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: $bw-cell-height;
-    padding: 0 $bw-padding-md;
-    font-size: $bw-font-size-md;
-    color: $bw-text-color;
+    height: @bw-cell-height;
+    padding: 0  @bw-padding-md;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color;
     cursor: pointer;
-    transition: background-color $bw-animation-duration-fast;
+    transition: background-color  @bw-animation-duration-fast;
 
     &:active {
-      background-color: $bw-active-color;
+      background-color: @bw-active-color;
     }
 
     &--disabled {
@@ -150,23 +150,23 @@ const handleToggle = () => {
     &-right {
       display: flex;
       align-items: center;
-      margin-left: $bw-padding-xs;
-      color: $bw-text-color-2;
-      font-size: $bw-font-size-sm;
+      margin-left: @bw-padding-xs;
+      color: @bw-text-color-2;
+      font-size: @bw-font-size-sm;
     }
   }
 
   &__icon {
-    margin-right: $bw-padding-xs;
-    font-size: $bw-font-size-lg;
+    margin-right: @bw-padding-xs;
+    font-size: @bw-font-size-lg;
   }
 
   &__arrow {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform $bw-animation-duration-base;
-    color: $bw-text-color-3;
+    transition: transform  @bw-animation-duration-base;
+    color: @bw-text-color-3;
 
     &--expanded {
       transform: rotate(180deg);
@@ -176,15 +176,15 @@ const handleToggle = () => {
   &__wrapper {
     height: 0;
     overflow: hidden;
-    transition: height $bw-animation-duration-base $bw-animation-timing-function-base;
+    transition: height  @bw-animation-duration-base  @bw-animation-timing-function-base;
   }
 
   &__content {
-    padding: $bw-padding-sm $bw-padding-md;
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
-    line-height: $bw-line-height-md;
-    background-color: $bw-white;
+    padding: @bw-padding-sm  @bw-padding-md;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
+    line-height: @bw-line-height-md;
+    background-color: @bw-white;
   }
 }
 </style>

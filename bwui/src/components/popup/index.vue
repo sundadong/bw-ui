@@ -13,7 +13,7 @@
       :class="[popupClass, { 'bw-popup--show': isShow }]"
       :style="popupStyle"
     >
-      <div v-if="title || $slots.title" class="bw-popup__header">
+      <div v-if="title ||  $slots.title" class="bw-popup__header">
         <slot name="title">
           <div class="bw-popup__title">{{ title }}</div>
         </slot>
@@ -125,8 +125,8 @@ const close = () => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-popup-wrapper {
   position: fixed;
@@ -141,7 +141,7 @@ const close = () => {
   position: fixed;
   max-height: 100%;
   overflow-y: auto;
-  background-color: $bw-bg-color;
+  background-color: @bw-bg-color;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 
   &--top {
@@ -149,7 +149,7 @@ const close = () => {
     left: 0;
     right: 0;
     transform: translateY(-100%);
-    border-radius: 0 0 $bw-popup-border-radius $bw-popup-border-radius;
+    border-radius: 0 0  @bw-popup-border-radius  @bw-popup-border-radius;
   }
 
   &--bottom {
@@ -157,7 +157,7 @@ const close = () => {
     left: 0;
     right: 0;
     transform: translateY(100%);
-    border-radius: $bw-popup-border-radius $bw-popup-border-radius 0 0;
+    border-radius: @bw-popup-border-radius  @bw-popup-border-radius 0 0;
   }
 
   &--center {
@@ -165,7 +165,7 @@ const close = () => {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
     opacity: 0;
-    border-radius: $bw-popup-border-radius;
+    border-radius: @bw-popup-border-radius;
   }
 
   &--left {
@@ -210,29 +210,29 @@ const close = () => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $bw-padding-md;
+    padding: @bw-padding-md;
   }
 
   &__title {
-    font-size: $bw-font-size-lg;
+    font-size: @bw-font-size-lg;
     font-weight: 500;
-    color: $bw-text-color;
+    color: @bw-text-color;
   }
 
   &__close {
     position: absolute;
     top: 50%;
-    right: $bw-padding-md;
+    right: @bw-padding-md;
     transform: translateY(-50%);
-    color: $bw-text-color-2;
+    color: @bw-text-color-2;
   }
 
   &__content {
-    padding: $bw-padding-md;
+    padding: @bw-padding-md;
   }
 
   &__footer {
-    padding: $bw-padding-md;
+    padding: @bw-padding-md;
   }
 }
 </style>

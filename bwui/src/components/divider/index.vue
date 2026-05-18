@@ -85,20 +85,20 @@ const contentStyle = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-divider {
   display: flex;
   align-items: center;
-  margin: $bw-padding-md 0;
-  color: $bw-text-color-2;
-  font-size: $bw-font-size-md;
-  line-height: $bw-line-height-md;
+  margin: @bw-padding-md 0;
+  color: @bw-text-color-2;
+  font-size: @bw-font-size-md;
+  line-height: @bw-line-height-md;
 
   &--vertical {
     display: inline-flex;
-    margin: 0 $bw-padding-xs;
+    margin: 0  @bw-padding-xs;
     height: 0.9em;
     width: 1px;
     vertical-align: middle;
@@ -119,13 +119,13 @@ const contentStyle = computed(() => {
   &__line {
     flex: 1;
     height: 1px;
-    background-color: $bw-border-color;
-    border-radius: $bw-border-radius-sm;
+    background-color: @bw-border-color;
+    border-radius: @bw-border-radius-sm;
 
     &--dashed {
       background: none;
       height: 0;
-      border-top: 1px dashed $bw-border-color;
+      border-top: 1px dashed  @bw-border-color;
     }
 
     &--hairline {
@@ -134,9 +134,9 @@ const contentStyle = computed(() => {
   }
 
   &__content {
-    padding: 0 $bw-padding-md;
-    font-size: $bw-font-size-md;
-    color: $bw-text-color-2;
+    padding: 0  @bw-padding-md;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color-2;
     white-space: nowrap;
     flex-shrink: 0;
   }

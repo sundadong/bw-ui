@@ -103,10 +103,10 @@ const handleConfirm = (event: any) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .bw-field {
   padding: 12px 16px;
-  background-color: $bw-white;
+  background-color: @bw-white;
 
   &--disabled {
     opacity: 0.5;
@@ -115,14 +115,14 @@ const handleConfirm = (event: any) => {
   &--error {
     .bw-field__label,
     .bw-field__input {
-      color: $bw-danger-color;
+      color: @bw-danger-color;
     }
   }
 
   &__label {
     margin-bottom: 4px;
     font-size: 14px;
-    color: $bw-text-color;
+    color: @bw-text-color;
   }
 
   &__body {
@@ -135,7 +135,7 @@ const handleConfirm = (event: any) => {
   &__right-icon {
     display: flex;
     align-items: center;
-    color: $bw-text-color-2;
+    color: @bw-text-color-2;
   }
 
   &__left-icon {
@@ -151,14 +151,14 @@ const handleConfirm = (event: any) => {
     min-height: 24px;
     padding: 0;
     font-size: 14px;
-    color: $bw-text-color;
+    color: @bw-text-color;
     background-color: transparent;
     border: none;
     outline: none;
     resize: none;
 
     &::placeholder {
-      color: $bw-text-color-3;
+      color: @bw-text-color-3;
     }
   }
 
@@ -166,13 +166,13 @@ const handleConfirm = (event: any) => {
     display: flex;
     align-items: center;
     margin-left: 8px;
-    color: $bw-text-color-3;
+    color: @bw-text-color-3;
   }
 
   &__footer {
     margin-top: 4px;
     font-size: 12px;
-    color: $bw-danger-color;
+    color: @bw-danger-color;
   }
 }
 </style>

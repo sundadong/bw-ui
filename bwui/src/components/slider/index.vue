@@ -201,8 +201,8 @@ const handleButtonDown = (event: MouseEvent | TouchEvent) => {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-slider {
   position: relative;
@@ -214,7 +214,7 @@ const handleButtonDown = (event: MouseEvent | TouchEvent) => {
   -webkit-tap-highlight-color: transparent;
 
   &--disabled {
-    opacity: $bw-disabled-opacity;
+    opacity: @bw-disabled-opacity;
     cursor: not-allowed;
   }
 
@@ -229,7 +229,7 @@ const handleButtonDown = (event: MouseEvent | TouchEvent) => {
     position: relative;
     width: 100%;
     border-radius: 999px;
-    background-color: $bw-progress-background-color;
+    background-color: @bw-progress-background-color;
 
     .bw-slider--vertical & {
       width: 2px;
@@ -243,7 +243,7 @@ const handleButtonDown = (event: MouseEvent | TouchEvent) => {
     left: 0;
     height: 100%;
     border-radius: inherit;
-    background-color: $bw-primary-color;
+    background-color: @bw-primary-color;
     transition: width 0.2s;
 
     .bw-slider--vertical & {
@@ -265,7 +265,7 @@ const handleButtonDown = (event: MouseEvent | TouchEvent) => {
   &__button {
     position: absolute;
     border-radius: 50%;
-    background-color: $bw-white;
+    background-color: @bw-white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
 

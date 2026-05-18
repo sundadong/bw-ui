@@ -182,15 +182,15 @@ const handleNext = () => {
 }
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  font-size: $bw-font-size-md;
+  font-size: @bw-font-size-md;
   gap: 0;
 
   &__item {
@@ -200,28 +200,28 @@ const handleNext = () => {
     min-width: 36px;
     height: 40px;
     padding: 0 4px;
-    color: $bw-text-color;
-    background-color: $bw-white;
-    border-radius: $bw-border-radius-md;
+    color: @bw-text-color;
+    background-color: @bw-white;
+    border-radius: @bw-border-radius-md;
     cursor: pointer;
     user-select: none;
     box-sizing: border-box;
-    transition: background-color $bw-animation-duration-fast;
+    transition: background-color  @bw-animation-duration-fast;
 
     &--active {
-      color: $bw-white;
-      background-color: $bw-primary-color;
+      color: @bw-white;
+      background-color: @bw-primary-color;
     }
 
     &--disabled {
       cursor: not-allowed;
-      opacity: $bw-disabled-opacity;
-      color: $bw-text-color-3;
+      opacity: @bw-disabled-opacity;
+      color: @bw-text-color-3;
     }
 
     &--ellipsis {
       cursor: default;
-      color: $bw-text-color-2;
+      color: @bw-text-color-2;
     }
 
     &--prev,
@@ -230,7 +230,7 @@ const handleNext = () => {
     }
 
     &:active:not(&--disabled):not(&--ellipsis):not(&--active) {
-      background-color: $bw-active-color;
+      background-color: @bw-active-color;
     }
   }
 
@@ -239,8 +239,8 @@ const handleNext = () => {
     align-items: center;
     margin-left: 8px;
     height: 40px;
-    color: $bw-text-color-2;
-    font-size: $bw-font-size-sm;
+    color: @bw-text-color-2;
+    font-size: @bw-font-size-sm;
   }
 
   &__page-size-text {

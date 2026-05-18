@@ -71,8 +71,8 @@ defineExpose({
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-toast {
   position: fixed;
@@ -82,25 +82,25 @@ defineExpose({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: $bw-toast-max-width;
-  padding: $bw-padding-md $bw-padding-lg;
-  font-size: $bw-font-size-md;
-  line-height: $bw-line-height-md;
-  color: $bw-white;
+  max-width: @bw-toast-max-width;
+  padding: @bw-padding-md  @bw-padding-lg;
+  font-size: @bw-font-size-md;
+  line-height: @bw-line-height-md;
+  color: @bw-white;
   text-align: center;
   word-break: break-all;
   background-color: rgba(50, 50, 51, 0.9);
-  border-radius: $bw-border-radius-lg;
+  border-radius: @bw-border-radius-lg;
   transform: translate(-50%, -50%);
 
   &--top {
-    top: $bw-toast-offset-y;
+    top: @bw-toast-offset-y;
     transform: translate(-50%, 0);
   }
 
   &--bottom {
     top: auto;
-    bottom: $bw-toast-offset-y;
+    bottom: @bw-toast-offset-y;
     transform: translate(-50%, 0);
   }
 
@@ -108,16 +108,16 @@ defineExpose({
   &--fail,
   &--warning {
     .bw-toast__icon {
-      margin-bottom: $bw-padding-xs;
+      margin-bottom: @bw-padding-xs;
     }
   }
 
   &__loading {
-    margin-bottom: $bw-padding-xs;
+    margin-bottom: @bw-padding-xs;
   }
 
   &__icon {
-    margin-bottom: $bw-padding-xs;
+    margin-bottom: @bw-padding-xs;
   }
 
   &__text {

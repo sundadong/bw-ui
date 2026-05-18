@@ -40,7 +40,7 @@
       :show="showBasic"
       :columns="simpleColumns"
       title="单列选择"
-      @update:show="showBasic = $event"
+      @update:show="showBasic =  @event"
       @confirm="onBasicConfirm"
       @cancel="showBasic = false"
     />
@@ -50,7 +50,7 @@
       :show="showMulti"
       :columns="multiColumns"
       title="多列选择"
-      @update:show="showMulti = $event"
+      @update:show="showMulti =  @event"
     />
 
     <bw-picker
@@ -58,7 +58,7 @@
       :show="showCascade"
       :columns="cascadeColumns"
       title="级联选择"
-      @update:show="showCascade = $event"
+      @update:show="showCascade =  @event"
     />
 
     <bw-picker
@@ -67,7 +67,7 @@
       :columns="simpleColumns"
       title="加载中"
       :loading="true"
-      @update:show="showLoading = $event"
+      @update:show="showLoading =  @event"
     />
 
     <bw-picker
@@ -77,7 +77,7 @@
       title="自定义文案"
       confirm-text="完成"
       cancel-text="返回"
-      @update:show="showCustom = $event"
+      @update:show="showCustom =  @event"
     />
   </demo-layout>
 </template>
@@ -159,7 +159,7 @@ const onBasicConfirm = (value: any) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

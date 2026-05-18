@@ -16,7 +16,7 @@
       </slot>
     </div>
     <div class="bw-timeline-item__content">
-      <div v-if="time || $slots.time" class="bw-timeline-item__time">
+      <div v-if="time ||  $slots.time" class="bw-timeline-item__time">
         <slot name="time">{{ time }}</slot>
       </div>
       <div class="bw-timeline-item__body">
@@ -58,8 +58,8 @@ const lineStyle = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-timeline-item {
   position: relative;
@@ -102,7 +102,7 @@ const lineStyle = computed(() => {
     top: 12px;
     bottom: -24px;
     width: 2px;
-    background-color: $bw-border-color;
+    background-color: @bw-border-color;
 
     .bw-timeline-item--last & {
       display: none;
@@ -116,7 +116,7 @@ const lineStyle = computed(() => {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: $bw-primary-color;
+    background-color: @bw-primary-color;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -134,16 +134,16 @@ const lineStyle = computed(() => {
   }
 
   &__time {
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
     margin-bottom: 4px;
     line-height: 1;
   }
 
   &__body {
-    font-size: $bw-font-size-md;
-    color: $bw-text-color;
-    line-height: $bw-line-height-md;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color;
+    line-height: @bw-line-height-md;
   }
 }
 </style>

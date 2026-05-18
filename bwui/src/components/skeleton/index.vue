@@ -99,12 +99,12 @@ const computedRowWidths = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/variables.scss';
+<style lang="less" scoped>
+@import '../../styles/variables.less';
 
 .bw-skeleton {
   display: flex;
-  padding: 0 $bw-padding-md;
+  padding: 0  @bw-padding-md;
   flex-wrap: wrap;
 
   &--avatar {
@@ -116,10 +116,8 @@ const computedRowWidths = computed(() => {
     .bw-skeleton__row,
     .bw-skeleton__avatar {
       background: linear-gradient(
-        90deg,
-        $bw-active-color 25%,
-        #e8e8e8 37%,
-        $bw-active-color 63%
+        90deg, @bw-active-color 25%,
+        #e8e8e8 37%, @bw-active-color 63%
       );
       background-size: 400% 100%;
       animation: bw-skeleton-shimmer 1.4s ease infinite;
@@ -128,24 +126,24 @@ const computedRowWidths = computed(() => {
 
   &__avatar {
     flex-shrink: 0;
-    background-color: $bw-active-color;
-    margin-right: $bw-padding-md;
-    margin-bottom: $bw-padding-sm;
+    background-color: @bw-active-color;
+    margin-right: @bw-padding-md;
+    margin-bottom: @bw-padding-sm;
 
     &--round {
-      border-radius: $bw-border-radius-round;
+      border-radius: @bw-border-radius-round;
     }
 
     &--square {
-      border-radius: $bw-border-radius-md;
+      border-radius: @bw-border-radius-md;
     }
   }
 
   &__title {
     width: 40%;
     height: 16px;
-    background-color: $bw-active-color;
-    margin-bottom: $bw-padding-sm;
+    background-color: @bw-active-color;
+    margin-bottom: @bw-padding-sm;
     flex-shrink: 0;
   }
 
@@ -156,11 +154,11 @@ const computedRowWidths = computed(() => {
 
   &__row {
     height: 16px;
-    background-color: $bw-active-color;
-    margin-bottom: $bw-padding-sm;
+    background-color: @bw-active-color;
+    margin-bottom: @bw-padding-sm;
 
     &--round {
-      border-radius: $bw-border-radius-round;
+      border-radius: @bw-border-radius-round;
     }
 
     &:last-child {

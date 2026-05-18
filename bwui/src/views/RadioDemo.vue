@@ -47,7 +47,7 @@ const value2 = ref('a')
 const value3 = ref('round')
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

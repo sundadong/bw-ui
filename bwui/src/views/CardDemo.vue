@@ -95,7 +95,7 @@ import BwCard from '../components/card/index.vue'
 import BwButton from '../components/button/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

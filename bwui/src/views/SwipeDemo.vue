@@ -50,7 +50,7 @@ import BwSwipe from '../components/swipe/index.vue'
 import BwSwipeItem from '../components/swipe-item/index.vue'
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;

@@ -21,7 +21,7 @@
           <div class="bw-card__title">
             <slot name="title">{{ title }}</slot>
           </div>
-          <div v-if="tag || $slots.tag" class="bw-card__tag">
+          <div v-if="tag ||  $slots.tag" class="bw-card__tag">
             <slot name="tag">
               <bw-tag v-if="tag" mark>{{ tag }}</bw-tag>
             </slot>
@@ -40,7 +40,7 @@
               {{ currency }}{{ formatPrice(originPrice) }}
             </span>
           </div>
-          <div v-if="num || num === 0 || $slots.num" class="bw-card__num">
+          <div v-if="num || num === 0 ||  $slots.num" class="bw-card__num">
             <slot name="num">x{{ num }}</slot>
           </div>
         </div>
@@ -102,15 +102,15 @@ const formatPrice = (price: string | number): string => {
 }
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-card {
   box-sizing: border-box;
-  padding: $bw-padding-xs $bw-padding-base;
-  background-color: $bw-white;
-  font-size: $bw-font-size-sm;
-  color: $bw-text-color;
+  padding: @bw-padding-xs  @bw-padding-base;
+  background-color: @bw-white;
+  font-size: @bw-font-size-sm;
+  color: @bw-text-color;
   position: relative;
 
   &--border {
@@ -118,10 +118,10 @@ const formatPrice = (price: string | number): string => {
       content: '';
       position: absolute;
       bottom: 0;
-      left: $bw-padding-base;
-      right: $bw-padding-base;
+      left: @bw-padding-base;
+      right: @bw-padding-base;
       height: 1px;
-      background-color: $bw-border-color;
+      background-color: @bw-border-color;
       transform: scaleY(0.5);
     }
   }
@@ -135,10 +135,10 @@ const formatPrice = (price: string | number): string => {
     flex-shrink: 0;
     width: 88px;
     height: 88px;
-    margin-right: $bw-padding-xs;
-    border-radius: $bw-border-radius-md;
+    margin-right: @bw-padding-xs;
+    border-radius: @bw-border-radius-md;
     overflow: hidden;
-    background-color: $bw-bg-color-gray;
+    background-color: @bw-bg-color-gray;
   }
 
   &__thumb-image {
@@ -163,10 +163,10 @@ const formatPrice = (price: string | number): string => {
   }
 
   &__title {
-    font-size: $bw-font-size-md;
+    font-size: @bw-font-size-md;
     font-weight: 500;
-    line-height: $bw-line-height-md;
-    color: $bw-text-color;
+    line-height: @bw-line-height-md;
+    color: @bw-text-color;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -182,9 +182,9 @@ const formatPrice = (price: string | number): string => {
   }
 
   &__desc {
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
-    line-height: $bw-line-height-md;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
+    line-height: @bw-line-height-md;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -202,38 +202,38 @@ const formatPrice = (price: string | number): string => {
   }
 
   &__price-currency {
-    font-size: $bw-font-size-sm;
-    color: $bw-danger-color;
+    font-size: @bw-font-size-sm;
+    color: @bw-danger-color;
     margin-right: 1px;
   }
 
   &__price-integer {
-    font-size: $bw-font-size-lg;
-    color: $bw-danger-color;
+    font-size: @bw-font-size-lg;
+    color: @bw-danger-color;
     font-weight: 500;
   }
 
   &__price-origin {
-    font-size: $bw-font-size-xs;
-    color: $bw-text-color-3;
+    font-size: @bw-font-size-xs;
+    color: @bw-text-color-3;
     text-decoration: line-through;
     margin-left: 5px;
   }
 
   &__num {
-    font-size: $bw-font-size-sm;
-    color: $bw-text-color-2;
+    font-size: @bw-font-size-sm;
+    color: @bw-text-color-2;
   }
 
   &__footer-extra {
-    padding-top: $bw-padding-xs;
+    padding-top: @bw-padding-xs;
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
 
   &__bottom {
-    padding-top: $bw-padding-xs;
+    padding-top: @bw-padding-xs;
   }
 }
 </style>

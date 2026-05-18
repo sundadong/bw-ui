@@ -23,7 +23,7 @@ const itemStyle = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .bw-swipe-item {
   flex-shrink: 0;
   width: 100%;

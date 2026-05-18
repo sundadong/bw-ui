@@ -42,19 +42,19 @@ const emptyIcon = computed(() => {
 })
 </script>
 
-<style lang="scss">
-@import '../../styles/variables.scss';
+<style lang="less">
+@import '../../styles/variables.less';
 
 .bw-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: $bw-padding-xl * 2 $bw-padding-md;
-  color: $bw-text-color-2;
+  padding: @bw-padding-xl * 2  @bw-padding-md;
+  color: @bw-text-color-2;
 
   &__image {
-    margin-bottom: $bw-padding-md;
+    margin-bottom: @bw-padding-md;
 
     &-img {
       width: 160px;
@@ -77,15 +77,15 @@ const emptyIcon = computed(() => {
   }
 
   &__description {
-    font-size: $bw-font-size-md;
-    color: $bw-text-color-2;
+    font-size: @bw-font-size-md;
+    color: @bw-text-color-2;
     text-align: center;
-    line-height: $bw-line-height-md;
-    margin-bottom: $bw-padding-md;
+    line-height: @bw-line-height-md;
+    margin-bottom: @bw-padding-md;
   }
 
   &__footer {
-    margin-top: $bw-padding-md;
+    margin-top: @bw-padding-md;
   }
 }
 </style>

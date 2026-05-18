@@ -75,7 +75,7 @@ const active3 = ref(0)
 const active4 = ref(0)
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .demo-block {
   background-color: #ffffff;
   border-radius: 8px;
