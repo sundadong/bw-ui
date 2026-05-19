@@ -32,8 +32,8 @@
           <span class="demo-icon-name">star</span>
         </div>
         <div class="demo-icon-item">
-          <bw-icon name="heart" size="24px" />
-          <span class="demo-icon-name">heart</span>
+          <bw-icon name="like" size="24px" />
+          <span class="demo-icon-name">like</span>
         </div>
         <div class="demo-icon-item">
           <bw-icon name="setting" size="24px" />
