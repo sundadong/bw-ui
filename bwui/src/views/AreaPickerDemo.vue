@@ -43,7 +43,7 @@
       :area-list="areaList"
       title="选择地区"
       :columns-num="3"
-      @update:show="showArea =  @event"
+      @update:show="showArea = $event"
       @confirm="onAreaConfirm"
     />
 
@@ -53,7 +53,7 @@
       :area-list="areaList"
       title="省市选择"
       :columns-num="2"
-      @update:show="showTwoLevel =  @event"
+      @update:show="showTwoLevel = $event"
       @confirm="onTwoLevelConfirm"
     />
 
@@ -63,7 +63,7 @@
       :area-list="areaList"
       title="省份选择"
       :columns-num="1"
-      @update:show="showOneLevel =  @event"
+      @update:show="showOneLevel = $event"
       @confirm="onOneLevelConfirm"
     />
 
@@ -76,7 +76,7 @@
       :columns-placeholder="['选择省', '选择市', '选择区']"
       confirm-text="完成"
       cancel-text="返回"
-      @update:show="showCustom =  @event"
+      @update:show="showCustom = $event"
     />
   </demo-layout>
 </template>

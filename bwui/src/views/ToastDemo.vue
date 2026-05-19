@@ -40,7 +40,7 @@
     <bw-toast
       :show="textVisible"
       :message="textMessage"
-      @update:show="textVisible =  @event"
+      @update:show="textVisible = $event"
     />
 
     <bw-toast
@@ -53,7 +53,7 @@
       :show="resultVisible"
       :type="resultType"
       :message="resultMessage"
-      @update:show="resultVisible =  @event"
+      @update:show="resultVisible = $event"
     />
 
     <bw-toast
@@ -61,14 +61,14 @@
       :message="iconMessage"
       icon="like-o"
       icon-size="40px"
-      @update:show="iconVisible =  @event"
+      @update:show="iconVisible = $event"
     />
 
     <bw-toast
       :show="positionVisible"
       :message="positionMessage"
       :position="currentPosition"
-      @update:show="positionVisible =  @event"
+      @update:show="positionVisible = $event"
     />
   </demo-layout>
 </template>

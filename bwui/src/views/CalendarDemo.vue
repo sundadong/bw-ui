@@ -47,7 +47,7 @@
       :show="showSingle"
       type="single"
       title="选择日期"
-      @update:show="showSingle =  @event"
+      @update:show="showSingle = $event"
       @confirm="onSingleConfirm"
     />
 
@@ -57,7 +57,7 @@
       type="range"
       title="选择日期范围"
       :allow-same-day="false"
-      @update:show="showRange =  @event"
+      @update:show="showRange = $event"
     />
 
     <bw-calendar
@@ -65,7 +65,7 @@
       :show="showMultiple"
       type="multiple"
       title="选择多个日期"
-      @update:show="showMultiple =  @event"
+      @update:show="showMultiple = $event"
     />
 
     <bw-calendar
@@ -74,7 +74,7 @@
       type="single"
       title="选择日期"
       color="#07c160"
-      @update:show="showCustomColor =  @event"
+      @update:show="showCustomColor = $event"
     />
 
     <bw-calendar
@@ -84,7 +84,7 @@
       title="选择日期"
       :min-date="minDate"
       :max-date="maxDate"
-      @update:show="showLimitRange =  @event"
+      @update:show="showLimitRange = $event"
     />
   </demo-layout>
 </template>
