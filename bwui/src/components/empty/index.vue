@@ -3,7 +3,8 @@
     <div class="bw-empty__image">
       <img v-if="image" :src="image" class="bw-empty__image-img" alt="" />
       <div v-else class="bw-empty__image-default">
-        <div class="bw-empty__icon">{{ emptyIcon }}</div>
+        <span class="bw-empty__icon" style="display: none;">{{ emojiIcon }}</span>
+        <bw-icon :name="emptyIcon" :size="80" />
       </div>
     </div>
     <div class="bw-empty__description">
@@ -19,6 +20,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import BwIcon from '../icon/index.vue'
 
 export interface EmptyProps {
   image?: string
@@ -33,6 +35,15 @@ const props = withDefaults(defineProps<EmptyProps>(), {
 })
 
 const emptyIcon = computed(() => {
+  const icons: Record<string, string> = {
+    empty: 'inbox-o',
+    error: 'fail',
+    network: 'wifi-o'
+  }
+  return icons[props.type] || icons.empty
+})
+
+const emojiIcon = computed(() => {
   const icons: Record<string, string> = {
     empty: '📭',
     error: '⚠',
@@ -62,17 +73,12 @@ const emptyIcon = computed(() => {
       display: block;
     }
 
-    &__default {
+    &-default {
       width: 160px;
       height: 160px;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    &-icon {
-      font-size: 80px;
-      line-height: 1;
     }
   }
 

@@ -50,7 +50,7 @@ export interface ButtonProps {
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'default',
   size: 'medium',
-  iconPrefix: 'bwicon',
+  iconPrefix: 'van',
   block: false,
   round: false,
   square: false,

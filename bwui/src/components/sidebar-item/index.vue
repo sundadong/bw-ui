@@ -38,11 +38,13 @@ export interface SidebarItemProps {
   disabled?: boolean
   href?: string
   to?: string
+  index?: number | string
 }
 
 const props = withDefaults(defineProps<SidebarItemProps>(), {
   dot: false,
-  disabled: false
+  disabled: false,
+  index: undefined
 })
 
 const emit = defineEmits<{
@@ -54,27 +56,32 @@ const parent = inject<{
   updateActive: (index: number | string) => void
 } | null>('sidebar', null)
 
-let uid = 0
-let itemIndex: number | string = uid++
-
-const setIndex = (index: number | string) => {
-  itemIndex = index
-}
+// 如果没有传递index，使用内部生成的
+let internalIndex = Math.random().toString(36).substring(2, 9)
+const itemIndex = computed(() => {
+  return props.index !== undefined ? props.index : internalIndex
+})
 
 const isActive = computed(() => {
   if (!parent) return false
-  return parent.activeIndex.value === itemIndex
+  return parent.activeIndex.value === itemIndex.value
 })
 
 const handleClick = (event: Event) => {
   if (props.disabled) return
   if (parent) {
-    parent.updateActive(itemIndex)
+    parent.updateActive(itemIndex.value)
   }
   emit('click', event)
 }
 
-defineExpose({ setIndex })
+const setIndex = (index: number | string) => {
+  internalIndex = index
+}
+
+defineExpose({
+  setIndex
+})
 </script>
 
 <style lang="less">

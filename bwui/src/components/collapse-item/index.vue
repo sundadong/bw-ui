@@ -13,7 +13,7 @@
       <div class="bw-collapse-item__title-right">
         <slot name="value"></slot>
         <div v-if="isLink" class="bw-collapse-item__arrow" :class="{ 'bw-collapse-item__arrow--expanded': isExpanded }">
-          <bw-icon name="arrow-down" size="14px" />
+          <bw-icon name="arrow" size="14px" />
         </div>
       </div>
     </div>

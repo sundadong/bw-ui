@@ -45,7 +45,7 @@ export interface GridItemProps {
 }
 
 const props = withDefaults(defineProps<GridItemProps>(), {
-  iconPrefix: 'bwicon'
+  iconPrefix: 'van'
 })
 
 const emit = defineEmits<{
@@ -78,7 +78,10 @@ const itemStyle = computed(() => {
   const style: Record<string, string> = {}
   const colNum = gridProps.columnNum || 4
   style.flexBasis = `${(100 / colNum).toFixed(4)}%`
-  style.paddingTop = style.flexBasis
+
+  if (gridProps.square) {
+    style.paddingTop = style.flexBasis
+  }
 
   if (gridProps.gutter) {
     const gutterVal = typeof gridProps.gutter === 'number' ? `${gridProps.gutter}px` : gridProps.gutter
@@ -106,6 +109,7 @@ const handleClick = (event: Event) => {
   text-decoration: none;
   color: @bw-text-color;
   background-color: @bw-bg-color;
+  padding: @bw-padding-md 0;
 
   &--border {
     border-right: 1px solid  @bw-border-color;
@@ -114,6 +118,19 @@ const handleClick = (event: Event) => {
 
   &--square {
     height: 0;
+    padding-bottom: 0;
+    
+    > :deep(*) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &--clickable {

@@ -90,7 +90,7 @@ const updateLinePosition = () => {
     const parentRect = currentTabEl.parentElement?.getBoundingClientRect() || { left: 0 }
     const lineWidthVal = typeof props.lineWidth === 'number' ? props.lineWidth : parseInt(props.lineWidth as string) || 35
     const left = tabRect.left - parentRect.left + (tabRect.width - lineWidthVal) / 2
-    lineRef.value.style.left = `${left}px`
+    lineRef.value.style.transform = `translateX(${left}px)`
   }
 }
 

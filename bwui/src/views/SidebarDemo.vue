@@ -5,10 +5,10 @@
       <div class="demo-row">
         <div class="sidebar-demo">
           <bw-sidebar v-model="active1">
-            <bw-sidebar-item title="标签1" />
-            <bw-sidebar-item title="标签2" />
-            <bw-sidebar-item title="标签3" />
-            <bw-sidebar-item title="标签4" />
+            <bw-sidebar-item title="标签1" :index="0" />
+            <bw-sidebar-item title="标签2" :index="1" />
+            <bw-sidebar-item title="标签3" :index="2" />
+            <bw-sidebar-item title="标签4" :index="3" />
           </bw-sidebar>
         </div>
       </div>
@@ -19,10 +19,10 @@
       <div class="demo-row">
         <div class="sidebar-demo">
           <bw-sidebar v-model="active2">
-            <bw-sidebar-item title="标签1" dot />
-            <bw-sidebar-item title="标签2" badge="5" />
-            <bw-sidebar-item title="标签3" badge="99+" />
-            <bw-sidebar-item title="标签4" badge="0" />
+            <bw-sidebar-item title="标签1" dot :index="0" />
+            <bw-sidebar-item title="标签2" badge="5" :index="1" />
+            <bw-sidebar-item title="标签3" badge="99+" :index="2" />
+            <bw-sidebar-item title="标签4" badge="0" :index="3" />
           </bw-sidebar>
         </div>
       </div>
@@ -33,10 +33,10 @@
       <div class="demo-row">
         <div class="sidebar-demo">
           <bw-sidebar v-model="active3">
-            <bw-sidebar-item title="标签1" />
-            <bw-sidebar-item title="标签2" />
-            <bw-sidebar-item title="标签3" disabled />
-            <bw-sidebar-item title="标签4" />
+            <bw-sidebar-item title="标签1" :index="0" />
+            <bw-sidebar-item title="标签2" :index="1" />
+            <bw-sidebar-item title="标签3" disabled :index="2" />
+            <bw-sidebar-item title="标签4" :index="3" />
           </bw-sidebar>
         </div>
       </div>
@@ -47,13 +47,13 @@
       <div class="demo-row">
         <div class="sidebar-demo">
           <bw-sidebar v-model="active4">
-            <bw-sidebar-item>
+            <bw-sidebar-item :index="0">
               自定义1
             </bw-sidebar-item>
-            <bw-sidebar-item>
+            <bw-sidebar-item :index="1">
               自定义2
             </bw-sidebar-item>
-            <bw-sidebar-item>
+            <bw-sidebar-item :index="2">
               自定义3
             </bw-sidebar-item>
           </bw-sidebar>

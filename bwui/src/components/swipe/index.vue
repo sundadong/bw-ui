@@ -246,7 +246,7 @@ defineExpose({
     height: 6px;
     border-radius: 50%;
     background-color: #c8c9cc;
-    transition: background-color  @bw-animation-duration-base;
+    transition: background-color @bw-animation-duration-base;
 
     &--active {
       background-color: @bw-primary-color;

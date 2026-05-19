@@ -25,6 +25,12 @@
       <span
         v-if="showHalfIcon(index)"
         class="bw-rate__icon bw-rate__icon--half"
+        :style="{ color: color }"
+      >★</span>
+      <span
+        v-if="showHalfIcon(index)"
+        class="bw-rate__icon bw-rate__icon--half-void"
+        :style="{ color: voidColor }"
       >★</span>
     </div>
   </div>
@@ -158,6 +164,14 @@ const handleClick = (index: number, event: MouseEvent) => {
         left: 0;
         width: 50%;
         overflow: hidden;
+        z-index: 1;
+      }
+      .bw-rate__icon--half-void {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 0;
       }
     }
 
