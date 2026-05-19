@@ -47,9 +47,7 @@
       <div class="demo-title">异步控制</div>
       <div class="async-control">
         <span class="async-label">确认切换</span>
-        <div class="switch-wrapper">
-          <bw-switch :model-value="value6" @update:modelValue="handleAsyncSwitch" />
-        </div>
+        <bw-switch v-model="value6" :beforeChange="handleAsyncSwitch" />
         <span class="async-status">{{ value6 ? '开启' : '关闭' }}</span>
       </div>
     </div>
@@ -84,10 +82,7 @@ const value7 = ref(false)
 
 const handleAsyncSwitch = (val: boolean) => {
   console.log('handleAsyncSwitch called with:', val)
-  const confirmed = window.confirm('是否确认切换开关状态？')
-  if (confirmed) {
-    value6.value = val
-  }
+  return window.confirm('是否确认切换开关状态？')
 }
 </script>
 

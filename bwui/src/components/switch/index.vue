@@ -26,6 +26,7 @@ export interface SwitchProps {
   inactiveColor?: string
   activeValue?: boolean | string | number
   inactiveValue?: boolean | string | number
+  beforeChange?: (value: any) => boolean | Promise<boolean>
 }
 
 const props = withDefaults(defineProps<SwitchProps>(), {
@@ -41,16 +42,26 @@ const emit = defineEmits<{
   'update:modelValue': [value: any]
   'update:model-value': [value: any]
   'change': [value: any]
+  'click': [event: MouseEvent]
 }>()
 
 const isChecked = computed(() => {
   return props.modelValue === props.activeValue
 })
 
-const handleClick = () => {
+const handleClick = async (event: MouseEvent) => {
   if (props.disabled || props.loading) return
 
+  emit('click', event)
+
   const newValue = isChecked.value ? props.inactiveValue : props.activeValue
+
+  // 如果有 beforeChange 钩子，先执行它
+  if (props.beforeChange) {
+    const shouldChange = await props.beforeChange(newValue)
+    if (!shouldChange) return
+  }
+
   emit('update:modelValue', newValue)
   emit('update:model-value', newValue)
   emit('change', newValue)
