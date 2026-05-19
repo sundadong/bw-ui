@@ -39,6 +39,7 @@ const props = withDefaults(defineProps<SwitchProps>(), {
 
 const emit = defineEmits<{
   'update:modelValue': [value: any]
+  'update:model-value': [value: any]
   'change': [value: any]
 }>()
 
@@ -46,13 +47,12 @@ const isChecked = computed(() => {
   return props.modelValue === props.activeValue
 })
 
-const handleClick = (event: MouseEvent) => {
-  event.stopPropagation()
-  
+const handleClick = () => {
   if (props.disabled || props.loading) return
 
   const newValue = isChecked.value ? props.inactiveValue : props.activeValue
   emit('update:modelValue', newValue)
+  emit('update:model-value', newValue)
   emit('change', newValue)
 }
 </script>
