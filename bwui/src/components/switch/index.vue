@@ -46,7 +46,9 @@ const isChecked = computed(() => {
   return props.modelValue === props.activeValue
 })
 
-const handleClick = () => {
+const handleClick = (event: MouseEvent) => {
+  event.stopPropagation()
+  
   if (props.disabled || props.loading) return
 
   const newValue = isChecked.value ? props.inactiveValue : props.activeValue
@@ -66,6 +68,9 @@ const handleClick = () => {
   border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.3s;
+  z-index: 1;
+  user-select: none;
+  touch-action: manipulation;
 
   &--on {
     background-color: @bw-primary-color;
