@@ -69,6 +69,8 @@ const emit = defineEmits<{
 const slots = useSlots()
 
 const buttonClass = computed(() => {
+  const hasText = slots.default?.()
+  const hasIcon = slots.icon || props.icon
   return [
     'bw-button',
     `bw-button--${props.type}`,
@@ -81,7 +83,8 @@ const buttonClass = computed(() => {
       'bw-button--disabled': props.disabled,
       'bw-button--hairline': props.hairline,
       'bw-button--text': props.text,
-      'bw-button--loading': props.loading
+      'bw-button--loading': props.loading,
+      'bw-button--icon-only': hasIcon && !hasText && !props.loading
     }
   ]
 })
@@ -300,6 +303,12 @@ const handleClick = (event: Event) => {
     align-items: center;
     justify-content: center;
     margin-right: 4px;
+  }
+
+  &--icon-only {
+    &__icon {
+      margin-right: 0;
+    }
   }
 
   &__text {
