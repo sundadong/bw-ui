@@ -119,7 +119,7 @@ import BwTag from '../components/tag/index.vue'
   .demo-title {
     font-size: 14px;
     color: #969799;
-    padding: 0 0 8px;
+    padding: 0 16px 8px;
     margin-bottom: 0;
   }
 }
