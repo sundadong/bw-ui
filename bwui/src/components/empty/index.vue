@@ -36,9 +36,9 @@ const props = withDefaults(defineProps<EmptyProps>(), {
 
 const emptyIcon = computed(() => {
   const icons: Record<string, string> = {
-    empty: 'inbox-o',
+    empty: 'records-o',
     error: 'fail',
-    network: 'wifi-o'
+    network: 'warning-o'
   }
   return icons[props.type] || icons.empty
 })

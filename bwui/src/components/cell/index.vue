@@ -184,7 +184,7 @@ const handleClick = (event: Event) => {
   &__value {
     flex: 1;
     min-width: 0;
-    margin-right: @bw-padding-sm;
+    margin-right: @bw-padding-xs;
     color: @bw-cell-value-color;
     text-align: right;
     overflow: hidden;

@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 
 export interface BadgeProps {
   modelValue?: boolean | number | string
@@ -60,7 +60,11 @@ const showBadge = computed(() => {
   return value !== undefined && value !== null && value !== ''
 })
 
+useSlots()
+
 const badgeClass = computed(() => {
+  const slots = useSlots()
+  const hasSlot = !!slots.default?.()
   return [
     {
       'bw-badge--fixed': true,
@@ -98,13 +102,21 @@ const contentStyle = computed(() => {
     }
   }
 
+  // 如果 badge 没有子元素（即独立显示），恢复 content 的默认定位
+  &:not(:has(> *:not(.bw-badge__content))) {
+    .bw-badge__content {
+      position: static;
+      transform: none;
+    }
+  }
+
   &__content {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: @bw-badge-font-size * 1.5;
-    height: @bw-badge-font-size * 1.5;
-    padding: 0 3px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
     font-size: @bw-badge-font-size;
     font-weight: 500;
     line-height: 1.2;

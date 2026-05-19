@@ -24,7 +24,7 @@ export interface TagProps {
 
 const props = withDefaults(defineProps<TagProps>(), {
   type: 'default',
-  size: 'medium',
+  size: 'small',
   plain: false,
   round: false,
   mark: false,
@@ -79,7 +79,8 @@ const handleClose = (event: Event) => {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: @bw-tag-padding;
+  padding: 0 8px;
+  height: 24px;
   font-size: @bw-tag-font-size;
   line-height: 1.5;
   border-radius: @bw-tag-border-radius;
@@ -88,14 +89,14 @@ const handleClose = (event: Event) => {
   vertical-align: middle;
 
   &--small {
-    height: 18px;
-    padding: 0 4px;
+    height: 20px;
+    padding: 0 6px;
     font-size: @bw-font-size-xs;
   }
 
   &--medium {
-    height: 24px;
-    padding: 0 6px;
+    height: 28px;
+    padding: 0 8px;
     font-size: @bw-tag-font-size;
   }
 

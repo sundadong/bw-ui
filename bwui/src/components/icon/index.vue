@@ -47,7 +47,6 @@ const isImage = computed(() => {
   display: inline-block;
   font: normal normal normal 14px/1 'vant-icon';
   font: normal normal normal 14px/1 var(--van-icon-font-family, 'vant-icon');
-  font-size: @bw-icon-size-md;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   line-height: 1;
