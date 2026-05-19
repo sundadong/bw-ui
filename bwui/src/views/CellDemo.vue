@@ -107,6 +107,10 @@ import BwTag from '../components/tag/index.vue'
 </script>
 
 <style lang="less" scoped>
+:deep(.demo-content) {
+  padding: 16px 0;
+}
+
 .demo-block {
   background-color: transparent;
   padding: 0;

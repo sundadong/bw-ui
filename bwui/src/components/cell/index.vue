@@ -94,9 +94,9 @@ const handleClick = (event: Event) => {
   box-sizing: border-box;
   width: 100%;
   min-height: @bw-cell-height;
-  padding: @bw-cell-padding;
-  padding-left: @bw-cell-padding-left;
-  padding-right: @bw-cell-padding-right;
+  padding: @bw-cell-padding 0;
+  padding-left: 0;
+  padding-right: 0;
   font-size: @bw-cell-font-size;
   line-height: @bw-cell-line-height;
   color: @bw-text-color;
@@ -107,7 +107,7 @@ const handleClick = (event: Event) => {
     content: '';
     position: absolute;
     bottom: 0;
-    left: @bw-cell-padding-left;
+    left: 0;
     right: 0;
     height: 1px;
     background-color: @bw-border-color;
