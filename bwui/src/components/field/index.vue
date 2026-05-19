@@ -1,34 +1,36 @@
 <template>
   <div class="bw-field" :class="{ 'bw-field--disabled': disabled, 'bw-field--focused': isFocus, 'bw-field--error': !!errorMessage }">
-    <div v-if="$slots.label || label" class="bw-field__label">
-      <slot name="label">{{ label }}</slot>
-    </div>
-    <div class="bw-field__body">
-      <div v-if="$slots['left-icon'] || leftIcon" class="bw-field__left-icon" @click="$emit('click-icon', 'left')">
-        <slot name="left-icon">
-          <bw-icon :name="leftIcon" />
-        </slot>
+    <div class="bw-field__main">
+      <div v-if="$slots.label || label" class="bw-field__label">
+        <slot name="label">{{ label }}</slot>
       </div>
-      <input
-        class="bw-field__input"
-        :type="type"
-        :value="modelValue"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :readonly="readonly"
-        :maxlength="maxlength"
-        @input="handleInput"
-        @focus="handleFocus"
-        @blur="handleBlur"
-        @confirm="handleConfirm"
-      />
-      <div v-if="clearable && modelValue && isFocus" class="bw-field__clear" @click="handleClear">
-        <bw-icon name="cross" size="14px" />
-      </div>
-      <div v-if="$slots['right-icon'] || rightIcon" class="bw-field__right-icon" @click="$emit('click-icon', 'right')">
-        <slot name="right-icon">
-          <bw-icon :name="rightIcon" />
-        </slot>
+      <div class="bw-field__body">
+        <div v-if="$slots['left-icon'] || leftIcon" class="bw-field__left-icon" @click="$emit('click-icon', 'left')">
+          <slot name="left-icon">
+            <bw-icon :name="leftIcon" />
+          </slot>
+        </div>
+        <input
+          class="bw-field__input"
+          :type="type"
+          :value="modelValue"
+          :placeholder="placeholder"
+          :disabled="disabled"
+          :readonly="readonly"
+          :maxlength="maxlength"
+          @input="handleInput"
+          @focus="handleFocus"
+          @blur="handleBlur"
+          @confirm="handleConfirm"
+        />
+        <div v-if="clearable && modelValue && isFocus" class="bw-field__clear" @click="handleClear">
+          <bw-icon name="cross" size="14px" />
+        </div>
+        <div v-if="$slots['right-icon'] || rightIcon" class="bw-field__right-icon" @click="$emit('click-icon', 'right')">
+          <slot name="right-icon">
+            <bw-icon :name="rightIcon" />
+          </slot>
+        </div>
       </div>
     </div>
     <div v-if="$slots.footer || errorMessage" class="bw-field__footer">
@@ -105,6 +107,8 @@ const handleConfirm = (event: any) => {
 
 <style lang="less" scoped>
 .bw-field {
+  display: flex;
+  flex-direction: column;
   padding: 12px 16px;
   background-color: @bw-white;
 
@@ -119,13 +123,22 @@ const handleConfirm = (event: any) => {
     }
   }
 
+  &__main {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
   &__label {
-    margin-bottom: 4px;
+    flex-shrink: 0;
+    margin-right: 12px;
     font-size: 14px;
     color: @bw-text-color;
+    min-width: 88px;
   }
 
   &__body {
+    flex: 1;
     display: flex;
     align-items: center;
     min-height: 24px;
