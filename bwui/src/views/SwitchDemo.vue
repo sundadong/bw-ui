@@ -48,10 +48,17 @@
       <bw-cell-group>
         <bw-cell title="确认切换">
           <template #right-icon>
-            <bw-switch :model-value="value6" @update:model-value="handleAsyncSwitch" />
+            <div class="switch-container">
+              <bw-switch :model-value="value6" @update:model-value="handleAsyncSwitch" />
+            </div>
           </template>
         </bw-cell>
       </bw-cell-group>
+      <div class="test-section">
+        <div class="test-label">直接测试开关：</div>
+        <bw-switch :model-value="value6" @update:model-value="handleAsyncSwitch" />
+        <span>当前状态：{{ value6 ? '开启' : '关闭' }}</span>
+      </div>
     </div>
   </demo-layout>
 </template>
@@ -90,6 +97,30 @@ const handleAsyncSwitch = (val: boolean) => {
     font-size: 14px;
     color: #969799;
     padding: 16px 16px 8px;
+  }
+}
+
+.switch-container {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.test-section {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #eee;
+
+  .test-label {
+    font-size: 14px;
+    color: #323233;
+  }
+
+  span {
+    font-size: 14px;
+    color: #969799;
   }
 }
 </style>
