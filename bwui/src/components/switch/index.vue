@@ -18,7 +18,7 @@
 import { computed } from 'vue'
 
 export interface SwitchProps {
-  modelValue?: boolean
+  modelValue?: boolean | string | number
   loading?: boolean
   disabled?: boolean
   size?: string | number
