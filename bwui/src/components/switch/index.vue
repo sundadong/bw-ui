@@ -7,7 +7,6 @@
       backgroundColor: isChecked ? (activeColor || '') : (inactiveColor || '')
     }"
     @click="handleClick"
-    @touchend.prevent.stop="handleTouch"
   >
     <div class="bw-switch__node">
       <div v-if="loading" class="bw-switch__loading"></div>
@@ -47,24 +46,14 @@ const isChecked = computed(() => {
   return props.modelValue === props.activeValue
 })
 
-const toggle = () => {
+const handleClick = (event: MouseEvent) => {
+  event.stopPropagation()
+  
   if (props.disabled || props.loading) return
 
   const newValue = isChecked.value ? props.inactiveValue : props.activeValue
   emit('update:modelValue', newValue)
   emit('change', newValue)
-}
-
-const handleClick = (event: MouseEvent) => {
-  event.stopPropagation()
-  event.preventDefault()
-  toggle()
-}
-
-const handleTouch = (event: TouchEvent) => {
-  event.stopPropagation()
-  event.preventDefault()
-  toggle()
 }
 </script>
 
@@ -79,10 +68,6 @@ const handleTouch = (event: TouchEvent) => {
   border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.3s;
-  z-index: 999;
-  user-select: none;
-  touch-action: none;
-  pointer-events: auto;
 
   &--on {
     background-color: @bw-primary-color;
@@ -103,7 +88,6 @@ const handleTouch = (event: TouchEvent) => {
     border-radius: 50%;
     box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05);
     transition: transform 0.3s;
-    pointer-events: none;
 
     .bw-switch--on & {
       transform: translateX(calc(100% - 4px));
