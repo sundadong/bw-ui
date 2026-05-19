@@ -108,7 +108,7 @@ import BwTag from '../components/tag/index.vue'
 
 <style lang="less" scoped>
 :deep(.demo-content) {
-  padding: 16px 0;
+  padding: 0;
 }
 
 .demo-block {
@@ -119,7 +119,7 @@ import BwTag from '../components/tag/index.vue'
   .demo-title {
     font-size: 14px;
     color: #969799;
-    padding: 0 16px 8px;
+    padding: 0 0 8px;
     margin-bottom: 0;
   }
 }
