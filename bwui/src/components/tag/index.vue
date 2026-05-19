@@ -13,7 +13,7 @@ import BwIcon from '../icon/index.vue'
 
 export interface TagProps {
   type?: 'primary' | 'success' | 'warning' | 'danger' | 'default'
-  size?: 'small' | 'medium'
+  size?: 'small' | 'medium' | 'large'
   color?: string
   plain?: boolean
   round?: boolean
@@ -98,6 +98,12 @@ const handleClose = (event: Event) => {
     height: 28px;
     padding: 0 8px;
     font-size: @bw-tag-font-size;
+  }
+
+  &--large {
+    height: 34px;
+    padding: 0 10px;
+    font-size: @bw-font-size-md;
   }
 
   &--plain {

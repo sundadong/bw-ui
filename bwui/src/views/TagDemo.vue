@@ -14,9 +14,9 @@
     <div class="demo-block">
       <div class="demo-title">标签大小</div>
       <div class="demo-row">
-        <bw-tag type="primary">标签</bw-tag>
-        <bw-tag type="primary" size="medium">标签</bw-tag>
-        <bw-tag type="primary" size="small">标签</bw-tag>
+        <bw-tag type="primary" size="small">小标签</bw-tag>
+        <bw-tag type="primary" size="medium">中标签</bw-tag>
+        <bw-tag type="primary" size="large">大标签</bw-tag>
       </div>
     </div>
 
