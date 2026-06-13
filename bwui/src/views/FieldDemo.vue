@@ -110,7 +110,7 @@
           placeholder="请输入验证码"
           type="tel"
         >
-          <template #footer>
+          <template #button>
             <bw-button size="small" type="primary" @click="sendSms">发送验证码</bw-button>
           </template>
         </bw-field>

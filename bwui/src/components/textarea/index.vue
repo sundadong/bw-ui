@@ -1,6 +1,7 @@
 <template>
   <div class="bw-textarea" :class="{ 'bw-textarea--disabled': disabled }">
     <textarea
+      ref="textareaRef"
       class="bw-textarea__inner"
       :value="modelValue"
       :placeholder="placeholder"
@@ -20,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, nextTick, watch } from 'vue'
 
 export interface TextareaProps {
   modelValue?: string
@@ -50,6 +51,8 @@ const emit = defineEmits<{
   'blur': [event: Event]
 }>()
 
+const textareaRef = ref<HTMLTextAreaElement | null>(null)
+
 const currentLength = computed(() => {
   return (props.modelValue || '').length
 })
@@ -72,11 +75,42 @@ const textareaStyle = computed(() => {
   return style
 })
 
+const autoResize = () => {
+  if (!textareaRef.value || !props.autosize) return
+  const el = textareaRef.value
+  el.style.height = 'auto'
+  let newHeight = el.scrollHeight
+  if (typeof props.autosize === 'object') {
+    if (props.autosize.minHeight !== undefined) {
+      newHeight = Math.max(newHeight, props.autosize.minHeight)
+    }
+    if (props.autosize.maxHeight !== undefined) {
+      newHeight = Math.min(newHeight, props.autosize.maxHeight)
+    }
+  }
+  el.style.height = newHeight + 'px'
+}
+
+onMounted(() => {
+  if (props.autosize) {
+    nextTick(autoResize)
+  }
+})
+
+watch(() => props.modelValue, () => {
+  if (props.autosize) {
+    nextTick(autoResize)
+  }
+})
+
 const handleInput = (event: Event) => {
   const target = event.target as HTMLTextAreaElement
   const value = target.value
   emit('update:modelValue', value)
   emit('change', value)
+  if (props.autosize) {
+    autoResize()
+  }
 }
 
 const handleFocus = (event: Event) => {

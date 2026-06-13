@@ -126,6 +126,7 @@ const emit = defineEmits<{
 
 const showPopup = ref(false)
 const selectedIndices = ref<number[]>([])
+const cascadeResolvedIndices = ref<number[]>([])
 const columnRefs = ref<HTMLElement[]>([])
 
 const transitionDuration = ref('0.3s')
@@ -148,9 +149,10 @@ const resolvedColumns = computed(() => {
   if (isCascade.value) {
     const result: PickerOption[][] = []
     let currentOptions = props.columns as PickerOption[]
-    for (let i = 0; i < (selectedIndices.value.length || 1); i++) {
+    const indices = cascadeResolvedIndices.value.length > 0 ? cascadeResolvedIndices.value : selectedIndices.value
+    for (let i = 0; i < (indices.length || 1); i++) {
       result.push(currentOptions)
-      const idx = selectedIndices.value[i]
+      const idx = indices[i]
       if (idx !== undefined && idx >= 0 && currentOptions[idx]?.children) {
         currentOptions = currentOptions[idx].children!
       }
@@ -213,6 +215,7 @@ const initSelectedIndices = () => {
   }
 
   selectedIndices.value = indices
+  cascadeResolvedIndices.value = [...indices]
   touchOffset.value = new Array(indices.length).fill(0)
 }
 
@@ -320,7 +323,14 @@ const handleTouchEnd = (e: TouchEvent, colIndex: number) => {
   touchOffset.value[colIndex] = 0
 
   if (isCascade.value) {
+    cascadeResolvedIndices.value = [...cascadeResolvedIndices.value]
+    cascadeResolvedIndices.value[colIndex] = newIndex
+    cascadeResolvedIndices.value = cascadeResolvedIndices.value.slice(0, colIndex + 1)
     nextTick(() => {
+      const newLen = cascadeResolvedIndices.value.length
+      if (selectedIndices.value.length > newLen) {
+        selectedIndices.value = selectedIndices.value.slice(0, newLen)
+      }
       emitChange()
     })
   } else {
@@ -331,6 +341,14 @@ const handleTouchEnd = (e: TouchEvent, colIndex: number) => {
 const handleOptionClick = (colIndex: number, itemIndex: number, item: PickerOption) => {
   if (props.readonly || item.disabled) return
   selectedIndices.value[colIndex] = itemIndex
+  if (isCascade.value) {
+    cascadeResolvedIndices.value = [...cascadeResolvedIndices.value]
+    cascadeResolvedIndices.value[colIndex] = itemIndex
+    cascadeResolvedIndices.value = cascadeResolvedIndices.value.slice(0, colIndex + 1)
+    if (selectedIndices.value.length > cascadeResolvedIndices.value.length) {
+      selectedIndices.value = selectedIndices.value.slice(0, cascadeResolvedIndices.value.length)
+    }
+  }
   emitChange()
 }
 
@@ -375,8 +393,9 @@ defineExpose({
     align-items: center;
     justify-content: space-between;
     height: 44px;
-    padding: 0  @bw-padding-md;
-    border-bottom: 1px solid  @bw-border-color;
+    padding: 8px @bw-padding-md;
+    border-bottom: 1px solid @bw-border-color;
+    box-sizing: content-box;
   }
 
   &__cancel {

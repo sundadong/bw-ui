@@ -1,5 +1,5 @@
 <template>
-  <div class="bw-radio" :class="{ 'bw-radio--disabled': disabled, 'bw-radio--checked': isChecked }" @click="handleClick">
+  <div class="bw-radio" :class="{ 'bw-radio--disabled': disabled, 'bw-radio--checked': isChecked, 'bw-radio--square': shape === 'square' }" @click="handleClick">
     <div class="bw-radio__icon">
       <div v-if="isChecked" class="bw-radio__icon-dot"></div>
     </div>
@@ -62,6 +62,15 @@ const handleClick = () => {
     }
     .bw-radio__icon-dot {
       background-color: v-bind(checkedColor);
+    }
+  }
+
+  &--square {
+    .bw-radio__icon {
+      border-radius: 4px;
+    }
+    .bw-radio__icon-dot {
+      border-radius: 2px;
     }
   }
 

@@ -31,6 +31,9 @@
             <bw-icon :name="rightIcon" />
           </slot>
         </div>
+        <div v-if="$slots.button" class="bw-field__button">
+          <slot name="button" />
+        </div>
       </div>
     </div>
     <div v-if="$slots.footer || errorMessage" class="bw-field__footer">
@@ -159,6 +162,13 @@ const handleConfirm = (event: any) => {
     margin-left: 8px;
   }
 
+  &__button {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+
   &__input {
     flex: 1;
     min-height: 24px;
@@ -186,6 +196,8 @@ const handleConfirm = (event: any) => {
     margin-top: 4px;
     font-size: 12px;
     color: @bw-danger-color;
+    padding-left: @bw-field-label-width;
+    text-align: left;
   }
 }
 </style>

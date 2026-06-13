@@ -8,7 +8,7 @@
       <div class="bw-search__field" :class="{ 'bw-search__field--disabled': disabled }">
         <div v-if="leftIcon ||  $slots['left-icon']" class="bw-search__left-icon">
           <slot name="left-icon">
-            <span v-if="leftIcon" class="bw-search__icon-search">🔍</span>
+            <bw-icon v-if="leftIcon" :name="leftIcon" size="16px" />
           </slot>
         </div>
         <input
@@ -42,6 +42,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import BwIcon from '../icon/index.vue'
 
 export interface SearchProps {
   modelValue?: string | number
@@ -161,11 +162,6 @@ const handleAction = () => {
     margin-right: 6px;
     color: @bw-text-color-3;
     font-size: @bw-font-size-md;
-  }
-
-  &__icon-search {
-    font-size: @bw-font-size-lg;
-    line-height: 1;
   }
 
   &__input {
